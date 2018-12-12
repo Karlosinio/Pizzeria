@@ -7,47 +7,63 @@
         mc:Ignorable="d"
         Title="Pizzeria - Logowanie" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="17*"/>
-        </Grid.RowDefinitions>
+        <!-- SIGN IN -->
+        <!-- Login -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right" />
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="60" FontSize="20" Margin="10,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right" />
-        <TextBox HorizontalAlignment="Left" Height="30" Width="300" FontSize="20" Margin="75,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="60" FontSize="20" Margin="419,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Hasło:" TextAlignment="Right"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="300" FontSize="20" Margin="484,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <!-- Password -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="419,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Hasło:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,59,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <!-- Reset password & sign in -->
+        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
 
+        <!-- REGISTER -->
+        <!-- Name -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Imię:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="60" FontSize="20" Margin="10,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Imię:" TextAlignment="Right" Grid.RowSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="300" FontSize="20" Margin="75,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="159" FontSize="20" Margin="380,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Nazwisko:" TextAlignment="Right" Grid.RowSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="544,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <!-- Surname -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Nazwisko:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="60" FontSize="20" Margin="10,24.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="300" FontSize="20" Margin="75,24.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="159" FontSize="20" Margin="380,24.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Numer telefonu:" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="544,24.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <!-- Login -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="60" FontSize="20" Margin="10,59.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Mail:" TextAlignment="Right" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="300" FontSize="20" Margin="75,59.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="159" FontSize="20" Margin="380,59.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Grid.Row="1"><Run Text="Powtórz mail"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="544,59.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <!-- Phone number -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Nr telefonu:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="60" FontSize="20" Margin="10,94.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Grid.Row="1"><Run Text="Hasło"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="300" FontSize="20" Margin="75,94.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="159" FontSize="20" Margin="380,94.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Grid.Row="1"><Run Text="Powtórz hasło"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="544,94.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
+        <!-- Password -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Hasło:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="624,180.8,0,0" VerticalAlignment="Top" Width="160" Height="32" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="56" Width="120" FontSize="20" Margin="10,129.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Grid.Row="1"><Run Text="Pytanie pomocnicze"/><Run Text=":"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="159" FontSize="20" Margin="380,129.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Odpowiedź:" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="544,129.8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.Row="1"/>
-        <Expander Header="Expander" HorizontalAlignment="Left" Height="56" Margin="135,129.8,0,0" VerticalAlignment="Top" Width="240" Grid.Row="1">
+        <!-- Re-type password -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz hasło:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+
+        <!-- Mail-->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Mail:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+
+        <!-- Re-type mail-->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz mail:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+
+        <!-- Register -->
+        <TextBlock HorizontalAlignment="Left" Height="56" Width="120" FontSize="20" Margin="9,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Pytanie pomocnicze:"/>
+        <Expander Header="Expander" HorizontalAlignment="Left" Height="56" Margin="135,296,0,0" VerticalAlignment="Top" Width="240">
             <Grid Background="#FFE5E5E5"/>
         </Expander>
-        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,59,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
 
+        <!-- Security question -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Odpowiedź:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+
+        <!-- Register -->
+        <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="624,357,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
     </Grid>
 </Window>
