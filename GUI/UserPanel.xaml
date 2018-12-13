@@ -14,26 +14,26 @@
         <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Nazwisko:" TextAlignment="Right"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="121" FontSize="20" Margin="9,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Nr telefonu:"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="239" FontSize="20" Margin="140,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="E"/><Run Text="m"/><Run Text="ail:"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="140,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Powtórz "/><Run Text="e"/><Run Text="mail"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Hasło"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="140,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Powtórz hasło"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button Content="Powrót" HorizontalAlignment="Left" Margin="605,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="119" FontSize="20" Margin="11,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="136" FontSize="20" Margin="384,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Numer"/><Run Text=":"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="121" FontSize="20" Margin="394,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Nr telefonu:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="239" FontSize="20" Margin="525,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="E"/><Run Text="m"/><Run Text="ail:"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Powtórz "/><Run Text="e"/><Run Text="mail"/><Run Text=":"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Hasło"/><Run Text=":"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Powtórz hasło"/><Run Text=":"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="11,378,0,0" VerticalAlignment="Top" Width="375" Height="32" FontSize="15"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="119" FontSize="20" Margin="11,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,273,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="136" FontSize="20" Margin="384,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Numer"/><Run Text=":"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,273,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="158" FontSize="20" Margin="10,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Kod"/><Run Text=" pocztowy:"/><Run Text=" "/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="205" FontSize="20" Margin="174,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Miasto"/><Run Text=":"/></TextBlock>
         <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="158" FontSize="20" Margin="10,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Kod"/><Run Text=" pocztowy:"/><Run Text=" "/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="205" FontSize="20" Margin="174,343,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Miasto"/><Run Text=":"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="525,343,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="605,378,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="409,378,0,0" VerticalAlignment="Top" Width="375" Height="32" FontSize="15"/>
 
     </Grid>
 </Window>

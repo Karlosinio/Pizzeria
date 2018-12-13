@@ -42,8 +42,8 @@
         <TextBox HorizontalAlignment="Left" Height="20" Width="240" FontSize="15" Margin="518,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Buttons-->
-        <Button Content="Do płatności" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Width="774" Height="46"  FontSize="23"/>
-        <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top" Width="375" Height="32"  FontSize="15"/>
-        <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="409,378,0,0" VerticalAlignment="Top" Width="375" Height="32"  FontSize="15"/>
+        <Button Content="Do płatności" HorizontalAlignment="Left" Margin="409,345,0,0" VerticalAlignment="Top" Width="375" Height="65"  FontSize="30"/>
+        <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="375" Height="30"  FontSize="15"/>
+        <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Width="375" Height="30"  FontSize="15"/>
     </Grid>
 </Window>
