@@ -14,8 +14,8 @@
         <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Nazwisko:" TextAlignment="Right"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="139,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="159" FontSize="20" Margin="9,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Numer telefonu:"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="205" FontSize="20" Margin="174,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="121" FontSize="20" Margin="9,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Nr telefonu:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="239" FontSize="20" Margin="140,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Width="120" FontSize="20" Margin="10,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="E"/><Run Text="m"/><Run Text="ail:"/></TextBlock>
         <TextBox HorizontalAlignment="Left" Height="30" Width="240" FontSize="20" Margin="140,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="385,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Powtórz "/><Run Text="e"/><Run Text="mail"/><Run Text=":"/></TextBlock>

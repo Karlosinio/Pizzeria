@@ -17,8 +17,8 @@
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Reset password & sign in -->
-        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15"/>
+        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15"/>
 
         <!-- REGISTER -->
         <!-- Name -->
@@ -53,17 +53,17 @@
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz mail:"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
-        <!-- Register -->
+        <!-- Security question -->
         <TextBlock HorizontalAlignment="Left" Height="56" Width="120" FontSize="20" Margin="9,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Pytanie pomocnicze:"/>
         <Expander Header="Expander" HorizontalAlignment="Left" Height="56" Margin="135,296,0,0" VerticalAlignment="Top" Width="240">
             <Grid Background="#FFE5E5E5"/>
         </Expander>
 
-        <!-- Security question -->
+        <!-- Security answer -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Odpowiedź:"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,322,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Register -->
-        <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="624,357,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="624,357,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15"/>
     </Grid>
 </Window>
