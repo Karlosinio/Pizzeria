@@ -37,7 +37,7 @@
         <!-- Payment method -->
         <TextBlock Text="Wybierz sposób płatności:" HorizontalAlignment="Left" Margin="409,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
         <RadioButton Content="Płatnośc gotówką" HorizontalAlignment="Left" Margin="431,237,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15" />
-        <RadioButton Content="Płatność kartą przy odbiorze" HorizontalAlignment="Left" Margin="431,262,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15"/>
+        <RadioButton Content="Płatność kartą płatniczą" HorizontalAlignment="Left" Margin="431,262,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15"/>
         <RadioButton Content="Płatność online" HorizontalAlignment="Left" Margin="431,287,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15" />
         <RadioButton Content="Płatność BLIKiem" HorizontalAlignment="Left" Margin="431,312,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="152" FontSize="15"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="40" FontSize="15" Margin="619,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod:"/>
