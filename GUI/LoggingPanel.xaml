@@ -40,16 +40,12 @@
         <!-- Password -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Hasło:"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-
-        <!-- Re-type password -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz hasło:"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,256,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Mail-->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Mail:" TextAlignment="Right"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-
-        <!-- Re-type mail-->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz mail:"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
