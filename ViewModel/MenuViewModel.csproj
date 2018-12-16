@@ -51,6 +51,10 @@
       <Project>{e52d4088-a6a6-4f31-b81f-dd3d37c2ab21}</Project>
       <Name>MenuModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Service\Service.csproj">
+      <Project>{8DA0AE85-AB64-49A2-A493-B923F999F49C}</Project>
+      <Name>Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

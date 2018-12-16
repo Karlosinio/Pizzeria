@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MenuModel;
+using ServiceNS;
 
 namespace MenuViewModel
 {
@@ -13,12 +14,13 @@ namespace MenuViewModel
         //public Visibility ChangeControlVisibility { get; set; } = Visibility.Hidden;
         public ICommand Click_Koszyk { get; }
         public ICommand Click_Konto { get; }
+        public Service service = new Service();
         #endregion
 
         #region constructors
         public MenuVM()
         {
-            pizzas = new ObservableCollection<product>();
+            pizzas = service.GetProducts();
             //Click_Button = new RelayCommand(LoadDLL);
             //Click_Browse = new RelayCommand(Browse);
         }
