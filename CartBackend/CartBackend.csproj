@@ -44,12 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DTO\OrderDTO.cs" />
+    <Compile Include="Common\DTO\ProductDTO.cs" />
+    <Compile Include="Common\Models\Component.cs" />
+    <Compile Include="Common\Models\Discount.cs" />
+    <Compile Include="Common\Models\Order.cs" />
+    <Compile Include="Common\Models\OrderComponent.cs" />
+    <Compile Include="Common\Models\OrderProduct.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Common\Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
