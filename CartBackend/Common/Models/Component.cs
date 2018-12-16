@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CartBackend.Common.Models
 {
+    // też część GUI, jednak potrzebne u nas do funkcjonowania
     public class Component
     {
         public int Id { get; set; }

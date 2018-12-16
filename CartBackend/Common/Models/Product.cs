@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CartBackend
 {
+    // jest to część GUI, jednak do funkcjonowania naszej części musiałem to dodać
     public class Product
     {
         [JsonProperty("id")]
