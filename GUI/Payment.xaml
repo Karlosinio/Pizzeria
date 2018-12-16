@@ -36,16 +36,16 @@
 
         <!-- Payment method -->
         <TextBlock Text="Wybierz sposób płatności:" HorizontalAlignment="Left" Margin="409,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
-        <RadioButton Content="Płatnośc gotówką" HorizontalAlignment="Left" Margin="431,237,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15" />
-        <RadioButton Content="Płatność kartą płatniczą" HorizontalAlignment="Left" Margin="431,262,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15"/>
-        <RadioButton Content="Płatność online" HorizontalAlignment="Left" Margin="431,287,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="337" FontSize="15" />
-        <RadioButton Content="Płatność BLIKiem" HorizontalAlignment="Left" Margin="431,312,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="152" FontSize="15"/>
+        <RadioButton Content="Płatnośc gotówką" HorizontalAlignment="Left" Margin="431,237,0,0" VerticalAlignment="Top" Checked="MoneyRB_Checked" Height="20" Width="337" FontSize="15" />
+        <RadioButton Content="Płatność kartą płatniczą" HorizontalAlignment="Left" Margin="431,262,0,0" VerticalAlignment="Top" Checked="CardRB_Checked" Height="20" Width="337" FontSize="15"/>
+        <RadioButton Content="Płatność online" HorizontalAlignment="Left" Margin="431,287,0,0" VerticalAlignment="Top" Checked="OnlineRB_Checked" Height="20" Width="337" FontSize="15" />
+        <RadioButton Content="Płatność BLIKiem" HorizontalAlignment="Left" Margin="431,312,0,0" VerticalAlignment="Top" Checked="BlikRB_Checked" Height="20" Width="152" FontSize="15"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="40" FontSize="15" Margin="619,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod:"/>
         <TextBox HorizontalAlignment="Left" Height="20" Width="104" FontSize="15" Margin="664,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Buttons -->
         <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="141" Height="30"  FontSize="15"/>
-        <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="156,380,0,0" VerticalAlignment="Top" Width="140" Height="30"  FontSize="15" Click="Button_Click"/>
+        <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="156,380,0,0" VerticalAlignment="Top" Width="140" Height="30"  FontSize="15"/>
         <Button Content="Powrót do dostawy" HorizontalAlignment="Left" Margin="301,380,0,0" VerticalAlignment="Top" Width="140" Height="30"  FontSize="15"/>
         <Button Content="Zapłać" HorizontalAlignment="Left" Margin="464,380,0,0" VerticalAlignment="Top" Width="320" Height="30"  FontSize="15"/>
 

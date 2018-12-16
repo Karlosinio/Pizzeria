@@ -54,14 +54,14 @@
 
         <!-- Status -->
         <TextBlock HorizontalAlignment="Left" Margin="26,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="161" FontSize="20" Text="Ustaw status:"/>
-        <RadioButton Content="Zarejestrowane" HorizontalAlignment="Left" Margin="26,333,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="161" FontSize="15" RenderTransformOrigin="-0.718,3.5"/>
+        <RadioButton Content="Zarejestrowane" HorizontalAlignment="Left" Margin="26,333,0,0" VerticalAlignment="Top" Checked="RegisteredRB_Checked" Height="20" Width="161" FontSize="15" RenderTransformOrigin="-0.718,3.5"/>
         
-        <RadioButton Content="Rozpoczęte" HorizontalAlignment="Left" Margin="26,358,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="161" FontSize="15" />
+        <RadioButton Content="Rozpoczęte" HorizontalAlignment="Left" Margin="26,358,0,0" VerticalAlignment="Top" Checked="StartedRB_Checked" Height="20" Width="161" FontSize="15" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="46" FontSize="15" Margin="224,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Czas:"/>
         <TextBox HorizontalAlignment="Left" Height="20" Width="81" FontSize="15" Margin="275,358,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
         <Button Content=">" HorizontalAlignment="Left" Margin="361,358,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11"/>
         
-        <RadioButton Content="Gotowe" HorizontalAlignment="Left" Margin="26,383,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="161" FontSize="15" />
-        <RadioButton Content="Zakończone" HorizontalAlignment="Left" Margin="224,383,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Height="20" Width="161" FontSize="15"/>
+        <RadioButton Content="Gotowe" HorizontalAlignment="Left" Margin="26,383,0,0" VerticalAlignment="Top" Checked="ReadyRB_Checked" Height="20" Width="161" FontSize="15" />
+        <RadioButton Content="Zakończone" HorizontalAlignment="Left" Margin="224,383,0,0" VerticalAlignment="Top" Checked="FinishedRB_Checked" Height="20" Width="161" FontSize="15"/>
     </Grid>
 </Window>

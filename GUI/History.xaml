@@ -1,13 +1,13 @@
-﻿<Window x:Class="GUI.Cart"
+﻿<Window x:Class="GUI.History"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Historia zamówień" Height="450" Width="800.5">
+        Title="History" Height="450" Width="800">
     <Grid>
-        <!-- Cart -->
+        <!-- History -->
         <ListView Margin="10,58,12,10" Name="lvUsers">
             <ListView.View>
                 <GridView>
@@ -20,4 +20,3 @@
         <Button Content="Powrót" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
     </Grid>
 </Window>
-
