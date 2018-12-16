@@ -8,7 +8,7 @@ namespace MenuViewModel
     public class MenuVM : INotifyPropertyChanged
     {
         #region DataContext
-        public ObservableCollection<Pizza> pizzas { get; set; }
+        public ObservableCollection<product> pizzas { get; set; }
         public string PathVariable { get; set; }
         //public Visibility ChangeControlVisibility { get; set; } = Visibility.Hidden;
         public ICommand Click_Koszyk { get; }
@@ -18,7 +18,7 @@ namespace MenuViewModel
         #region constructors
         public MenuVM()
         {
-            pizzas = new ObservableCollection<Pizza>();
+            pizzas = new ObservableCollection<product>();
             //Click_Button = new RelayCommand(LoadDLL);
             //Click_Browse = new RelayCommand(Browse);
         }

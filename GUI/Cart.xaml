@@ -22,7 +22,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
-        <Button Content="Usuń" HorizontalAlignment="Left" Margin="715,380,0,0" VerticalAlignment="Top" Width="67" Height="29"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" Margin="711,380,0,0" VerticalAlignment="Top" Width="71" Height="33"/>
     </Grid>
 </Window>
 

@@ -8,7 +8,7 @@
         Title="Pizzeria - Menu" Height="450" Width="800">
     <Grid>
         <Button Content="Konto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <Button Content="Koszyk" HorizontalAlignment="Left" Margin="622,378,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <Button Content="Koszyk" HorizontalAlignment="Left" Margin="10,378,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
         <Button Content="Wyloguj się" HorizontalAlignment="Left" Margin="622,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
         <Button Content="Historia zamówień" HorizontalAlignment="Left" Margin="314,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
         <ListView Margin="10,47,10,46" x:Name="lvUsers">
@@ -20,6 +20,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Dodaj do koszyka" HorizontalAlignment="Left" Margin="711,378,0,0" VerticalAlignment="Top" Width="71" Height="33"/>
 
     </Grid>
 </Window>
