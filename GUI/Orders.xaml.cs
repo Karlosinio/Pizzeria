@@ -23,5 +23,25 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void RegisteredRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StartedRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ReadyRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FinishedRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -8,18 +8,19 @@
         Title="Pizzeria - Menu" Height="450" Width="800">
     <Grid>
         <Button Content="Konto" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <Button Content="Koszyk" HorizontalAlignment="Left" Margin="622,378,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <Button Content="Wyloguj się" HorizontalAlignment="Left" Margin="622,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <Button Content="Historia zamówień" HorizontalAlignment="Left" Margin="314,10,0,0" VerticalAlignment="Top" Width="160" Height="32"/>
-        <ListView Margin="10,47,10,46" x:Name="lvUsers">
+        <Button Content="Koszyk" HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="160" Height="32"/>
+        <Button Content="Wyloguj się" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <Button Content="Historia zamówień" HorizontalAlignment="Center" Margin="312,10,320,0" VerticalAlignment="Top" Width="160" Height="32"/>
+        <ListView Margin="10,47,10,46" Name="pizzas" ItemsSource="{Binding pizzas}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}" />
-                    <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding Mail}" />
+                    <GridViewColumn Header="Name" Width="190" DisplayMemberBinding="{Binding name}" />
+                    <GridViewColumn Header="components" Width="340" DisplayMemberBinding="{Binding components}" />
+                    <GridViewColumn Header="category" Width="150" DisplayMemberBinding="{Binding category}" />
+                    <GridViewColumn Header="price" Width="50" DisplayMemberBinding="{Binding price}" />
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <Button Content="Dodaj do koszyka" HorizontalAlignment="Right" Margin="0,0,10,8" VerticalAlignment="Bottom" Width="112" Height="33"/>
     </Grid>
 </Window>

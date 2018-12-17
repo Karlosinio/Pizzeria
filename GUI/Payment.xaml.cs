@@ -23,5 +23,25 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void MoneyRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CardRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnlineRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BlikRB_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
