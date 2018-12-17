@@ -2,6 +2,7 @@ using CartBackend;
 using CartBackend.Common.DTO;
 using CartBackend.Common.Models;
 using CartBackend.Services;
+using CartViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,41 +16,45 @@ namespace ForTests
         static void Main(string[] args)
         {
 
-            var service = new OrderService();
+            //var service = new OrderService();
 
-            Order o = new Order
-            {
-                Comment = "asdgfdg",
-                DiscountUsed = false,
-                Deleted = false,
-                Price = 200,
-                User = new User { Id = 2 },
-                OrderTimestamp = 1231231
-            };
-
-
-            Product dto = new Product
-            {
-                Id = 1,
-                Available = true,
-                Category = "sadasd",
-                Name = "sadasdas",
-                Price = 200
-            };
+            //Order o = new Order
+            //{
+            //    Comment = "asdgfdg",
+            //    DiscountUsed = false,
+            //    Deleted = false,
+            //    Price = 200,
+            //    User = new User { Id = 2 },
+            //    OrderTimestamp = 1231231
+            //};
 
 
-            Order_Product oo = new Order_Product();
-            oo.Product = dto;
+            //Product dto = new Product
+            //{
+            //    Id = 1,
+            //    Available = true,
+            //    Category = "sadasd",
+            //    Name = "sadasdas",
+            //    Price = 200
+            //};
 
-            OrderDTO orderDto = new OrderDTO
-            {
-                Order = o
-            };
-            orderDto.Products.Add(oo);
 
-            var list = service.GetAll();
+            //Order_Product oo = new Order_Product();
+            //oo.Product = dto;
 
-            service.Insert(orderDto);
+            //OrderDTO orderDto = new OrderDTO
+            //{
+            //    Order = o
+            //};
+            //orderDto.Products.Add(oo);
+
+            //var list = service.GetAll();
+
+            //service.Insert(orderDto);
+
+            var vm = new CartVM();
+
+            vm.GetOrderProducts();
 
         }
     }

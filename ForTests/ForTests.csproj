@@ -53,6 +53,10 @@
       <Project>{29746645-251D-4D50-97F1-7209CB8521D8}</Project>
       <Name>CartBackend</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CartViewModel\CartViewModel.csproj">
+      <Project>{C141D393-9320-43CB-A5E8-6DF217A7A590}</Project>
+      <Name>CartViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

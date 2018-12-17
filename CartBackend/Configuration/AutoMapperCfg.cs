@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CartBackend.Common.DTO;
+using CartBackend.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
