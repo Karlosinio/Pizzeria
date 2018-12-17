@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForTests", "ForTests\ForTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartBackend", "CartBackend\CartBackend.csproj", "{29746645-251D-4D50-97F1-7209CB8521D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CartViewModel", "CartViewModel\CartViewModel.csproj", "{C141D393-9320-43CB-A5E8-6DF217A7A590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{29746645-251D-4D50-97F1-7209CB8521D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29746645-251D-4D50-97F1-7209CB8521D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29746645-251D-4D50-97F1-7209CB8521D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C141D393-9320-43CB-A5E8-6DF217A7A590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C141D393-9320-43CB-A5E8-6DF217A7A590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C141D393-9320-43CB-A5E8-6DF217A7A590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C141D393-9320-43CB-A5E8-6DF217A7A590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

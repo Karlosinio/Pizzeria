@@ -9,7 +9,12 @@ namespace CartBackend.Common.DTO
 {
     public class ProductDTO
     {
-        public Product Product { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Components { get; set; }
+        public string Category { get; set; }
+        public bool Available { get; set; }
         public List<Component> Component { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CartViewModel;
+using System.Windows;
 
 namespace GUI
 {
@@ -10,6 +11,7 @@ namespace GUI
         public Cart()
         {
             InitializeComponent();
+            DataContext = new CartVM();
         }
     }
 }

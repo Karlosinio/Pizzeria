@@ -164,6 +164,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CartViewModel\CartViewModel.csproj">
+      <Project>{C141D393-9320-43CB-A5E8-6DF217A7A590}</Project>
+      <Name>CartViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\MenuViewModel.csproj">
       <Project>{1ee4dd2b-5132-4fd1-a140-2307948a5ccf}</Project>
       <Name>MenuViewModel</Name>

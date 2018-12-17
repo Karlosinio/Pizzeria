@@ -20,9 +20,14 @@ namespace CartBackend.Services
             return _repo.GetByID(id);
         }
 
-        public void InsertUpdate(T model)
+        public int Insert(T model)
         {
-            _repo.Insert(model);
+            return _repo.Insert(model);
+        }
+
+        public void Update(T model, int id)
+        {
+            _repo.Update(model, id);
         }
 
         public void Delete(int id)
