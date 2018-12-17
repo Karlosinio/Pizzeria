@@ -1,5 +1,7 @@
 using CartBackend;
+using CartBackend.Common.DTO;
 using CartBackend.Common.Models;
+using CartBackend.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +14,11 @@ namespace ForTests
     {
         static void Main(string[] args)
         {
-            BaseRepository<Order> repo = new BaseRepository<Order>();
-            var one = repo.GetAll();
-            //var two = repo.GetByID(1);
 
-            //repo.Delete(1);
-
-            //one = repo.GetAll();
+            var service = new OrderService();
 
             Order o = new Order
             {
-                Id = 2,
                 Comment = "asdgfdg",
                 DiscountUsed = false,
                 Deleted = false,
@@ -30,8 +26,30 @@ namespace ForTests
                 User = new User { Id = 2 },
                 OrderTimestamp = 1231231
             };
-            repo.Update(o, o.Id);
-            one = repo.GetAll();
+
+
+            Product dto = new Product
+            {
+                Id = 1,
+                Available = true,
+                Category = "sadasd",
+                Name = "sadasdas",
+                Price = 200
+            };
+
+
+            Order_Product oo = new Order_Product();
+            oo.Product = dto;
+
+            OrderDTO orderDto = new OrderDTO
+            {
+                Order = o
+            };
+            orderDto.Products.Add(oo);
+
+            var list = service.GetAll();
+
+            service.Insert(orderDto);
 
         }
     }

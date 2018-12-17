@@ -9,6 +9,7 @@ namespace CartBackend.Common.Models
     public class OrderComponent
     {
         public int OrderId { get; set; }
+        //productIdInOrder
         public int ProductId { get; set; }
         public int ComponentId { get; set; }
         public int Quantity { get; set; }
