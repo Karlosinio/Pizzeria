@@ -56,8 +56,8 @@
     <Compile Include="Common\Models\Component.cs" />
     <Compile Include="Common\Models\Discount.cs" />
     <Compile Include="Common\Models\Order.cs" />
-    <Compile Include="Common\Models\OrderComponent.cs" />
-    <Compile Include="Common\Models\OrderProduct.cs" />
+    <Compile Include="Common\Models\Order_Component.cs" />
+    <Compile Include="Common\Models\Order_Product.cs" />
     <Compile Include="Common\Models\User.cs" />
     <Compile Include="Configuration\AutoMapperCfg.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />

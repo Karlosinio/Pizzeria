@@ -12,7 +12,7 @@ namespace CartBackend.Services
     public class OrderService : BaseService<Order>
     {
         #region repositories
-        private BaseRepository<OrderComponent> _orderComponentRepository = new BaseRepository<OrderComponent>();
+        private BaseRepository<Order_Component> _orderComponentRepository = new BaseRepository<Order_Component>();
         private BaseRepository<Order_Product> _orderProductRepository = new BaseRepository<Order_Product>();
         private BaseRepository<Product> _productRepository = new BaseRepository<Product>();
         #endregion

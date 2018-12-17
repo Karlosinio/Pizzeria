@@ -52,9 +52,9 @@ namespace ForTests
 
             //service.Insert(orderDto);
 
-            var vm = new CartVM();
+            //var vm = new CartVM();
 
-            vm.GetOrderProducts();
+            //vm.GetOrderProducts();
 
         }
     }

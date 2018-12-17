@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace CartBackend.Common.Models
 {
-    public class OrderComponent
+    public class Order_Component
     {
-        public int OrderId { get; set; }
+        public Order Order { get; set; }
         //productIdInOrder
-        public int ProductId { get; set; }
-        public int ComponentId { get; set; }
+        public int ProductIdInOrder { get; set; }
+        public Product Product { get; set; }
+        public Component Component { get; set; }
         public int Quantity { get; set; }
     }
 }
