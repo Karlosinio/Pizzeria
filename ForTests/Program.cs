@@ -1,4 +1,5 @@
 using CartBackend;
+using CartBackend.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +12,27 @@ namespace ForTests
     {
         static void Main(string[] args)
         {
-            BaseRepository<Product> repo = new BaseRepository<Product>();
+            BaseRepository<Order> repo = new BaseRepository<Order>();
             var one = repo.GetAll();
-            var two = repo.GetByID(1);
+            //var two = repo.GetByID(1);
 
             //repo.Delete(1);
 
             //one = repo.GetAll();
 
-            Product p = new Product
+            Order o = new Order
             {
-                Name = "ssss",
-                Components = "sadasd",
-                Category = "asdasd",
+                Id = 2,
+                Comment = "asdgfdg",
+                DiscountUsed = false,
+                Deleted = false,
                 Price = 200,
-                Available = true
+                User = new User { Id = 2 },
+                OrderTimestamp = 1231231
             };
+            repo.Update(o, o.Id);
+            one = repo.GetAll();
 
-            repo.InsertUpdate(p);
-
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
         }
     }
 }

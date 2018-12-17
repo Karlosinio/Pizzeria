@@ -22,7 +22,7 @@ namespace CartBackend.Services
 
         public void InsertUpdate(T model)
         {
-            _repo.InsertUpdate(model);
+            _repo.Insert(model);
         }
 
         public void Delete(int id)
