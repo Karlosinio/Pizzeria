@@ -12,7 +12,7 @@ namespace ServiceNS
         {
             using(WebClient wc = new WebClient())
             {
-                string json = wc.DownloadString("http://127.0.0.1:8080/server/api/product/get_all");
+                string json = wc.DownloadString("http://127.0.0.1:8080/server/api/products/get_all");
                 return JsonConvert.DeserializeObject<ObservableCollection<product>>(json);
             }
         }

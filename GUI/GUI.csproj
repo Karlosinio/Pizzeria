@@ -175,6 +175,14 @@
       <Project>{e83b7c88-e824-430d-a0eb-9e4af76321f2}</Project>
       <Name>User</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CartViewModel\CartViewModel.csproj">
+      <Project>{C141D393-9320-43CB-A5E8-6DF217A7A590}</Project>
+      <Name>CartViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeliveryViewModel\DeliveryViewModel.csproj">
+      <Project>{6E3A0BC9-6F81-4FAB-98A8-4DDA91B19578}</Project>
+      <Name>DeliveryViewModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\MenuViewModel.csproj">
       <Project>{1ee4dd2b-5132-4fd1-a140-2307948a5ccf}</Project>
       <Name>MenuViewModel</Name>
