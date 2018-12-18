@@ -13,7 +13,7 @@ namespace User.Service
     class UserManager
     {
 
-//        public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
+        //        public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
         public bool Create(string nick, string name, string surname, string address, string question, string answer, string password)
         {
             HttpWebRequest request =
@@ -22,23 +22,13 @@ namespace User.Service
             request.ContentType = "application/json";
             Model.User add = new Model.User(nick, name, surname, address, question, answer, password);
 
-//            var json = JsonConvert.SerializeObject(add);
-
-            string adr ="{{\"name\": \"Test address\",   	 \"street\": \"Street 1\",   	 \"city\": \"City\",   	 \"postalCode\": \"12-345\"  }}";   
-            string qeust = "{\"id\": 1,\"question\":\"question1\"}";
-
-
-//            string newUser = $"{{\"nick\": {nick},\"name\":{name}, \"surname\":  {surname},\"address\": {adr},\"question\": {question},\"answer\": {answer},\"password\": {password} }}";
-//            string newUser = $"{{\"nick\": \"{nick}\",\"name\":\"{name}\", \"surname\":  \"{surname}\",\"address\": {{\"id\": \"{address.id}\" }}, \"question\": \"{{\"id\": 1,\"question\":\"question1\"}}\",\"answer\": \"{answer}\",\"password\": \"{password}\" }}";
-
-            string newUser =
-                $"{{\"nick\": \"{nick}\",    \"name\": \"{name}\",    \"surname\": \"{surname}\",    \"address\": {{\"name\": \"Test address\",   	 \"street\": \"Street 1\",   	 \"city\": \"City\",   	 \"postalCode\": \"12-345\"  }},    \"question\": {{    	\"id\": 1,\"question\": \"Imię mojego psa\"    }},    \"answer\": \"{answer}\",    \"password\": \"{password}\"}}";
-
+            //            var json = JsonConvert.SerializeObject(add);   
+            string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"nowy\" ,\"street\": \"adres\",\"city\": \"miasto\",\"postalCode\": \"12-345\"}},\"question\": {{\"id\": 1,\"question\": \"Imię mojego psa\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
 
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-//                streamWriter.Write(json);
+                //                streamWriter.Write(json);
                 streamWriter.Write(newUser);
             }
 
@@ -55,6 +45,6 @@ namespace User.Service
 
 
 
-        
+
     }
 }
