@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuModel", "Model\MenuModel.csproj", "{E52D4088-A6A6-4F31-B81F-DD3D37C2AB21}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{972DEF7C-8169-4C5D-B2EB-32385E24F7EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{8DA0AE85-AB64-49A2-A493-B923F999F49C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "Admin\Admin.csproj", "{BDFA6437-08E4-46BA-BD4A-D4CF74D69A8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8DA0AE85-AB64-49A2-A493-B923F999F49C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DA0AE85-AB64-49A2-A493-B923F999F49C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DA0AE85-AB64-49A2-A493-B923F999F49C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFA6437-08E4-46BA-BD4A-D4CF74D69A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFA6437-08E4-46BA-BD4A-D4CF74D69A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFA6437-08E4-46BA-BD4A-D4CF74D69A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFA6437-08E4-46BA-BD4A-D4CF74D69A8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
