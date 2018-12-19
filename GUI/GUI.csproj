@@ -171,6 +171,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Admin\Admin.csproj">
+      <Project>{bdfa6437-08e4-46ba-bd4a-d4cf74d69a8f}</Project>
+      <Name>Admin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UserBackend\User.csproj">
       <Project>{e83b7c88-e824-430d-a0eb-9e4af76321f2}</Project>
       <Name>User</Name>
