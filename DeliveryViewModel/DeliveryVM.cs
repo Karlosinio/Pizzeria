@@ -31,7 +31,7 @@ namespace DeliveryViewModel
         private void AddAddress()
         {
             AddressManager manager = new AddressManager();
-            manager.Create("test", 1234, Street, City, PostalCode);
+            // manager.Create("test", 1234, Street, City, PostalCode);
             
         }
 

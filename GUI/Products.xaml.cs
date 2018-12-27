@@ -23,5 +23,17 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Button_Orders(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Orders();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Save(object sender, RoutedEventArgs e)
+        {
+            // TO DO - logic
+        }
     }
 }

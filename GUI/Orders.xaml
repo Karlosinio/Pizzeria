@@ -14,7 +14,7 @@
 
     <Grid DataContext="{StaticResource DataManager}">
         <!-- Button -->
-        <Button Content="Edycja produktów" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15"/>
+        <Button Content="Edycja produktów" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15" Click="Button_Click"/>
 
         <!-- Orders -->
         <TextBlock HorizontalAlignment="Left" Margin="26,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="220" FontSize="20" Text="Zamówienia:" />

@@ -17,8 +17,8 @@
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Reset password & sign in -->
-        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15"/>
-        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15"/>
+        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_RestPass"/>
+        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_Log"/>
 
         <!-- REGISTER -->
         <!-- Name -->

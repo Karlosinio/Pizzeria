@@ -43,5 +43,12 @@ namespace GUI
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Products();
+            Close();
+            newWindow.Show();
+        }
     }
 }

@@ -16,8 +16,6 @@ namespace GUI
        
         }
 
-  
-
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
@@ -26,6 +24,19 @@ namespace GUI
         private void TextBox_TextChanged_1(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
+        }
+
+        private void Button_RestPass(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new RestorePassword();
+            newWindow.Show();
+        }
+
+        private void Button_Log(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Menu();
+            Close();
+            newWindow.Show();
         }
     }
 }

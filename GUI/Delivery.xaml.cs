@@ -48,17 +48,23 @@ namespace GUI
 
         private void BackMenuB_Click(object sender, RoutedEventArgs e)
         {
-
+            var newWindow = new Menu();
+            newWindow.Show();
+            Close();
         }
 
         private void BackCartB_Click(object sender, RoutedEventArgs e)
         {
-
+            var newWindow = new Cart();
+            newWindow.Show();
+            Close();
         }
 
         private void ToPaymentB_Click(object sender, RoutedEventArgs e)
         {
-
+            var newWindow = new Payment();
+            newWindow.Show();
+            Close();
         }
     }
 }
