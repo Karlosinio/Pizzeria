@@ -10,8 +10,6 @@ namespace MenuViewModel
     {
         #region DataContext
         public ObservableCollection<product> pizzas { get; set; }
-        public string PathVariable { get; set; }
-        //public Visibility ChangeControlVisibility { get; set; } = Visibility.Hidden;
         public ICommand Click_Koszyk { get; }
         public ICommand Click_Konto { get; }
         public Service service = new Service();
@@ -21,8 +19,6 @@ namespace MenuViewModel
         public MenuVM()
         {
             pizzas = service.GetProducts();
-            //Click_Button = new RelayCommand(LoadDLL);
-            //Click_Browse = new RelayCommand(Browse);
         }
         #endregion
 
@@ -32,10 +28,6 @@ namespace MenuViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName_));
         }
-        #endregion
-
-        #region private
-
         #endregion
     }
 }

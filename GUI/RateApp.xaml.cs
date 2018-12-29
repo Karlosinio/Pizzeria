@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,41 +23,37 @@ namespace GUI
         public RateApp()
         {
             InitializeComponent();
+            DataContext = new MenuViewModel.RatingsVM();
+            MenuViewModel.RatingsVM.CloseAction = new Action(this.Close);
         }
 
         private void RB_1(object sender, RoutedEventArgs e)
         {
-
+            MenuViewModel.RatingsVM.Rate = 1;
         }
 
         private void RB_2(object sender, RoutedEventArgs e)
         {
-
+            MenuViewModel.RatingsVM.Rate = 2;
         }
 
         private void RB_3(object sender, RoutedEventArgs e)
         {
-
+            MenuViewModel.RatingsVM.Rate = 3;
         }
 
         private void RB_4(object sender, RoutedEventArgs e)
         {
-
+            MenuViewModel.RatingsVM.Rate = 4;
         }
 
         private void RB_5(object sender, RoutedEventArgs e)
         {
-
+            MenuViewModel.RatingsVM.Rate = 5;
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            Close();
-        }
-
-        private void Button_Rate(object sender, RoutedEventArgs e)
-        {
-            // TO DO - logic
             Close();
         }
     }
