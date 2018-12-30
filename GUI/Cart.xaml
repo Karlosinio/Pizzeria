@@ -9,20 +9,22 @@
     <Grid>
         <!-- Cart -->
         <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="619,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
-        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' PLN {0}'}" HorizontalAlignment="Left" Margin="684,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="100" FontSize="20" Foreground="Green" TextAlignment="Right"/>
+        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' PLN  {0}'}" HorizontalAlignment="Left" Margin="684,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="64" FontSize="20" Foreground="Green" TextAlignment="Right"/>
 
         <Button Content="Powrót" Command="{Binding Add}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
         <ListView Margin="10,58,12.4,44" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduct}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Produkt" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="120" DisplayMemberBinding="{Binding Quantity}" />
                     <GridViewColumn Header="Cena" Width="50" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Składniki" Width="150" DisplayMemberBinding="{Binding Components}" />
+                    <GridViewColumn Header="Dodatkowe składniki" Width="350" DisplayMemberBinding="{Binding ComponentToDisplay}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
         <Button Content="Usuń" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="715,380,0,0" VerticalAlignment="Top" Width="67" Height="29"/>
+        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="619,380,0,0" VerticalAlignment="Top" Width="67" Height="29"/>
     </Grid>
 </Window>
 

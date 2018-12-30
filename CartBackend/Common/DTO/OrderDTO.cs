@@ -11,10 +11,10 @@ namespace CartBackend.Common.DTO
     {
         public OrderDTO()
         {
-            Products = new List<Order_Product>();
+            Products = new List<ProductDTO>();
         }
 
         public Order Order { get; set; }
-        public List<Order_Product> Products { get; set; }
+        public List<ProductDTO> Products { get; set; }
     }
 }

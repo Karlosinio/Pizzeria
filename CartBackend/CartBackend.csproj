@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DTO\ComponentDTO.cs" />
     <Compile Include="Common\DTO\OrderDTO.cs" />
     <Compile Include="Common\DTO\OrderProductDTO.cs" />
     <Compile Include="Common\DTO\ProductDTO.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="Common\Models\Order_Component.cs" />
     <Compile Include="Common\Models\Order_Product.cs" />
     <Compile Include="Common\Models\User.cs" />
-    <Compile Include="Configuration\AutoMapperCfg.cs" />
+    <Compile Include="Mapper\OrderMapper.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Common\Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
