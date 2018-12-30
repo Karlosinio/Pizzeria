@@ -8,7 +8,7 @@
         Title="Pizzeria - Panel Administratora: Edycja produktów" Height="450" Width="800">
     <Grid>
         <!-- Button -->
-        <Button Content="Zamówienia" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15"/>
+        <Button Content="Zamówienia" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15" Click="Button_Orders"/>
 
         <!-- Products -->
         <TextBlock HorizontalAlignment="Left" Margin="26,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="220" FontSize="20" Text="Produkty:" />
@@ -45,6 +45,6 @@
         <Button Content="0" HorizontalAlignment="Left" Margin="744,329,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11"/>
 
         <!-- Save -->
-        <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="409,373,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15"/>
+        <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="409,373,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15" Click="Button_Save"/>
     </Grid>
 </Window>

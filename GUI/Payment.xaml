@@ -44,10 +44,10 @@
         <TextBox HorizontalAlignment="Left" Height="20" Width="104" FontSize="15" Margin="664,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
 
         <!-- Buttons -->
-        <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="141" Height="30"  FontSize="15"/>
-        <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="156,380,0,0" VerticalAlignment="Top" Width="140" Height="30"  FontSize="15"/>
-        <Button Content="Powrót do dostawy" HorizontalAlignment="Left" Margin="301,380,0,0" VerticalAlignment="Top" Width="140" Height="30"  FontSize="15"/>
-        <Button Content="Zapłać" HorizontalAlignment="Left" Margin="464,380,0,0" VerticalAlignment="Top" Width="320" Height="30"  FontSize="15"/>
+        <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="141" Height="30"  FontSize="15" Click="Button_Back_Menu"/>
+        <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="156,380,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="15" Click="Button_Back_Cart"/>
+        <Button Content="Powrót do dostawy" HorizontalAlignment="Left" Margin="301,380,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="15" Click="Button_Back_Delivery"/>
+        <Button Content="Zapłać" HorizontalAlignment="Left" Margin="464,380,0,0" VerticalAlignment="Top" Width="320" Height="30"  FontSize="15" Click="Button_Pay"/>
 
     </Grid>
 </Window>

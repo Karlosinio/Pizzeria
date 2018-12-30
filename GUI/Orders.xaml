@@ -4,21 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
+		xmlns:vm="clr-namespace:Admin;assembly=Admin"
         mc:Ignorable="d"
         Title="Pizzeria - Panel Administratora: Zamówienia" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+        <vm:DataManager x:Key="DataManager" />
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource DataManager}">
         <!-- Button -->
-        <Button Content="Edycja produktów" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15"/>
+        <Button Content="Edycja produktów" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15" Click="Button_Click"/>
 
         <!-- Orders -->
         <TextBlock HorizontalAlignment="Left" Margin="26,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="220" FontSize="20" Text="Zamówienia:" />
         <Expander Header="Sortowanie" HorizontalAlignment="Left" Height="30" Margin="251,58,0,0" VerticalAlignment="Top" Width="134">
             <Grid Background="#FFE5E5E5"/>
         </Expander>
-        <ListView Margin="26,93,408.6,127" x:Name="lvUsers">
+
+        <ListView Margin="26,93,408.6,127" x:Name="Orderss"
+            ItemsSource="{Binding Orders, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
+			SelectedItem="{Binding CurrentOrder}" SelectedIndex="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Zamówienie" Width="265" DisplayMemberBinding="{Binding Zamówienie}" />
+                    <GridViewColumn Header="Zamówienie" Width="265" DisplayMemberBinding="{Binding Id}" />
                     <GridViewColumn Header="Status" Width="90" DisplayMemberBinding="{Binding Status}" />
                 </GridView>
             </ListView.View>
@@ -27,27 +36,30 @@
         <!-- Delivery detials -->
         <TextBlock Text="Szczegóły zamówienia:" HorizontalAlignment="Left" Margin="409,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Imię i nazwisko"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="imię i nazwisko" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.User._fullName}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Nr telefonu:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="nr telefonu" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.User._phone}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="ulica" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.User._address.Street}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Numer:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="numer" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.User._address.Number}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod pocztowy:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="kod pocztowy" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.User._address.PostalCode}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Miasto:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="miasto" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.User._address.City}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Płatność:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="wybrana płatność" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.Payment}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Cena:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="cena" Foreground="DodgerBlue" />
-        <ListView Margin="409,245,25.6,17" x:Name="lvUsers_Copy">
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding CurrentOrder.Price}" Foreground="DodgerBlue" />
+
+        <ListView Margin="409,245,25.6,17" x:Name="lvUsers_Copy"
+            ItemsSource="{Binding CurrentOrder.Products, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
+			SelectedIndex="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nazwa" Width="235" DisplayMemberBinding="{Binding Nazwa}" />
+                    <GridViewColumn Header="Nazwa" Width="235" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Rozmiar" Width="60" DisplayMemberBinding="{Binding Rozmiar}" />
-                    <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding Cena}" />
+                    <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding Price}" />
                 </GridView>
             </ListView.View>
         </ListView>

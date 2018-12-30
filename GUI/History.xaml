@@ -17,6 +17,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Powrót" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Button_Back"/>
     </Grid>
 </Window>

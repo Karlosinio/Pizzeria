@@ -23,5 +23,17 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Button_Back(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Menu();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Save(object sender, RoutedEventArgs e)
+        {
+            // TO DO - logic
+        }
     }
 }
