@@ -147,21 +147,6 @@ namespace CartViewModel
                 return false;
         }
 
-        //public List<Order_Product> GetOrderProducts()
-        //{
-        //    ////tutaj przełączenie między oknami, do zamówień powinno pójść lista Products
-        //    //var mapper = AutoMapperCfg.GetProductMapper();
-
-        //    //List<Order_Product> list = new List<Order_Product>();
-        //    //var id = 0;
-        //    //foreach (var e in Products)
-        //    //    list.Add(new Order_Product {ProductIdInOrder = id++, Product = mapper.Map<Product>(e) });
-
-        //    //return list;
-        //}
-
-
-
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string propertyName_)
