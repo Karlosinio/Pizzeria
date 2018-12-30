@@ -115,7 +115,7 @@ namespace CartViewModel
         public void AddProduct(ProductDTO product)
         {
             //check if product isn't in the cart already
-            if (ProductAlreadyInCart(product))
+            if (Products.Contains(product))
             {
                 product.Quantity++;
                 var id = Products.Where(x => x.Equals(product)).FirstOrDefault().Id;
@@ -128,23 +128,6 @@ namespace CartViewModel
 
             Price += product.Price;
             RaisePropertyChanged("Price");
-        }
-
-        private bool ProductAlreadyInCart(ProductDTO productDTO)
-        {
-            var productsInCart = Products.Where(x => x.Id == productDTO.Id).ToList();
-
-            if (productsInCart != null)
-            {
-                foreach(var productInCart in productsInCart)
-                {
-                    if (productInCart.Equals(productDTO)) return true;
-                }
-
-                return false;
-            }
-            else
-                return false;
         }
 
         #region INotifyPropertyChanged

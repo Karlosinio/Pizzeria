@@ -7,6 +7,10 @@ namespace CartBackend.Common.DTO
 {
     public class ProductDTO
     {
+        public ProductDTO()
+        {
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
@@ -42,31 +46,5 @@ namespace CartBackend.Common.DTO
         public bool Available { get; set; }
         public int Quantity { get; set; }
         public List<ComponentDTO> Component { get; set; }
-
-        public override bool Equals(object product)
-        {
-            var productDTO = (ProductDTO) product;
-
-            if (product == null) return false;
-
-            if (productDTO.Id != Id) return false;
-
-                if (productDTO.Component.Count == Component.Count)
-                {
-                    int i = 0;
-                    bool equal = true;
-                    while (i < productDTO.Component.Count && equal)
-                    {
-                        if (productDTO.Component[i].Component.Id != Component[i].Component.Id)
-                            equal = false;
-                        i++;
-                    }
-                    if (equal)
-                        return true;
-                }
-
-            return false;
-            
-        }
     }
 }
