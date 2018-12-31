@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using MenuModel;
+﻿using MenuModel;
 using System.Net;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
-using System;
 using System.Globalization;
 using System.IO;
 using Newtonsoft.Json.Serialization;
+using System;
 
 namespace ServiceNS
 {
@@ -35,15 +34,13 @@ namespace ServiceNS
         {
             ratings r = new ratings();
             r.rate = Rate;
-            r.user = id;
-            //r.ratingTimestamp = "1544978400000";
-            //r.comment = "";
+            r.user = new User(id);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/ratings/");
             request.Method = "POST";
             request.ContentType = "application/json";
 
-            var json = JsonConvert.SerializeObject(r, new JsonSerializerSettings
+            string json = JsonConvert.SerializeObject(r, new JsonSerializerSettings
             {
                 ContractResolver = new CamelCasePropertyNamesContractResolver()
             });
@@ -57,8 +54,8 @@ namespace ServiceNS
             using (Stream stream = response.GetResponseStream())
             using (StreamReader reader = new StreamReader(stream))
             {
-                var result = reader.ReadToEnd();
-                //var a = Int32.Parse(result);
+                string result = reader.ReadToEnd();
+                int a = Int32.Parse(result);
             }
         }
     }
