@@ -51,10 +51,5 @@ namespace GUI
         {
             // TO DO - logic
         }
-
-        private void Button_Description(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

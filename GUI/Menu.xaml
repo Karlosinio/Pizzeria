@@ -20,7 +20,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="!" FontSize="14" HorizontalAlignment="Right" Margin="0,47,9.6,0" VerticalAlignment="Top" Width="32" Height="35" Click="Button_Description"/>
         <Button Content="Oceń aplikację" HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="140" Height="32" Click="Button_RateApp"/>
         <Button Content="+" FontSize="14" HorizontalAlignment="Right" Margin="0,0,9.6,47" VerticalAlignment="Bottom" Width="32" Height="35" Click="Button_Add_To_Cart"/>
         <Button Content="Koszyk" HorizontalAlignment="Right" Margin="0,0,9.6,10" VerticalAlignment="Bottom" Width="140" Height="32" Click="Button_Cart"/>
