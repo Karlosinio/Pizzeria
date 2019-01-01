@@ -11,19 +11,30 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Component = CartBackend.Common.Models.Component;
 
+
 namespace CartViewModel
 {
     public class CartVM : INotifyPropertyChanged
     {
         public ObservableCollection<ProductDTO> Products { get; set; }
         private List<Order_Product> ListOfProducts { get; set; }
-        public double Price { get; set; }
+        private double price = 0;
+        public double Price { get {
+                return price;
+            } set {
+                if(value != price)
+                {
+                    price = value;
+                    RaisePropertyChanged("Price");
+                }
+            } }
         public ProductDTO SelectedProduct { get; set; }
 
         public CartVM()
         {
             Component comp = new Component
             {
+                Id = 1,
                 Name = "sss",
                 Price = 33
             };
@@ -35,6 +46,7 @@ namespace CartViewModel
             };
             Component comp2 = new Component
             {
+                Id = 2,
                 Name = "ssasdasds",
                 Price = 337
             };
@@ -46,6 +58,7 @@ namespace CartViewModel
             };
             Component comp3 = new Component
             {
+                Id = 3,
                 Name = "sssasdasd",
                 Price = 332
             };
@@ -60,8 +73,7 @@ namespace CartViewModel
             {
                 dto,
                 dto2,
-                dto3,
-                dto
+                dto3
             };
             Price = 0;
             Products = new ObservableCollection<ProductDTO>
@@ -91,14 +103,16 @@ namespace CartViewModel
 
             }
             Delete = new DelegateCommand(DeleteProductFromCart);
-
+            Edit = new DelegateCommand(EditProductFromCart);
         }
 
         public ICommand Delete { get; }
         public ICommand Order { get; }
         public ICommand Edit { get; }
 
-
+        private void EditProductFromCart()
+        {
+        }
 
         private void DeleteProductFromCart()
         {

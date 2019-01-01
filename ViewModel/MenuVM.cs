@@ -10,7 +10,7 @@ namespace MenuViewModel
     {
         #region DataContext
         public ObservableCollection<product> pizzas { get; set; }
-        public ICommand Click_Koszyk { get; }
+       // public ICommand Click_Koszyk { get; }
         public ICommand Click_Konto { get; }
         public Service service = new Service();
         #endregion

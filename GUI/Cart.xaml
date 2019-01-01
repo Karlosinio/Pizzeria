@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Koszyk" Height="450" Width="800.5">
     <Grid>
         <!-- Cart -->
-        <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="619,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
-        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' PLN  {0}'}" HorizontalAlignment="Left" Margin="684,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="64" FontSize="20" Foreground="Green" TextAlignment="Right"/>
+        <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="588,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
+        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' {0} PLN'}" HorizontalAlignment="Left" Margin="662,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="98" FontSize="20" Foreground="Green" TextAlignment="Right"/>
 
         <Button Content="Powrót" Command="{Binding Add}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Button_Back_Menu"/>
-        <ListView Margin="10,58,12.4,44" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduct}">
+        <ListView Name="ListOfProducts" Margin="10,58,12.4,44" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduct}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Produkt" Width="120" DisplayMemberBinding="{Binding Name}" />
@@ -24,7 +25,7 @@
         </ListView>
         <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
         <Button Content="Usuń" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="715,380,0,0" VerticalAlignment="Top" Width="67" Height="29"/>
-        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="619,380,0,0" VerticalAlignment="Top" Width="67" Height="29"/>
+        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="619,380,0,0" VerticalAlignment="Top" Width="67" Height="29" Click="Edit_Product"/>
     </Grid>
 </Window>
 
