@@ -28,6 +28,24 @@ namespace CartViewModel
                     RaisePropertyChanged("Price");
                 }
             } }
+
+        private int quantityAddDelete = 0;
+        public int QuantityAddDelete
+        {
+            get
+            {
+                return quantityAddDelete;
+            }
+            set
+            {
+                if (value != quantityAddDelete)
+                {
+                    quantityAddDelete = value;
+                    RaisePropertyChanged("QuantityAddDelete");
+                }
+            }
+        }
+
         public ProductDTO SelectedProduct { get; set; }
 
         public CartVM()
@@ -78,47 +96,112 @@ namespace CartViewModel
             Price = 0;
             Products = new ObservableCollection<ProductDTO>
             {
-                new ProductDTO { Id=1, Name = "cos", Price=20, Component = list},
-                new ProductDTO { Id=2, Name = "adasd", Price=20 },
-                new ProductDTO { Id=3, Name = "cofgdfgs", Price=20 },
-                new ProductDTO { Id=4, Name = "casgfgos", Price=45, Component = list },
-                new ProductDTO { Id=5, Name = "cdghfgdhos", Price=3 },
-                new ProductDTO { Id=6, Name = "asadasdcos", Price=200},
+                new ProductDTO { Id=1, Name = "cos", Price=20, Component = list, Quantity = 1},
+                new ProductDTO { Id=2, Name = "adasd", Price=20, Quantity = 1 },
+                new ProductDTO { Id=3, Name = "cofgdfgs", Price=20, Quantity = 1 },
+                new ProductDTO { Id=4, Name = "casgfgos", Price=45, Component = list, Quantity = 1 },
+                new ProductDTO { Id=5, Name = "cdghfgdhos", Price=3, Quantity = 1 },
+                new ProductDTO { Id=6, Name = "asadasdcos", Price=200, Quantity = 1},
             };
             
             foreach(var product in Products)
             {
-                if(product.Component != null)
-                {
-                    foreach (var component in product.Component)
+                if (product.Quantity >0 )
+                    if(product.Component != null)
                     {
-                        Price += component.Component.Price;
-                        RaisePropertyChanged("Price");
+                        foreach (var component in product.Component)
+                        {
+                            Price += component.Component.Price;
+                            RaisePropertyChanged("Price");
 
+                        }
                     }
+                if (product.Quantity > 0)
+                {
+                    Price += product.Price;
+                    RaisePropertyChanged("Price");
                 }
-
-                Price += product.Price;
-                RaisePropertyChanged("Price");
+                    
 
             }
-            Delete = new DelegateCommand(DeleteProductFromCart);
+            DeleteAll = new DelegateCommand(DeleteAllProductFromCart);
             Edit = new DelegateCommand(EditProductFromCart);
+            Delete = new DelegateCommand(DeleteProductFromCart);
+            AddQuantity = new DelegateCommand(AddQuantityToProduct);
+            Button_Add_Quantity = new DelegateCommand(Button_Add_Quantity_Change);
+            Button_Delete_Quantity = new DelegateCommand(Button_Delete_Quantity_Change);
         }
 
-        public ICommand Delete { get; }
+        public ICommand DeleteAll { get; }
         public ICommand Order { get; }
         public ICommand Edit { get; }
+        public ICommand Delete { get; }
+        public ICommand AddQuantity { get; }
+        public ICommand Button_Add_Quantity { get; }
+        public ICommand Button_Delete_Quantity { get; }
+
+
+        private void Button_Add_Quantity_Change()
+        {
+            QuantityAddDelete++;
+        }
+
+        private void Button_Delete_Quantity_Change()
+        {
+            if (quantityAddDelete > 0)
+            {
+                QuantityAddDelete--;
+            }
+
+        }
 
         private void EditProductFromCart()
         {
         }
 
+        private void AddQuantityToProduct()
+        {
+            if (SelectedProduct != null)
+            {
+                Price += SelectedProduct.Price * QuantityAddDelete;
+                RaisePropertyChanged("Price");
+
+                SelectedProduct.Quantity += QuantityAddDelete;
+                var index = Products.IndexOf(SelectedProduct);
+                Products.Insert(index, SelectedProduct);
+                Products.RemoveAt(index + 1);
+                RaisePropertyChanged("Products");
+            }
+            
+        }
+        
+
         private void DeleteProductFromCart()
         {
-            if(SelectedProduct != null)
+            if (SelectedProduct != null)
+                if (SelectedProduct.Quantity == QuantityAddDelete)
+                    DeleteAllProductFromCart();
+                else if (SelectedProduct.Quantity> QuantityAddDelete)
+                {
+                    Price -= SelectedProduct.Price * QuantityAddDelete;
+                    RaisePropertyChanged("Price");
+
+                    SelectedProduct.Quantity -= QuantityAddDelete;
+                    var index = Products.IndexOf(SelectedProduct);
+                    Products.Insert(index, SelectedProduct);
+                    Products.RemoveAt(index + 1);
+
+                    RaisePropertyChanged("Products");
+                }
+
+
+        }
+
+        private void DeleteAllProductFromCart()
+        {
+            if (SelectedProduct != null)
             {
-                Price -= SelectedProduct.Price;
+                Price -= SelectedProduct.Price * SelectedProduct.Quantity;
                 RaisePropertyChanged("Price");
                 Products.Remove(SelectedProduct);
             }
@@ -150,6 +233,7 @@ namespace CartViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName_));
         }
+       
         #endregion
     }
 }

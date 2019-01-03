@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Koszyk" Height="450" Width="800.5">
+        Title="Koszyk" Height="452" Width="800.5">
     <Grid>
         <!-- Cart -->
         <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="588,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
@@ -24,8 +24,14 @@
             </ListView.View>
         </ListView>
         <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
-        <Button Content="Usuń" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="715,380,0,0" VerticalAlignment="Top" Width="67" Height="29"/>
-        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="619,380,0,0" VerticalAlignment="Top" Width="67" Height="29" Click="Edit_Product"/>
+        <Button Content="Usuń wszystko" Command="{Binding DeleteAll}" HorizontalAlignment="Left" Margin="548,389,0,0" VerticalAlignment="Top" Width="86" Height="20"/>
+        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="693,380,0,0" VerticalAlignment="Top" Width="67" Height="29" Click="Edit_Product"/>
+        <Button Content="+" Command="{Binding Button_Add_Quantity}" HorizontalAlignment="Left" Margin="275,389,0,0" VerticalAlignment="Top" Width="24" />
+        <Button Content="-" Command="{Binding Button_Delete_Quantity}" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" Width="24" />
+        <Button Content="Dodaj" Command="{Binding AddQuantity}" HorizontalAlignment="Left" Margin="317,389,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Usuń wybraną ilość" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="412,389,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBlock Text="{Binding QuantityAddDelete, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' {0} '}" HorizontalAlignment="Left" Margin="235,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"  Width="35" TextAlignment="Center" RenderTransformOrigin="-1.271,0.239"/>
+
     </Grid>
 </Window>
 

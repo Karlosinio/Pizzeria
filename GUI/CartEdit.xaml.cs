@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using CartViewModel;
 
 namespace GUI
@@ -20,13 +10,13 @@ namespace GUI
     /// </summary>
     public partial class CartEdit : Window
     {
-        private Window CardWindow;
+        private CartVM cartDataContext;
 
-        public CartEdit(Object product, Window window)
+        public CartEdit(Object product, object cartDataContext)
         {
             InitializeComponent();
             DataContext = new CartEditVM(product);
-            this.CardWindow = window;
+            this.cartDataContext = (CartVM) cartDataContext;
         }
 
         public object SelectedProductToEdit { get; set; }
@@ -37,11 +27,20 @@ namespace GUI
         private void Button_Back_To_Cart(object sender, RoutedEventArgs e)
         {
 
-            //var newWindow = new Cart();
-            // newWindow.Show();
-            //this.Controls.Clear();
-            this.CardWindow.IsEnabled = true;
-            this.CardWindow.UpdateLayout();
+            var button = (Button)sender;
+            var cartEditVM = (CartEditVM) button.DataContext;
+            var editedProduct = cartEditVM.SelectedProductToEdit;
+
+            var index = cartDataContext.Products.IndexOf(editedProduct);
+
+            cartDataContext.Products.Insert(index, editedProduct);
+            cartDataContext.Products.RemoveAt(index +1);
+
+            var carWindow = new Cart
+            {
+                DataContext = cartDataContext
+            };
+            carWindow.Show();
             Close();
             
         }

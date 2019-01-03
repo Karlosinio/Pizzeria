@@ -26,8 +26,14 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Usuń" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="233,373,0,0" VerticalAlignment="Top" Width="66" Height="29" Click="Odswiez" Grid.Column="1"/>
-        <Button Content="Powrót" Command="{Binding Back}" HorizontalAlignment="Left" Margin="66,369,0,0" VerticalAlignment="Top" Width="68" Height="33" Click="Button_Back_To_Cart" Grid.ColumnSpan="2"/>
+        <Button Content="Usuń" Command="{Binding DeleteAll}" HorizontalAlignment="Left" Margin="282,396,0,0" VerticalAlignment="Top" Width="66" Height="23" Click="Odswiez" Grid.Column="1"/>
+        <Button Content="Powrót" Command="{Binding Back}" HorizontalAlignment="Left" Margin="10,392,0,0" VerticalAlignment="Top" Width="68" Height="33" Click="Button_Back_To_Cart" RenderTransformOrigin="-0.353,1.182"/>
+        <Button Content="-" Command="{Binding Button_Delete_Quantity}" HorizontalAlignment="Left" Margin="110,399,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="1.571,0.467" Grid.ColumnSpan="2"/>
+        <Button Content="+" Command="{Binding Button_Add_Quantity}" HorizontalAlignment="Left" Margin="57,398,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="1.571,0.467" Grid.Column="1"/>
+        <Button Content="Dodaj" Command="{Binding AddQuantity}" HorizontalAlignment="Left" Margin="92,398,0,0" VerticalAlignment="Top" Width="58" Grid.Column="1"/>
+        <Button Content="Usuń wybraną ilość" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="155,398,0,0" VerticalAlignment="Top" Width="116" Grid.Column="1"/>
+        <TextBlock Text="{Binding QuantityAddDelete, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' {0} '}" HorizontalAlignment="Left" Margin="17,399,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"  Width="35" TextAlignment="Center" RenderTransformOrigin="-1.271,0.239" Grid.Column="1"/>
+
     </Grid>
-    
+
 </Window>

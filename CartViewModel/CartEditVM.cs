@@ -22,6 +22,23 @@ namespace CartViewModel
         public ProductDTO SelectedProductToEdit { get; set; }
         public String SelectedProductToEditName { get; set; }
 
+        private int quantityAddDelete = 0;
+        public int QuantityAddDelete
+        {
+            get
+            {
+                return quantityAddDelete;
+            }
+            set
+            {
+                if (value != quantityAddDelete)
+                {
+                    quantityAddDelete = value;
+                    RaisePropertyChanged("QuantityAddDelete");
+                }
+            }
+        }
+
         public CartEditVM(Object product)
         {
             SelectedProductToEdit = (ProductDTO) product;
@@ -33,35 +50,79 @@ namespace CartViewModel
                 foreach (var item in SelectedProductToEdit.Component)
                     Components.Add(item);
 
-            Delete = new DelegateCommand(Delete_Component_From_Product);
+            DeleteAll = new DelegateCommand(Delete_Component_From_Product);
+            Delete = new DelegateCommand(DeleteComponentFromCart);
             Back = new DelegateCommand(Back_To_Basket);
+            AddQuantity = new DelegateCommand(AddQuantityToProduct);
+            Button_Add_Quantity = new DelegateCommand(Button_Add_Quantity_Change);
+            Button_Delete_Quantity = new DelegateCommand(Button_Delete_Quantity_Change);
         }
 
+        public ICommand DeleteAll { get; }
         public ICommand Delete { get; }
         public ICommand Back { get; }
+        public ICommand AddQuantity { get; }
+        public ICommand Button_Add_Quantity { get; }
+        public ICommand Button_Delete_Quantity { get; }
+
+        private void Button_Add_Quantity_Change()
+        {
+            QuantityAddDelete++;
+        }
+
+        private void Button_Delete_Quantity_Change()
+        {
+            if (quantityAddDelete > 0)
+            {
+                QuantityAddDelete--;
+            }
+
+        }
 
         public void Back_To_Basket()
         {
 
         }
 
-        public void Delete_Component_From_Product()
+        private void AddQuantityToProduct()
         {
             if (SelectedComponent != null)
             {
+                SelectedComponent.Quantity += QuantityAddDelete;
+                var index = Components.IndexOf(SelectedComponent);
+                Components.Insert(index, SelectedComponent);
+                Components.RemoveAt(index + 1);
 
-                if (SelectedComponent.Quantity == 1)
-                    Components.Remove(SelectedComponent);
-                else
+                this.
+
+                RaisePropertyChanged("Components");
+            }
+
+        }
+
+        public void Delete_Component_From_Product()
+        {
+            if (SelectedComponent != null)
+                Components.Remove(SelectedComponent);
+                
+        }
+
+        private void DeleteComponentFromCart()
+        {
+            if (SelectedComponent != null)
+                if (SelectedComponent.Quantity == QuantityAddDelete)
+                    Delete_Component_From_Product();
+                else if (SelectedComponent.Quantity > QuantityAddDelete)
                 {
-                    SelectedComponent.Quantity -= 1;
+                    SelectedComponent.Quantity -= QuantityAddDelete;
                     var index = Components.IndexOf(SelectedComponent);
                     Components.Insert(index, SelectedComponent);
                     Components.RemoveAt(index + 1);
+
                     RaisePropertyChanged("Components");
                 }
 
-            }
+
         }
 
         #region INotifyPropertyChanged

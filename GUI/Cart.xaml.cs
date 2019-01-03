@@ -15,7 +15,7 @@ namespace GUI
     /// </summary>
     public partial class Cart : Window
     {
-        
+
         public Cart()
         {
             InitializeComponent();
@@ -38,17 +38,20 @@ namespace GUI
 
         private void Button_Delete_From_Cart(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void Edit_Product(object sender, RoutedEventArgs e)
         {
-            var newWindow = new CartEdit(ListOfProducts.SelectedItem, this);
-            this.IsEnabled = false;
-            newWindow.Show();
-            //this.UpdateLayout();
-
-           // Close();
+            if (ListOfProducts.SelectedItem != null)
+            {
+                var button = (Button)sender;
+                var cartDataContext = button.DataContext;
+                var newWindow = new CartEdit(ListOfProducts.SelectedItem, cartDataContext);
+                this.IsEnabled = false;
+                Close();
+                newWindow.Show();
+            }
         }
+        
     }
 }
