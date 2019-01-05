@@ -176,10 +176,6 @@ namespace CartViewModel
 
         }
 
-        private void EditProductFromCart()
-        {
-        }
-
         private void AddQuantityToProduct()
         {
             if (SelectedProduct != null)
@@ -196,6 +192,11 @@ namespace CartViewModel
             
         }
         
+        public List<ProductDTO> GetProducts()
+        {
+            var list = new List<ProductDTO>(Products);
+            return list;
+        }
 
         private void DeleteProductFromCart()
         {
