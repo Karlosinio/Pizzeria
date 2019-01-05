@@ -92,8 +92,7 @@ namespace CartViewModel
                 var index = Components.IndexOf(SelectedComponent);
                 Components.Insert(index, SelectedComponent);
                 Components.RemoveAt(index + 1);
-
-                this.
+                
 
                 RaisePropertyChanged("Components");
             }
@@ -121,8 +120,6 @@ namespace CartViewModel
 
                     RaisePropertyChanged("Components");
                 }
-
-
         }
 
         #region INotifyPropertyChanged

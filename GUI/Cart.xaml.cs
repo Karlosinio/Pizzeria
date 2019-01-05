@@ -40,6 +40,19 @@ namespace GUI
         {
         }
 
+        private void Previous_Orders(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var cartDataContext = button.DataContext;
+            var user_ID = 2;
+
+            var newWindow = new CartOrderHistory(cartDataContext)
+            {
+                DataContext = new OrderHistoryVM(user_ID)
+            };
+            newWindow.Show();
+        }
+
         private void Edit_Product(object sender, RoutedEventArgs e)
         {
             if (ListOfProducts.SelectedItem != null)

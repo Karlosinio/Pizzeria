@@ -68,5 +68,10 @@ namespace CartBackend.Services
                 //ex handler
             }
         }
+
+        public List<Order> GetRecentNOrders(int n, int userID, bool asc = true)
+        {
+            return base.GetAll().OrderBy(x => x.OrderTimestamp).Where(x => x.User.Id == userID).Take(n).ToList();
+        }
     }
 }

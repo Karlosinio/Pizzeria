@@ -11,9 +11,26 @@ namespace CartBackend.Common.DTO
         {
         }
 
+        private double _price = 0;
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public double Price { get {
+                double tmp = 0;
+                tmp += _price;
+                if(Component != null)
+                {
+                    foreach (var comp in Component)
+                    {
+                        tmp += comp.Quantity * comp.Component.Price;
+                    }
+
+                    return Quantity * tmp;
+                }
+                return Quantity * _price;
+            }
+
+            set { _price = value; } }
         public string ComponentToDisplay
         {
             get
