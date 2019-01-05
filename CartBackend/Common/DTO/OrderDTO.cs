@@ -16,5 +16,9 @@ namespace CartBackend.Common.DTO
 
         public Order Order { get; set; }
         public List<ProductDTO> Products { get; set; }
+
+        public DateTime Date { get {
+                return new DateTime(Order.OrderTimestamp);
+            } }
     }
 }

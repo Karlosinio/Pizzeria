@@ -57,6 +57,19 @@ namespace CartViewModel
                 Price = 33
             };
 
+            Component comp4 = new Component
+            {
+                Id = 4,
+                Name = "sss",
+                Price = 33
+            };
+
+            ComponentDTO dto4 = new ComponentDTO
+            {
+                Component = comp4,
+                Quantity = 33
+            };
+
             ComponentDTO dto = new ComponentDTO
             {
                 Component = comp,
@@ -93,13 +106,21 @@ namespace CartViewModel
                 dto2,
                 dto3
             };
+
+            List<ComponentDTO> list2 = new List<ComponentDTO>
+            {
+                dto4
+            };
+
+
+
             Price = 0;
             Products = new ObservableCollection<ProductDTO>
             {
                 new ProductDTO { Id=1, Name = "cos", Price=20, Component = list, Quantity = 1},
                 new ProductDTO { Id=2, Name = "adasd", Price=20, Quantity = 1 },
                 new ProductDTO { Id=3, Name = "cofgdfgs", Price=20, Quantity = 1 },
-                new ProductDTO { Id=4, Name = "casgfgos", Price=45, Component = list, Quantity = 1 },
+                new ProductDTO { Id=4, Name = "casgfgos", Price=45, Component = list2, Quantity = 1 },
                 new ProductDTO { Id=5, Name = "cdghfgdhos", Price=3, Quantity = 1 },
                 new ProductDTO { Id=6, Name = "asadasdcos", Price=200, Quantity = 1},
             };
