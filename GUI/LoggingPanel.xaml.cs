@@ -70,6 +70,10 @@ namespace GUI
             return ret;
         }
 
+        private void Hash_TextChanged1(object sender, TextChangedEventArgs e)
+        {
+
+        }
         private void Hash_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -81,7 +85,7 @@ namespace GUI
         }
         private void podaneHaslo_tb_TextChanged1(object sender, TextChangedEventArgs e)
         {
-            Hash_MD5.Text = MD5(podaneHaslo_tb1.Text);
+            Hash_MD51.Text = MD5(podaneHaslo_tb1.Text);
         }
     }
     public static class PasswordBoxAssistant 
