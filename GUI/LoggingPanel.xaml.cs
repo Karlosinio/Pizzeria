@@ -2,6 +2,9 @@
 using User.ViewModel;
 using System;
 using System.Windows.Controls;
+using System.Security.Cryptography;
+using System.Text;
+using System.Linq;
 
 namespace GUI
 {
@@ -46,9 +49,39 @@ namespace GUI
 
         }
 
-        private void TextBox_TextChanged_3(object sender, TextChangedEventArgs e)
+       private void poleHasla_pb_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            podaneHaslo_tb.Text = (sender as PasswordBox).Password; 
+        }
+
+        private void poleHasla_pb_PasswordChanged1(object sender, RoutedEventArgs e)
+        {
+            podaneHaslo_tb1.Text = (sender as PasswordBox).Password;
+        }
+
+        private string MD5(string Value)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider x = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(Value);
+            data = x.ComputeHash(data);
+            string ret = "";
+            for (int i = 0; i < data.Length; i++)
+                ret += data[i].ToString("x2").ToLower();
+            return ret;
+        }
+
+        private void Hash_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void podaneHaslo_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Hash_MD5.Text = MD5(podaneHaslo_tb.Text);
+        }
+        private void podaneHaslo_tb_TextChanged1(object sender, TextChangedEventArgs e)
+        {
+            Hash_MD5.Text = MD5(podaneHaslo_tb1.Text);
         }
     }
     public static class PasswordBoxAssistant 
@@ -153,6 +186,9 @@ namespace GUI
                 dp.SetValue(UpdatingPassword, value);
             }
         }
+
+
+    
 }
 
 
