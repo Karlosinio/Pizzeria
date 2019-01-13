@@ -60,7 +60,7 @@ namespace User.ViewModel
         {
             UserManager um = new UserManager();
            // um.Login(Nick, Password);
-            UserData.id = um.Login(Nick2, Password);
+            UserData.id = um.Login(Nick, Password);
         }
         
         public void Validation()
