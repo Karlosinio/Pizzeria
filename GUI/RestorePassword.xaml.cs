@@ -11,5 +11,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Button_Back(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

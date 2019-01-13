@@ -43,5 +43,37 @@ namespace GUI
         {
 
         }
+
+        private void Button_Back_Menu(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Menu();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Back_Cart(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Cart();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Back_Delivery(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Delivery();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Pay(object sender, RoutedEventArgs e)
+        {
+            // TO DO - logic
+
+            MessageBox.Show("Zamówienie przyjęte");
+
+            var newWindow = new Menu();
+            newWindow.Show();
+            Close();
+        }
     }
 }

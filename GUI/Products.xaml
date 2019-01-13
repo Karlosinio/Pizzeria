@@ -4,47 +4,67 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
+        xmlns:vm="clr-namespace:Admin;assembly=Admin"
         mc:Ignorable="d"
         Title="Pizzeria - Panel Administratora: Edycja produktów" Height="450" Width="800">
-    <Grid>
+
+    <Window.Resources>
+        <vm:ProductManager x:Key="ProductManager" />
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource ProductManager}">
         <!-- Button -->
-        <Button Content="Zamówienia" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15"/>
+        <Button Content="Zamówienia" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="348" Height="30"  FontSize="15" Click="Button_Orders"/>
 
         <!-- Products -->
-        <TextBlock HorizontalAlignment="Left" Margin="26,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="220" FontSize="20" Text="Produkty:" />
-        <Expander Header="Typ" HorizontalAlignment="Left" Height="30" Margin="251,58,0,0" VerticalAlignment="Top" Width="134">
-            <Grid Background="#FFE5E5E5"/>
-        </Expander>
-        <ListView Margin="26,93,408.6,17" x:Name="lvUsers">
+        <TextBlock HorizontalAlignment="Left" Margin="26,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="89" FontSize="20" ><Run Text="Produkty:"/></TextBlock>
+        <ListView Margin="26,93,418,43" x:Name="lvUsers"
+           
+            ItemsSource="{Binding Products, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True }"
+			SelectedItem="{Binding CurrentProduct}" SelectedIndex="0" SelectionChanged="Products_SelectionChanged">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="Id" Width="40" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Nazwa" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Cena" Width="75" DisplayMemberBinding="{Binding Price}" />
                 </GridView>
             </ListView.View>
         </ListView>
 
         <!-- Product detials -->
-        <TextBlock Text="Szczegóły produktu:" HorizontalAlignment="Left" Margin="409,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="409,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"><Run Text="Dodaj Pizze"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Nazwa:"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Width="244" FontSize="15" Margin="524,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Opis:"/>
-        <TextBox HorizontalAlignment="Left" Height="62" Width="244" FontSize="15" Margin="524,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        
+        <TextBox x:Name="ProductName" HorizontalAlignment="Left" Height="20" Width="244" FontSize="15" Margin="524,45,0,0" TextWrapping="Wrap" Text="{Binding NewProductName ,Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Kategoria"/><Run Text=":"/></TextBlock>
+
         <!-- Ingredients -->
-        <TextBlock Text="Składniki pizzy:" HorizontalAlignment="Left" Margin="409,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
-        <ListView Margin="409,172,67.6,72" x:Name="lvUsers_Copy">
+        <TextBlock Text="Składniki pizzy:" HorizontalAlignment="Left" Margin="409,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26"  Width="359" FontSize="20"/>
+        <ListView Margin="409,233,24,43" x:Name="lvUsers_Copy"
+            ItemsSource="{Binding CurrentProduct.Components, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"
+			SelectedIndex="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nazwa" Width="215" DisplayMemberBinding="{Binding Zamówienie}" />
-                    <GridViewColumn Header="Ilość" Width="100" DisplayMemberBinding="{Binding Status}" />
+                    <GridViewColumn Header="Nazwa" Width="360" DisplayMemberBinding="{Binding }" />
+
+
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="+" HorizontalAlignment="Left" Margin="744,233,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11"/>
-        <Button Content="+2" HorizontalAlignment="Left" Margin="744,257,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11"/>
-        <Button Content="-" HorizontalAlignment="Left" Margin="744,305,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11"/>
-        <Button Content="0" HorizontalAlignment="Left" Margin="744,329,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11"/>
-
+        <Button Content="Ref" HorizontalAlignment="Left" Margin="120,66,0,0" VerticalAlignment="Top" Width="24" Height="19"  FontSize="11" Click="Button_Click"/>
+        <Button Content="Usuń" HorizontalAlignment="Left" Margin="26,381,0,0" VerticalAlignment="Top" Width="348" Height="28"  FontSize="15" Command="{ Binding DeleteProductCommand }"/>
+        <Button Content="Sprawdź dostępność" HorizontalAlignment="Left" Margin="253,58,0,0" VerticalAlignment="Top" Width="121" Height="27"  FontSize="11" Command="{Binding CheckIfAvailableCommand}"/>
         <!-- Save -->
-        <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="409,373,0,0" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15"/>
+        <Button Content="Zapisz zmiany" HorizontalAlignment="Left" Margin="409,172,0,0" Command="{ Binding CreateNewProductCommand }" VerticalAlignment="Top" Width="359" Height="30"  FontSize="15" Click="Button_Save"  />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Cena"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="ProductCategory" HorizontalAlignment="Left" Height="20" Width="244" FontSize="15" Margin="524,70,0,0" TextWrapping="Wrap" Text="{Binding NewProductCategory, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"><Run Text="Składniki"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="ProductPrice" HorizontalAlignment="Left" Height="20" Width="244" FontSize="15" Margin="524,100,0,0" TextWrapping="Wrap" Text="{Binding NewProductPrice, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <ComboBox x:Name="listExtraSkills" ItemsSource="{Binding Components}" Margin="524,125,24,264" SelectionChanged="listExtraSkills_SelectionChanged" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox Name="chkitems" Content="{Binding Name}" IsChecked="{Binding IsSelected }"  ></CheckBox>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </Window>

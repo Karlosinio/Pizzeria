@@ -23,5 +23,38 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void Button_Orders(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Orders();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Save(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Products();
+            Close();
+            newWindow.Show();
+        }
+
+        private void listExtraSkills_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CartViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,6 +18,26 @@ namespace GUI
         public Cart()
         {
             InitializeComponent();
+            DataContext = new CartVM();
+        }
+
+        private void Button_Back_Menu(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Menu();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Delivery(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Delivery();
+            newWindow.Show();
+            Close();
+        }
+
+        private void Button_Delete_From_Cart(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

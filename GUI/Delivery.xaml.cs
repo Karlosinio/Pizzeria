@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeliveryViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace GUI
         public Delivery()
         {
             InitializeComponent();
+            DataContext = new DeliveryVM();
         }
 
         private void Delivery1RB_Checked(object sender, RoutedEventArgs e)
@@ -46,17 +48,23 @@ namespace GUI
 
         private void BackMenuB_Click(object sender, RoutedEventArgs e)
         {
-
+            var newWindow = new Menu();
+            newWindow.Show();
+            Close();
         }
 
         private void BackCartB_Click(object sender, RoutedEventArgs e)
         {
-
+            var newWindow = new Cart();
+            newWindow.Show();
+            Close();
         }
 
         private void ToPaymentB_Click(object sender, RoutedEventArgs e)
         {
-
+            var newWindow = new Payment();
+            newWindow.Show();
+            Close();
         }
     }
 }
