@@ -20,6 +20,7 @@ namespace User.ViewModel
         public string Email2 { get; set; }
         public string Password { get; set; }
         public string Password2 { get; set; }
+        public string Password3 { get; set; }
         public string Answer { get; set; }
 
         public ICommand RegisterButton { get;  protected set; }
