@@ -33,7 +33,7 @@
 
         <!-- Login -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,186,0,0" TextWrapping="Wrap" Text="{Binding Nick2 ,Mode=TwoWay}" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,186,0,0" TextWrapping="Wrap" Text="{Binding Nick ,Mode=TwoWay}" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_1"/>
 
         <!-- Phone number -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Nr telefonu:"/>

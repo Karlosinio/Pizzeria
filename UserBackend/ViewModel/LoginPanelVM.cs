@@ -234,7 +234,6 @@ namespace User.ViewModel
         public string Password { get; set; }
         public string Password2 { get; set; }   
         public string Password3 { get; set; }
-        public string Nick2 { get; set; }
 
         public string Answer    
         {
