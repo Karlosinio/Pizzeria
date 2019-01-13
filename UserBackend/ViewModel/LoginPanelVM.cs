@@ -23,13 +23,14 @@ namespace User.ViewModel
         public string Password3 { get; set; }
         public string Answer { get; set; }
 
-        public ICommand RegisterButton { get;  protected set; }
-        
+        public ICommand RegisterButton { get; protected set; }
+        public ICommand LoginButton { get; protected set; }
 
         public LoginPanelVM()
         {
 //            Name = "aaaa";
             RegisterButton = new DelegateCommand(Register);
+            LoginButton = new DelegateCommand(Login);
         }
 
         public void Register()
@@ -48,5 +49,12 @@ namespace User.ViewModel
 //            Name = "bbb";
 //            NotifyPropertyChanged("Name");
         }
+        public void Login()
+        {
+            UserManager um = new UserManager();
+            um.Login(Nick, Password);
+        }
+    
     }
+    
 }
