@@ -37,5 +37,11 @@ namespace GUI
             // TO DO - logic
             DataContext = new UserPanelVM();
         }
+        
+        private void Button_Retrive(object sender, RoutedEventArgs e)
+        {
+            // TO DO - logic
+            DataContext = new UserPanelVM();
+        }
     }
 }

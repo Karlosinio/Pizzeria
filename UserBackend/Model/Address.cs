@@ -10,7 +10,7 @@ namespace User.Model
     {
         public int id { get; set; }
         public string name { get; set; }
-        public int nip { get; set; }
+        public string nip { get; set; }
         public string city { get; set; }
         public string postalCode { get; set; }
         public string street { get; set; }
@@ -19,6 +19,16 @@ namespace User.Model
         {
             name = Name;
 //            nip = Nip;
+            city = City;
+            postalCode = PostalCode;
+            street = Street;
+        }
+        
+        public Address(int Id, string Name,  string Nip, string City, string PostalCode, string Street)
+        {
+            id = Id;
+            name = Name;
+            nip = Nip;
             city = City;
             postalCode = PostalCode;
             street = Street;

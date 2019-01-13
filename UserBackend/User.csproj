@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\UserData.cs" />
     <Compile Include="Service\AddressManager.cs" />
     <Compile Include="Service\QuestionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
