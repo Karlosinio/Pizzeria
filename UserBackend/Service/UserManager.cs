@@ -55,14 +55,14 @@ namespace User.Service
             request.ContentType = "application/json";
             Model.User add = new Model.User() {Nick = nick, Password = password};
 
-            var json = JsonConvert.SerializeObject(add);   
-//            string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
+       //     var json = JsonConvert.SerializeObject(add);   
+            string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
 
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                streamWriter.Write(json);
-//                streamWriter.Write(User);
+               // streamWriter.Write(json);
+                streamWriter.Write(User);
             }
 
 
@@ -76,7 +76,35 @@ namespace User.Service
 
             return false;
         }
+        public bool Logout(int id)
+        {
+            HttpWebRequest request =
+                (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/{id}/logout/");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            Model.User add = new Model.User() {Id=id};
 
+            //     var json = JsonConvert.SerializeObject(add);   
+            string User = $"{{\"id\": \"{id}\"}}";
+
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                // streamWriter.Write(json);
+                streamWriter.Write(User);
+            }
+
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
         public Model.User Get(string id)
         {
