@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
-using Newtonsoft.Json;
 using User.Model;
 using User.Service;
 
@@ -29,8 +27,9 @@ namespace User.ViewModel
         private bool error { get; set; }
 
         public ICommand RegisterButton { get;  protected set; }
+        public ICommand LoginButton { get; protected set; }
 
-       
+        
         public LoginPanelVM()
         {
 //            Name = "aaaa";
@@ -56,6 +55,12 @@ namespace User.ViewModel
             }
 //            Name = "bbb";
 //            NotifyPropertyChanged("Name");
+        }
+        
+        public void Login()
+        {
+            UserManager um = new UserManager();
+            um.Login(Nick, Password);
         }
         
         public void Validation()
