@@ -44,10 +44,8 @@ namespace User.Model
 
         }
 
-        public User(string Nick, string Password)
+        User()
         {
-            nick = Nick;
-            password = Password;
         }
 
     }

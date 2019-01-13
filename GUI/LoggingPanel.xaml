@@ -17,10 +17,10 @@
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="419,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Hasło:" TextAlignment="Right"/>
         <PasswordBox HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="244" Margin="538,26,0,0" FontSize="20" AutomationProperties.Name="textBox_Password" MaxLength="16" PasswordChanged="poleHasla_pb_PasswordChanged1"/>
         <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb1" Height="23" Margin="399,100,0,0"  VerticalAlignment="Top" Width="120" TextChanged="podaneHaslo_tb_TextChanged1"/>
-        <TextBox HorizontalAlignment="Left" Name="Hash_MD51" Height="23" Margin="565,100,0,0"  VerticalAlignment="Top" Width="120" TextChanged="Hash_TextChanged1" Text="{Binding Password ,Mode=TwoWay}" />
+        <TextBox HorizontalAlignment="Left" Name="Hash_MD51" Height="23" Margin="565,100,0,0"  VerticalAlignment="Top" Width="120" TextChanged="Hash_TextChanged1"/>
         <!-- Reset password & sign in -->
         <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_RestPass"/>
-        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_Log" Command="{Binding LoginButton}"/>
+        <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_Log"/>
 
         <!-- REGISTER -->
         <!-- Name -->
