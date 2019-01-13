@@ -112,7 +112,7 @@ namespace User.Service
             return false;
         }
 
-        public Model.User Get(string id)
+        public Model.User Get(int id)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/users/{id}");
             request.Method = "GET";
@@ -127,17 +127,14 @@ namespace User.Service
             return list;
         }
 
-        public bool Update(string id, string name, string surname, Address address, string phone, string email)
+//        public bool Update(int id, string name, string surname, Address address, string phone, string email)
+        public bool Update(int id, string name, string surname, string phone, string email)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/users/{id}/details/");
             request.Method = "PATCH";
             request.ContentType = "application/json";
-//                JsonSerializer jsonSerializer = new JsonSerializer()
-//                {
-//                    NullValueHandling = NullValueHandling.Ignore
-//                };
 //                var json = JsonConvert.SerializeObject(add, new JsonSerializerSettings(){NullValueHandling = NullValueHandling.Ignore});   
-            string updateUser = $"{{\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"phone\": \"{phone}\",\"email\": \"{email}\"}}";
+            string updateUser = $"{{\"name\": \"{name}\",\"surname\": \"{surname}\",\"phone\": \"{phone}\",\"email\": \"{email}\"}}";
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
 //                streamWriter.Write(json);
@@ -145,7 +142,7 @@ namespace User.Service
             }
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                if (response.StatusCode == HttpStatusCode.Created)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     return true;
                 }

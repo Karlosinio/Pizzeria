@@ -17,7 +17,8 @@ namespace User.ViewModel
         private string _adrNumer;
         private string _adrKod;
         private string _adrMiasto;
-        
+        private string _mail2;
+
         private bool error { get; set; }
         public ICommand SaveButton { get;  protected set; }
         public ICommand RetriveButton { get;  protected set; }
@@ -33,7 +34,7 @@ namespace User.ViewModel
         public void DisplayUser()
         {
             UserManager um = new UserManager();
-            Model.User responseUser = um.Get(UserData.id.ToString());
+            Model.User responseUser = um.Get(UserData.id);
 //            Console.WriteLine(responseUser.);
             Login = responseUser.Nick;
             Imie = responseUser.Name;
@@ -47,21 +48,22 @@ namespace User.ViewModel
         
         public void Save()
         {
-            Validation();
+//            Validation();
             if (!error)
             {
-                Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
+//                Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
                 UserManager um = new UserManager();
-                um.Update(UserData.id.ToString(), Imie, Nazwisko, a1, Tel, Mail);
+//                um.Update(UserData.id, Imie, Nazwisko, a1, Tel, Mail);
+                um.Update(UserData.id, Imie, Nazwisko,  Tel, Mail);
             
                 //wpis do 'interfejsu'
                 UserData.name = Imie;
                 UserData.surname = Nazwisko;
                 UserData.email = Mail;
                 UserData.phone = Tel;
-                UserData.address.City = AdrUlica;
-                UserData.address.Street = AdrUlica;
-                UserData.address.PostalCode = AdrKod;
+//                UserData.address.City = AdrUlica;
+//                UserData.address.Street = AdrUlica;
+//                UserData.address.PostalCode = AdrKod;
             }
         }
 
@@ -169,7 +171,15 @@ namespace User.ViewModel
             }
         }
 
-        public string Mail2 { get; set; }
+        public string Mail2
+        {
+            get => _mail2;
+            set
+            {
+                _mail2 = value;
+                NotifyPropertyChanged(nameof(Mail2));
+            }
+        }
 
 //        public string Haslo { get; set; }
         public string AdrUlica
