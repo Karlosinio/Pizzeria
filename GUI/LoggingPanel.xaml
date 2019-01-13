@@ -11,7 +11,7 @@
         <!-- SIGN IN -->
         <!-- Login -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right" />
-        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" />
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,26,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Text="{Binding Nick ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <!-- Password -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="419,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Hasło:" TextAlignment="Right"/>

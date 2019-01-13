@@ -56,14 +56,14 @@ namespace User.Service
             request.ContentType = "application/json";
             Model.User add = new Model.User() {Nick = nick, Password = password};
 
-            var json = JsonConvert.SerializeObject(add);   
-//            string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
+       //     var json = JsonConvert.SerializeObject(add);   
+            string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
 
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                streamWriter.Write(json);
-//                streamWriter.Write(User);
+               // streamWriter.Write(json);
+                streamWriter.Write(User);
             }
 
 
