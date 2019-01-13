@@ -16,14 +16,13 @@ namespace User.Service
         //        public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
         public bool Create(string nick, string name, string surname, string address, string question, string answer, string password)
         {
-            HttpWebRequest request =
-                (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/");
             request.Method = "POST";
             request.ContentType = "application/json";
             Model.User add = new Model.User(nick, name, surname, address, question, answer, password);
 
             //            var json = JsonConvert.SerializeObject(add);   
-            string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"nowy\" ,\"street\": \"adres\",\"city\": \"miasto\",\"postalCode\": \"12-345\"}},\"question\": {{\"id\": 1,\"question\": \"Imię mojego psa\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
+            string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": 1,\"question\": \"Imię mojego psa\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
 
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
@@ -43,7 +42,14 @@ namespace User.Service
             return false;
         }
 
-
+//        public Model.User Get(string id)
+//        {
+//            HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/users/{id}");
+//            request.Method = "GET";
+//            request.ContentType = "application/json";
+//            
+//            
+//        }
 
 
     }
