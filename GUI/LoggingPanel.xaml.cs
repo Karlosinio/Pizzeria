@@ -97,8 +97,6 @@ namespace GUI
         {
             Hash_MD51.Text = MD5(podaneHaslo_tb1.Text);
         }
-
-
     }
     public static class PasswordBoxAssistant 
         {
