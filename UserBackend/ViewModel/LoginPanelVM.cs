@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -27,11 +26,10 @@ namespace User.ViewModel
         public string Password3 { get; set; }
         public string Questions { get; set; }
         public string Answer { get; set; }
-        public bool error { get; set; }
+        private bool error { get; set; }
 
         public ICommand RegisterButton { get;  protected set; }
 
-       
        
         public LoginPanelVM()
         {

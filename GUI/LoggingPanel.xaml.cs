@@ -18,8 +18,13 @@ namespace GUI
         public LoggingPanel()
         {
             InitializeComponent();
+            List<Question> oQuestionList = new List<Question>();
+            oQuestionList.Add(new Question(1, "Twoje rodzime miasto"));
+            oQuestionList.Add(new Question(2, "Imie twojego zwierzaka"));
+            oQuestionList.Add(new Question(3, "Nazwisko panieńskie matki"));
+            oQuestionList.Add(new Question(4, "Ulubiony Kolor"));
             DataContext = new LoginPanelVM();
-
+            
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -58,6 +63,10 @@ namespace GUI
         private void poleHasla_pb_PasswordChanged1(object sender, RoutedEventArgs e)
         {
             podaneHaslo_tb1.Text = (sender as PasswordBox).Password;
+        }
+        private void poleHasla_pb_PasswordChanged2(object sender, RoutedEventArgs e)
+        {
+            podaneHaslo_tb2.Text = (sender as PasswordBox).Password;
         }
 
         private string MD5(string Value)

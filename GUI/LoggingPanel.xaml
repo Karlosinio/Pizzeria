@@ -47,22 +47,20 @@
 
         <!-- Password -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Hasło:"/>
-        <PasswordBox  HorizontalAlignment="Left" Name="poleHasla_pb" l:PasswordBoxAssistant.BindPassword="True" PasswordChanged="poleHasla_pb_PasswordChanged"  Height="30" Width="260" FontSize="20" Margin="115,256,0,0"  VerticalAlignment="Top"  />
+        <PasswordBox  HorizontalAlignment="Left" Name="poleHasla_pb" PasswordChanged="poleHasla_pb_PasswordChanged"  Height="30" Width="260" FontSize="20" Margin="115,256,0,0"  VerticalAlignment="Top"  />
 
-        <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb" Height="31" Margin="457,358,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" TextChanged="podaneHaslo_tb_TextChanged" />
+        <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb" Height="31" Margin="457,358,0,0" Text="{Binding Password2 ,Mode=TwoWay}" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" TextChanged="podaneHaslo_tb_TextChanged" />
         <TextBox HorizontalAlignment="Left" Name="Hash_MD5" Height="23" Margin="457,386,0,0"  Text="{Binding Password ,Mode=TwoWay}" VerticalAlignment="Top" Width="120" TextChanged="Hash_TextChanged"/>
-
+        <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb2" Height="31" Margin="270,357,0,0" Text="{Binding Password3 ,Mode=TwoWay}" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" TextChanged="podaneHaslo_tb_TextChanged" />
         <!--->
         <PasswordBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,256,0,0" Text="{Binding Password ,Mode=TwoWay}" VerticalAlignment="Top"/>
         <-->
         <TextBlock HorizontalAlignment="Left"  Height="30" Width="139" FontSize="20" Margin="380,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz hasło:"/>
-        <PasswordBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,256,0,0"  l:PasswordBoxAssistant.BindPassword="True" l:PasswordBoxAssistant.BoundPassword="{Binding Password2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" />
+        <PasswordBox HorizontalAlignment="Left" Name="poleHasla_pb1" PasswordChanged="poleHasla_pb_PasswordChanged2" Height="30" Width="260" FontSize="20" Margin="524,256,0,0"  l:PasswordBoxAssistant.BindPassword="True"  VerticalAlignment="Top" />
 
         <!-- Security question -->
         <TextBlock HorizontalAlignment="Left" Height="56" Width="120" FontSize="20" Margin="9,291,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Pytanie pomocnicze:"/>
-        <!--  <Expander Header="Podaj" HorizontalAlignment="Left" Height="56" Margin="135,296,0,0" VerticalAlignment="Top" Width="240">
-            <Grid Background="#FFE5E5E5"/>
-        </Expander> --> 
+        
 
         <!-- Security answer -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Odpowiedź:"/>
@@ -71,8 +69,9 @@
         <!-- Register -->
         <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="624,357,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Command="{Binding RegisterButton}"/>
 
+
         <!-- SQuestion -->
-        <StackPanel HorizontalAlignment="Left" Height="80" Margin="134,300,0,0" VerticalAlignment="Top" Width="220">
+        <StackPanel HorizontalAlignment="Left" Height="80" Margin="134,301,0,0" VerticalAlignment="Top" Width="220">
             <RadioButton Content="RadioButton" IsChecked="True" />
             <RadioButton Content="RadioButton"/>
             <RadioButton Content="RadioButton"/>
