@@ -71,13 +71,7 @@
 
 
             <!-- SQuestion -->
-            <StackPanel HorizontalAlignment="Left" Height="80" Margin="134,301,0,0" VerticalAlignment="Top" Width="220">
-                <RadioButton Content="RadioButton" IsChecked="True" />
-                <RadioButton Content="RadioButton"/>
-                <RadioButton Content="RadioButton"/>
-                <RadioButton Content="RadioButton"/>
-            </StackPanel>
-
+            <ComboBox ItemsSource="{Binding Questions}" SelectedValue="{Binding SelectedQuestion, Mode=TwoWay}" HorizontalAlignment="Left" Height="56" Margin="135,296,0,0" VerticalAlignment="Top" Width="240"/>
 
 
 

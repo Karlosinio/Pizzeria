@@ -1,6 +1,6 @@
 namespace User.Model
 {
-    public class UserData
+    public static class UserData
     {
         public static int id { get; set; }
         public static string name { get; set; }
@@ -9,8 +9,8 @@ namespace User.Model
         public static string phone { get; set; }
         public static string nick { get; set; }
         public static string password { get; set; }
-        public Address address { get; set; }
-        public Question question { get; set; }
+        public static Address address { get; set; }
+        public static Question question { get; set; }
         public static string answer { get; set; }
         public static bool active { get; set; }
         public static bool loggedIn { get; set; }

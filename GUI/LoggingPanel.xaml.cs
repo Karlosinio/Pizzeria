@@ -18,11 +18,6 @@ namespace GUI
         public LoggingPanel()
         {
             InitializeComponent();
-            List<Question> oQuestionList = new List<Question>();
-            oQuestionList.Add(new Question(1, "Twoje rodzime miasto"));
-            oQuestionList.Add(new Question(2, "Imie twojego zwierzaka"));
-            oQuestionList.Add(new Question(3, "Nazwisko panieńskie matki"));
-            oQuestionList.Add(new Question(4, "Ulubiony Kolor"));
             DataContext = new LoginPanelVM();
             
         }

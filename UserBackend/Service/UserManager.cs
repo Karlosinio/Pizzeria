@@ -13,17 +13,20 @@ namespace User.Service
     class UserManager
     {
 
-//        public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
-        public bool Create(string nick, string name, string surname, string address, string question, string answer, string password)
+        public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
         {
             try
             {
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/");
                 request.Method = "POST";
                 request.ContentType = "application/json";
-                Model.User add = new Model.User(nick, name, surname, address, question, answer, password);
-//            var json = JsonConvert.SerializeObject(add);   
-                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": 1,\"question\": \"Imię mojego psa\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
+//                JsonSerializer jsonSerializer = new JsonSerializer()
+//                {
+//                    NullValueHandling = NullValueHandling.Ignore
+//                };
+                  
+//                var json = JsonConvert.SerializeObject(add, new JsonSerializerSettings(){NullValueHandling = NullValueHandling.Ignore});   
+                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
 //                streamWriter.Write(json);
@@ -51,16 +54,16 @@ namespace User.Service
                 (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/login/");
             request.Method = "POST";
             request.ContentType = "application/json";
-            Model.User add = new Model.User(nick, password);
+            Model.User add = new Model.User() {Nick = nick, Password = password};
 
-            //            var json = JsonConvert.SerializeObject(add);   
-            string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
+            var json = JsonConvert.SerializeObject(add);   
+//            string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
 
 
             using (var streamWriter = new StreamWriter(request.GetRequestStream()))
             {
-                //                streamWriter.Write(json);
-                streamWriter.Write(User);
+                streamWriter.Write(json);
+//                streamWriter.Write(User);
             }
 
 

@@ -8,31 +8,36 @@ namespace User.Model
 {
     public class Address
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string nip { get; set; }
-        public string city { get; set; }
-        public string postalCode { get; set; }
-        public string street { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Nip { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string Street { get; set; }
 
-        public Address(string Name,  string City, string PostalCode, string Street)
-        {
-            name = Name;
+//        public Address(string Name,  string City, string PostalCode, string Street)
+//        {
+//            name = Name;
+////            nip = Nip;
+//            city = City;
+//            postalCode = PostalCode;
+//            street = Street;
+//        }
+//        
+//        public Address(int Id, string Name,  string Nip, string City, string PostalCode, string Street)
+//        {
+//            id = Id;
+//            name = Name;
 //            nip = Nip;
-            city = City;
-            postalCode = PostalCode;
-            street = Street;
-        }
-        
-        public Address(int Id, string Name,  string Nip, string City, string PostalCode, string Street)
-        {
-            id = Id;
-            name = Name;
-            nip = Nip;
-            city = City;
-            postalCode = PostalCode;
-            street = Street;
-        }
+//            city = City;
+//            postalCode = PostalCode;
+//            street = Street;
+//        }
+//
+//        public Address()
+//        {
+//            
+//        }
     }
 
     
