@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
+using System.Collections.Generic;
+using User.Model;
 
 namespace GUI
 {
@@ -16,9 +18,14 @@ namespace GUI
         public LoggingPanel()
         {
             InitializeComponent();
+            List<Question> oQuestionList = new List<Question>();
+            oQuestionList.Add(new Question(1, "Twoje rodzime miasto"));
+            oQuestionList.Add(new Question(2, "Imie twojego zwierzaka"));
+            oQuestionList.Add(new Question(3, "Nazwisko panieńskie matki"));
+            oQuestionList.Add(new Question(4, "Ulubiony Kolor"));
             DataContext = new LoginPanelVM();
-            
-
+            //List<Person>oPersonsList = new List<Person>();
+            //oPersonsList.Add(new Person(1, "Jan", "Kowalski", 24));
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -87,6 +94,8 @@ namespace GUI
         {
             Hash_MD51.Text = MD5(podaneHaslo_tb1.Text);
         }
+
+
     }
     public static class PasswordBoxAssistant 
         {
