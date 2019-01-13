@@ -47,7 +47,7 @@ namespace User.ViewModel
                 Address a1 = new Address();
                 Question q1 = SelectedQuestion;
                 UserManager um = new UserManager();
-                um.Create(Nick, Name, Surname, a1, q1, Answer, Password);
+                um.Create(Nick, Name, Surname, Email, Phone,a1, q1, Answer, Password);
 //                um.Create(Nick, Name, Surname, adr, qeust, Answer, Password);
                 MessageBox.Show("Zarejestrowano konto!\nMożesz się zalogować");
                 //todo obsluga bledu polaczenia

@@ -33,7 +33,7 @@ namespace User.ViewModel
         public void DisplayUser()
         {
             UserManager um = new UserManager();
-            Model.User responseUser = um.Get("2"); //todo id uzytkowika zalogowanego (UserData.id)
+            Model.User responseUser = um.Get(UserData.id.ToString());
 //            Console.WriteLine(responseUser.);
             Login = responseUser.Nick;
             Imie = responseUser.Name;
@@ -52,7 +52,7 @@ namespace User.ViewModel
             {
                 Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
                 UserManager um = new UserManager();
-                um.Update("2", Imie, Nazwisko, a1, Tel, Mail); //todo id uzytkowika zalogowanego (UserData.id)
+                um.Update(UserData.id.ToString(), Imie, Nazwisko, a1, Tel, Mail);
             
                 //wpis do 'interfejsu'
                 UserData.name = Imie;

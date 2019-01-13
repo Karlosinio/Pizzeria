@@ -13,7 +13,7 @@ namespace User.Service
    public class UserManager
     {
 
-        public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
+        public bool Create(string nick, string name, string surname, string email, string phone, Address address, Question question, string answer, string password)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace User.Service
 //                    NullValueHandling = NullValueHandling.Ignore
 //                };
 //                var json = JsonConvert.SerializeObject(add, new JsonSerializerSettings(){NullValueHandling = NullValueHandling.Ignore});   
-                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
+                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
 //                streamWriter.Write(json);
