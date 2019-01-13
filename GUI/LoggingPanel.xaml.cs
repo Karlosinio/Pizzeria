@@ -24,8 +24,7 @@ namespace GUI
             oQuestionList.Add(new Question(3, "Nazwisko panieńskie matki"));
             oQuestionList.Add(new Question(4, "Ulubiony Kolor"));
             DataContext = new LoginPanelVM();
-            //List<Person>oPersonsList = new List<Person>();
-            //oPersonsList.Add(new Person(1, "Jan", "Kowalski", 24));
+            
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -64,6 +63,10 @@ namespace GUI
         private void poleHasla_pb_PasswordChanged1(object sender, RoutedEventArgs e)
         {
             podaneHaslo_tb1.Text = (sender as PasswordBox).Password;
+        }
+        private void poleHasla_pb_PasswordChanged2(object sender, RoutedEventArgs e)
+        {
+            podaneHaslo_tb2.Text = (sender as PasswordBox).Password;
         }
 
         private string MD5(string Value)
