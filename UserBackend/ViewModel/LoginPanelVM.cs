@@ -77,7 +77,7 @@ namespace User.ViewModel
             if (string.IsNullOrEmpty(Phone))
             {
                 error = true;
-                errorMsg = errorMsg + "NUMER TELEFONU jest polem obowiązkowym\n";
+                errorMsg = errorMsg + "NUMER TELEFONU jest polem obowiązkowy\n";
                 
             }
             if (Phone != null)
@@ -100,12 +100,26 @@ namespace User.ViewModel
                 error = true;
                 errorMsg = errorMsg + "Podane MAILE muszą być jednakowe!\n";
             }
-            if (Password2 != Password3)
+            if (string.IsNullOrEmpty(Password))
             {
                 error = true;
-                errorMsg = errorMsg + "Podane HASŁA muszą być jednakowe!";
+                errorMsg = errorMsg + "HASŁO jest polem obowiązkowym\n";
+                
             }
-            MessageBox.Show(errorMsg);
+
+            if (Password != null)
+            {
+                if (Password2 != Password3)
+                {
+                    error = true;
+                    errorMsg = errorMsg + "Podane HASŁA muszą być jednakowe!";
+                }
+            }
+
+            if (error)
+            {
+                MessageBox.Show(errorMsg);
+            }
         }
         
         bool IsDigitsOnly(string str)

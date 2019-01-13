@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using User.ViewModel;
 
 namespace GUI
 {
@@ -34,6 +35,7 @@ namespace GUI
         private void Button_Save(object sender, RoutedEventArgs e)
         {
             // TO DO - logic
+            DataContext = new UserPanelVM();
         }
     }
 }

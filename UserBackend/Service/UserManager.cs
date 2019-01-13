@@ -42,14 +42,42 @@ namespace User.Service
             return false;
         }
 
-//        public Model.User Get(string id)
-//        {
+        public void Get(string id)
+        {
 //            HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/users/{id}");
 //            request.Method = "GET";
 //            request.ContentType = "application/json";
-//            
-//            
-//        }
+            
+//            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+//            using (Stream stream = response.GetResponseStream())
+//            using (StreamReader reader = new StreamReader(stream))
+//            {
+//                var result = reader.ReadToEnd();
+//                var list = JsonConvert.DeserializeObject<DeliveryOption>(result);
+//                return list;
+//            }
+
+//            string sURL;
+//            sURL = $"http://127.0.0.1:8080/server/api/users/{id}";
+//            WebRequest wrGETURL;
+//            wrGETURL = WebRequest.Create(sURL);
+//            Stream objStream;
+//            objStream = wrGETURL.GetResponse().GetResponseStream();
+//            StreamReader objReader = new StreamReader(objStream);
+//
+//            string sLine = "";
+//            int i = 0;
+//
+//            while (sLine!=null)
+//            {
+//                i++;
+//                sLine = objReader.ReadLine();
+//                if (sLine!=null)
+//                    Console.WriteLine("{0}:{1}",i,sLine);
+//            }
+//            Console.ReadLine();
+            
+        }
 
 
     }

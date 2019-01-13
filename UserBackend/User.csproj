@@ -64,6 +64,7 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\DelegateCommand.cs" />
     <Compile Include="ViewModel\LoginPanelVM.cs" />
+    <Compile Include="ViewModel\UserPanelVM.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
