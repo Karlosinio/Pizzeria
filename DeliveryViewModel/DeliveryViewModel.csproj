@@ -46,12 +46,18 @@
   <ItemGroup>
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="DeliveryVM.cs" />
+    <Compile Include="PaymentVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CartBackend\CartBackend.csproj">
+      <Project>{29746645-251D-4D50-97F1-7209CB8521D8}</Project>
+      <Name>CartBackend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CartViewModel\CartViewModel.csproj">
       <Project>{C141D393-9320-43CB-A5E8-6DF217A7A590}</Project>
       <Name>CartViewModel</Name>

@@ -3,7 +3,7 @@ using CartBackend.Common.DTO;
 using CartBackend.Common.Models;
 using CartBackend.Services;
 using CartViewModel;
-using DeliveryBackend.Model;
+using DeliveryBackend.Helpers;
 using DeliveryBackend.Service;
 using System;
 using System.Collections.Generic;
@@ -18,8 +18,8 @@ namespace ForTests
         static void Main(string[] args)
         {
 
-            //var service = new OrderService();
-            /*
+            var service = new OrderService();
+
             Order o = new Order
             {
                 Comment = "asdgfdg",
@@ -29,43 +29,100 @@ namespace ForTests
                 User = new User { Id = 2 },
                 OrderTimestamp = 1231231
             };
-            */
 
-            //Product dto = new Product
-            //{
-            //    Id = 1,
-            //    Available = true,
-            //    Category = "sadasd",
-            //    Name = "sadasdas",
-            //    Price = 200
-            //};
+            Component comp = new Component
+            {
+                Id = 1,
+                Name = "sss",
+                Price = 33
+            };
+
+            ComponentDTO dto = new ComponentDTO
+            {
+                Component = comp,
+                Quantity = 3
+            };
+            Component comp2 = new Component
+            {
+                Id = 2,
+                Name = "ssasdasds",
+                Price = 337
+            };
+
+            ComponentDTO dto2 = new ComponentDTO
+            {
+                Component = comp2,
+                Quantity = 2
+            };
+            Component comp3 = new Component
+            {
+                Id = 3,
+                Name = "sssasdasd",
+                Price = 332
+            };
+
+            ComponentDTO dto3 = new ComponentDTO
+            {
+                Component = comp3,
+                Quantity = 7
+            };
+
+            List<ComponentDTO> list = new List<ComponentDTO>
+            {
+                dto,
+                dto2,
+                dto3
+            };
 
 
-            //Order_Product oo = new Order_Product();
-            //oo.Product = dto;
-
-            //OrderDTO orderDto = new OrderDTO
-            //{
-            //    Order = o
-            //};
-            //orderDto.Products.Add(oo);
-
-            //var list = service.GetAll();
-
-            //service.Insert(orderDto);
-
-            //var vm = new CartVM();
-
-            //vm.GetOrderProducts();
 
 
-            //AddressManager add =new  AddressManager();
-            //add.Create("bart", 12345, "city","street", 1234);
-            //Address ajn= add.Get(3);
-            //Console.WriteLine(ajn.city);
-            //add.Remove(5);
-            //DeliveryManager man = new DeliveryManager();
-            //man.Create(o, man.GetDO(2), add.Get(3));
+            ProductDTO productDTO = new ProductDTO
+            {
+                Id = 1,
+                Name = "name",
+                Component = list,
+                Category = "kategoria",
+                Price = 20,
+                Available = true,
+                Quantity = 77
+
+            };
+            ProductDTO productDTO2 = new ProductDTO
+            {
+                Id = 2,
+                Name = "name2",
+                Component = list,
+                Category = "kategoria2",
+                Price = 25,
+                Available = true,
+                Quantity = 7
+            };
+
+            List<ProductDTO> prod = new List<ProductDTO>
+            {
+                productDTO,
+                productDTO2
+            };
+
+            OrderDTO orderDTO = new OrderDTO
+            {
+                Order = o,
+                Products = prod
+            };
+
+            CartVM vm = new CartVM();
+
+            vm.AddProduct(productDTO);
+            vm.AddProduct(productDTO);
+            vm.AddProduct(productDTO);
+            vm.AddProduct(productDTO);
+
+            //service.Insert(orderDTO);
+
+            //InvoiceManager inn = new InvoiceManager();
+            //inn.Generate(vm.GetProducts());
+            //inn.GenerateAndSend(vm.GetProducts());
 
         }
     }

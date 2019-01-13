@@ -5,24 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="Koszyk" Height="450" Width="800.5">
+        WindowStartupLocation="CenterScreen"
+        Title="Koszyk" Height="452" Width="800.5">
     <Grid>
         <!-- Cart -->
-        <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="619,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
-        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' PLN {0}'}" HorizontalAlignment="Left" Margin="684,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="100" FontSize="20" Foreground="Green" TextAlignment="Right"/>
+        <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="588,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
+        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' {0} PLN'}" HorizontalAlignment="Left" Margin="662,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="98" FontSize="20" Foreground="Green" TextAlignment="Right"/>
 
         <Button Content="Powrót" Command="{Binding Add}" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Button_Back_Menu"/>
-        <ListView Margin="10,58,12.4,44" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduct}">
+        <ListView Name="ListOfProducts" Margin="10,58,12.4,44" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduct}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Produkt" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="120" DisplayMemberBinding="{Binding Quantity}" />
                     <GridViewColumn Header="Cena" Width="50" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Składniki" Width="150" DisplayMemberBinding="{Binding Components}" />
+                    <GridViewColumn Header="Dodatkowe składniki" Width="350" DisplayMemberBinding="{Binding ComponentToDisplay}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Button_Delivery"/>
-        <Button Content="Usuń" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="715,380,0,0" VerticalAlignment="Top" Width="67" Height="29" Click="Button_Delete_From_Cart"/>
+        <Button Content="Poprzednie produkty" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Previous_Orders"/>
+        <Button Content="Usuń wszystko" Command="{Binding DeleteAll}" HorizontalAlignment="Left" Margin="548,389,0,0" VerticalAlignment="Top" Width="86" Height="20"/>
+        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="693,380,0,0" VerticalAlignment="Top" Width="67" Height="29" Click="Edit_Product"/>
+        <Button Content="+" Command="{Binding Button_Add_Quantity}" HorizontalAlignment="Left" Margin="275,389,0,0" VerticalAlignment="Top" Width="24" />
+        <Button Content="-" Command="{Binding Button_Delete_Quantity}" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" Width="24" />
+        <Button Content="Dodaj" Command="{Binding AddQuantity}" HorizontalAlignment="Left" Margin="317,389,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Usuń wybraną ilość" Command="{Binding Delete}" HorizontalAlignment="Left" Margin="412,389,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBlock Text="{Binding QuantityAddDelete, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' {0} '}" HorizontalAlignment="Left" Margin="235,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"  Width="35" TextAlignment="Center" RenderTransformOrigin="-1.271,0.239"/>
+
     </Grid>
 </Window>
 

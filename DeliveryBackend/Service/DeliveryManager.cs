@@ -92,12 +92,5 @@ namespace DeliveryBackend.Service
                 return list;
             }
         }
-
-        //TO OD
-        public void GetAvaibleDeliveryOptions()
-        {
-
-        }
-
     }
 }

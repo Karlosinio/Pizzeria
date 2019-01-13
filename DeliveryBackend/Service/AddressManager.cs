@@ -28,6 +28,31 @@ namespace DeliveryBackend.Service
             }
         }
 
+        public bool Create(Address nw)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/addresses/");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+
+            var json = JsonConvert.SerializeObject(nw);
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+            }
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
+
         public bool Create(string name,int nip ,string street, string city, string postalCode)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/addresses/");

@@ -1,4 +1,5 @@
-﻿using DeliveryViewModel;
+﻿using CartViewModel;
+using DeliveryViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,26 @@ namespace GUI
     /// </summary>
     public partial class Delivery : Window
     {
-        public Delivery()
+        public CartVM cart;
+        public DeliveryVM del;
+
+        public Delivery(CartVM kart)
         {
             InitializeComponent();
-            DataContext = new DeliveryVM();
+            cart = kart;
+            del = new DeliveryVM(cart);
+            DataContext = new DeliveryVM(cart);
+
         }
 
         private void Delivery1RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).CheckRadios1();
         }
 
         private void Delivery2RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).CheckRadios2();
         }
 
         private void Address1RB_Checked(object sender, RoutedEventArgs e)
@@ -62,7 +69,9 @@ namespace GUI
 
         private void ToPaymentB_Click(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Payment();
+            ((DeliveryVM)DataContext).AddAddress();
+            cart.Price = ((DeliveryVM)DataContext).Price;
+            var newWindow = new Payment(cart, del) ;
             newWindow.Show();
             Close();
         }

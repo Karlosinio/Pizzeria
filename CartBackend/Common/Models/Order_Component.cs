@@ -8,8 +8,8 @@ namespace CartBackend.Common.Models
 {
     public class Order_Component
     {
+        public int Id { get; set; }
         public Order Order { get; set; }
-        //productIdInOrder
         public int ProductIdInOrder { get; set; }
         public Product Product { get; set; }
         public Component Component { get; set; }

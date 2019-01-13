@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CartVM.cs" />
+    <Compile Include="CartEditVM.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="OrderHisotryVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

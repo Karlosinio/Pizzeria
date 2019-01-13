@@ -1,0 +1,23 @@
+﻿<Window x:Class="GUI.CartOrderHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="CartOrderHistory" Height="380" Width="600">
+    <Grid>
+        <ListView Name="ListOfProducts" Margin="10,58,12.4,44" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedProduct}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Produkt" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Ilość" Width="120" DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Cena" Width="50" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Dodatkowe składniki" Width="350" DisplayMemberBinding="{Binding ComponentToDisplay}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Dodaj do obecnego zamówienia" HorizontalAlignment="Left" Click="Add_To_Cart" Margin="315,310,0,0" VerticalAlignment="Top" Width="226" Height="29" RenderTransformOrigin="0.952,0.76"/>
+        <Button Content="Powrót" HorizontalAlignment="Left" Margin="56,314,0,0" VerticalAlignment="Top" Width="75" Click="Back_To_Cart"/>
+    </Grid>
+</Window>

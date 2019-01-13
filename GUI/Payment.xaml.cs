@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CartViewModel;
+using DeliveryBackend.Model;
+using DeliveryViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +22,12 @@ namespace GUI
     /// </summary>
     public partial class Payment : Window
     {
-        public Payment()
+
+        public CartVM cart { get; set; }
+        public Payment(CartVM vm, DeliveryVM vm1)
         {
+            cart = vm;
+            DataContext = new PaymentVM(cart,vm1);
             InitializeComponent();
         }
 
@@ -53,22 +60,22 @@ namespace GUI
 
         private void Button_Back_Cart(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Cart();
+            var newWindow = new Cart(cart);
             newWindow.Show();
             Close();
         }
 
         private void Button_Back_Delivery(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Delivery();
-            newWindow.Show();
-            Close();
+            //var newWindow = new Delivery();
+            //newWindow.Show();
+            //Close();
         }
 
         private void Button_Pay(object sender, RoutedEventArgs e)
         {
-            // TO DO - logic
-
+            // nie działa, bo nie ma usera
+            //((PaymentVM)DataContext).CreateDelivery();
             MessageBox.Show("Zamówienie przyjęte");
 
             var newWindow = new Menu();
