@@ -12,6 +12,7 @@ namespace GUI
         {
             InitializeComponent();
             DataContext = new MenuViewModel.MenuVM();
+          //  DataContext = new User.ViewModel.MenuVM();
         }
 
         private void Button_LogOut(object sender, RoutedEventArgs e)

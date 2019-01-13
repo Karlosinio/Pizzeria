@@ -10,7 +10,7 @@ using User.Model;
 
 namespace User.Service
 {
-    class UserManager
+   public class UserManager
     {
 
         public bool Create(string nick, string name, string surname, Address address, Question question, string answer, string password)
@@ -46,8 +46,9 @@ namespace User.Service
             }
             return false;
         }
-        
-        public bool Login(string nick, string password)
+
+       // public int Login(string nick, string password)
+        public int Login(string nick, string password)
         {
             HttpWebRequest request =
                 (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/login/");
@@ -68,36 +69,41 @@ namespace User.Service
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                if (response.StatusCode == HttpStatusCode.Created)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    return true;
+                   // return true;
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        string responsestring = reader.ReadToEnd();
+                        return int.Parse(responsestring);
+                    }
                 }
             }
 
-            return false;
+            return 0;
         }
         public bool Logout(int id)
         {
             HttpWebRequest request =
-                (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/{id}/logout/");
+                (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/users/{id}/logout/");
             request.Method = "POST";
-            request.ContentType = "application/json";
-            Model.User add = new Model.User() {Id=id};
+         //   request.ContentType = "application/json";
+          //  Model.User add = new Model.User() {Id=id};
 
             //     var json = JsonConvert.SerializeObject(add);   
-            string User = $"{{\"id\": \"{id}\"}}";
+           // string User = $"{{\"id\": \"{id}\"}}";
 
 
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-            {
-                // streamWriter.Write(json);
-                streamWriter.Write(User);
-            }
+            //using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            //{
+            //    // streamWriter.Write(json);
+            //    streamWriter.Write(User);
+            //}
 
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                if (response.StatusCode == HttpStatusCode.Created)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     return true;
                 }
