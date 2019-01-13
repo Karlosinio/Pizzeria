@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Windows.Input;
 using User.Model;
 using User.Service;
@@ -16,7 +17,8 @@ namespace User.ViewModel
         private string _adrNumer;
         private string _adrKod;
         private string _adrMiasto;
-
+        
+        private bool error { get; set; }
         public ICommand SaveButton { get;  protected set; }
         public ICommand RetriveButton { get;  protected set; }
 
@@ -28,16 +30,10 @@ namespace User.ViewModel
 
         }
 
-        public void Save()
-        {
-            //todo zapis do bazy && wpis do 'interfejsu'
-            UserData.nick = Login;
-        }
-        
         public void DisplayUser()
         {
             UserManager um = new UserManager();
-            Model.User responseUser = um.Get(UserData.id.ToString());
+            Model.User responseUser = um.Get("2"); //todo id uzytkowika zalogowanego (UserData.id)
 //            Console.WriteLine(responseUser.);
             Login = responseUser.Nick;
             Imie = responseUser.Name;
@@ -47,19 +43,81 @@ namespace User.ViewModel
             AdrUlica = responseUser.Address.Street;
             AdrKod = responseUser.Address.PostalCode;
             AdrMiasto = responseUser.Address.City;
-            
-//            NotifyPropertyChanged("Login");
-//            NotifyPropertyChanged("Imie");
-//            NotifyPropertyChanged("Nazwisko");
-//            NotifyPropertyChanged("Mail");
-//            NotifyPropertyChanged("AdrUlica");
-//            NotifyPropertyChanged("AdrKod");
-//            NotifyPropertyChanged("AdrMiasto");
-
         }
         
+        public void Save()
+        {
+            Validation();
+            Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
+            if (!error)
+            {
+                UserManager um = new UserManager();
+                um.Update("2", Imie, Nazwisko, a1, Tel, Mail); //todo id uzytkowika zalogowanego (UserData.id)
+            
+                //wpis do 'interfejsu'
+                UserData.name = Imie;
+                UserData.surname = Nazwisko;
+                UserData.email = Mail;
+                UserData.phone = Tel;
+                UserData.address.City = AdrUlica;
+                UserData.address.Street = AdrUlica;
+                UserData.address.PostalCode = AdrKod;
+            }
+        }
+
+        private void Validation()
+        {
+            error = false;
+            string errorMsg = "";
+
+            if (string.IsNullOrEmpty(Imie))
+            {
+                error = true;
+                errorMsg = errorMsg + "IMIĘ jest polem obowiązkowym\n";
+                
+            }
+            if (string.IsNullOrEmpty(Tel))
+            {
+                error = true;
+                errorMsg = errorMsg + "NUMER TELEFONU jest polem obowiązkowy\n";
+                
+            }
+            if (Tel != null)
+            {
+                if (!IsDigitsOnly(Tel) || !Tel.Length.Equals(9))
+                {
+                    error = true;
+                    errorMsg = errorMsg + "NUMER TELEFONU jest niepoprawny\n";
+                
+                }
+            }
+            if (string.IsNullOrEmpty(Mail))
+            {
+                error = true;
+                errorMsg = errorMsg + "MAIL jest polem obowiązkowym\n";
+                
+            }
+            if (Mail != Mail2)
+            {
+                error = true;
+                errorMsg = errorMsg + "Podane MAILE muszą być jednakowe!\n";
+            }
+            
+            if (error)
+            {
+                MessageBox.Show(errorMsg);
+            }
+        }
         
-        
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+            return true;
+        }
         
         public string Login
         {

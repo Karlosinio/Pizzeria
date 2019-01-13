@@ -2,7 +2,7 @@ namespace User.Model
 {
     public static class UserData
     {
-        public static int id { get; set; }
+        public static string id { get; set; }
         public static string name { get; set; }
         public static string surname { get; set; }
         public static string email { get; set; }
