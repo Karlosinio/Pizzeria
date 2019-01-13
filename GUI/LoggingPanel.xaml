@@ -19,9 +19,8 @@
         <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb1" Height="23" Margin="399,100,0,0"  VerticalAlignment="Top" Width="120" TextChanged="podaneHaslo_tb_TextChanged1" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Name="Hash_MD51" Height="23" Margin="565,100,0,0"  VerticalAlignment="Top" Width="120" TextChanged="Hash_TextChanged1" Text="{Binding Password ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="Hidden" />
         <!-- Reset password & sign in -->
-        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_RestPass"/>
+        <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_RestPass" Visibility="Hidden" />
         <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_Log" Command="{Binding LoginButton}" />
-
         <!-- REGISTER -->
         <!-- Name -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Imię:" TextAlignment="Right"/>
@@ -55,7 +54,7 @@
         <TextBox HorizontalAlignment="Left" Name="Hash_MD5" Height="23" Margin="457,386,0,0"  Text="{Binding Password ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextChanged="Hash_TextChanged" IsReadOnly="True" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb2" Height="31" Margin="270,357,0,0" Text="{Binding Password3 ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" TextChanged="podaneHaslo_tb_TextChanged" IsReadOnly="True" Visibility="Hidden" />
         <!--->
-        <PasswordBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,256,0,0" Text="{Binding Password ,Mode=TwoWay}" VerticalAlignment="Top"/>
+       
         <-->
             <TextBlock HorizontalAlignment="Left"  Height="30" Width="139" FontSize="20" Margin="380,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz hasło:"/>
             <PasswordBox HorizontalAlignment="Left" Name="poleHasla_pb1" PasswordChanged="poleHasla_pb_PasswordChanged2" 
@@ -73,7 +72,7 @@
             <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="624,357,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Command="{Binding RegisterButton}"/>
 
 
-            <!-- SQuestion -->
+            <!-- SQQuestion -->
             <ComboBox ItemsSource="{Binding Questions}" SelectedValue="{Binding SelectedQuestion, Mode=TwoWay}" HorizontalAlignment="Left" Height="56" Margin="135,296,0,0" VerticalAlignment="Top" Width="240"/>
 
 
