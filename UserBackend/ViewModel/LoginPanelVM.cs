@@ -24,7 +24,7 @@ namespace User.ViewModel
         public string Answer { get; set; }
 
         public ICommand RegisterButton { get;  protected set; }
-        
+        public ICommand LoginButton { get; protected set; }
 
         public LoginPanelVM()
         {
@@ -47,6 +47,11 @@ namespace User.ViewModel
             um.Create(Nick, Name, Surname, adr, qeust, Answer, Password);
 //            Name = "bbb";
 //            NotifyPropertyChanged("Name");
+        }
+        public void Login()
+        {
+            UserManager um = new UserManager();
+            um.Login(Nick, Password);
         }
     }
 }
