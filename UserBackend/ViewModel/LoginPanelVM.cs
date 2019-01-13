@@ -15,29 +15,15 @@ namespace User.ViewModel
     public class LoginPanelVM : BaseViewModel
     {
         private Question _selectedQuestion;
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Nick { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Email2 { get; set; }
-        public string Password { get; set; }
-        public string Password2 { get; set; }   
-        public string Password3 { get; set; }
-        public string Answer { get; set; }
-        private bool error { get; set; }
-
-        public List<Question> Questions { get; set; }
-
-        public Question SelectedQuestion
-        {
-            get => _selectedQuestion;
-            set
-            {
-                _selectedQuestion = value;
-                NotifyPropertyChanged(nameof(SelectedQuestion));
-            }
-        }
+        private string _name;
+        private string _surname;
+        private string _nick;
+        private string _phone;
+        private string _email;
+        private string _email2;
+        private string _answer;
+        private string _passwordInput1;
+        private string _passwordInput2;
 
 
         public ICommand RegisterButton { get;  protected set; }
@@ -48,7 +34,6 @@ namespace User.ViewModel
         {
             QuestionManager qm = new QuestionManager();
             Questions = qm.GetAllQuestions();
-//            Name = "aaaa";
             RegisterButton = new DelegateCommand(Register);
             LoginButton = new DelegateCommand(Login);
         }
@@ -56,21 +41,18 @@ namespace User.ViewModel
         public void Register()
         {
             Validation();
-            //TODo
-            Address a1 = new Address();
-            Question q1 = SelectedQuestion;
-
-//            string adr = "{{\"name\": \"Test address\",\"street\": \"Street 1\"}}";
-//            string qeust = "{{\"id\": 1,\"question\":\"question1\"}}";
 
             if (!error)
             {
+                Address a1 = new Address();
+                Question q1 = SelectedQuestion;
                 UserManager um = new UserManager();
                 um.Create(Nick, Name, Surname, a1, q1, Answer, Password);
 //                um.Create(Nick, Name, Surname, adr, qeust, Answer, Password);
                 MessageBox.Show("Zarejestrowano konto!\nMożesz się zalogować");
                 //todo obsluga bledu polaczenia
-                //todo czyszczenie danych uzytkownika
+                //todo czyszczenie hasła
+                ClearValues();
             }
         }
         
@@ -78,7 +60,8 @@ namespace User.ViewModel
         {
             UserManager um = new UserManager();
             um.Login(Nick, Password);
-
+            UserData.nick = Nick;
+            
         }
         
         public void Validation()
@@ -154,5 +137,128 @@ namespace User.ViewModel
             }
             return true;
         }
+
+        private void ClearValues()
+        {
+            Name = String.Empty;
+            Surname = String.Empty;
+            Nick = String.Empty;
+            Phone = String.Empty;
+            Email = String.Empty;
+            Email2 = String.Empty;
+            PasswordInput1 = String.Empty;
+            PasswordInput2 = String.Empty;
+            Answer = String.Empty;
+            SelectedQuestion = null;
+        }
+
+        public string PasswordInput2
+        {
+            get => _passwordInput2;
+            set
+            {
+                _passwordInput2 = value;
+                NotifyPropertyChanged(nameof(PasswordInput2));
+            }
+        }
+
+        public string PasswordInput1
+        {
+            get => _passwordInput1;
+            set
+            {
+                _passwordInput1 = value;
+                NotifyPropertyChanged(nameof(PasswordInput1));
+            }
+        }
+
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                _name = value;
+                NotifyPropertyChanged(nameof(Name));
+            } 
+        }
+
+        public string Surname
+        {
+            get => _surname;
+            set
+            {
+                _surname = value;
+                NotifyPropertyChanged(nameof(Surname));
+            }
+        }
+
+        public string Nick
+        {
+            get => _nick;
+            set
+            {
+                _nick = value;
+                NotifyPropertyChanged(nameof(Nick));
+            }
+        }
+
+        public string Phone
+        {
+            get => _phone;
+            set
+            {
+                _phone = value;
+                NotifyPropertyChanged(nameof(Phone));
+            }
+        }
+
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                _email = value;
+                NotifyPropertyChanged(nameof(Email));
+            }
+        }
+
+        public string Email2
+        {
+            get => _email2;
+            set
+            {
+                _email2 = value;
+                NotifyPropertyChanged(nameof(Email2));
+            }
+        }
+
+        public string Password { get; set; }
+        public string Password2 { get; set; }   
+        public string Password3 { get; set; }
+
+        public string Answer    
+        {
+            get => _answer;
+            set 
+            {
+                _answer = value;
+                NotifyPropertyChanged(nameof(Answer));
+            }
+        }
+
+        private bool error { get; set; }
+
+        public List<Question> Questions { get; set; }
+
+        public Question SelectedQuestion
+        {
+            get => _selectedQuestion;
+            set
+            {
+                _selectedQuestion = value;
+                NotifyPropertyChanged(nameof(SelectedQuestion));
+            }
+        }
+        
     }
 }

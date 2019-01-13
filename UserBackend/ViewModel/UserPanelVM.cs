@@ -48,9 +48,9 @@ namespace User.ViewModel
         public void Save()
         {
             Validation();
-            Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
             if (!error)
             {
+                Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
                 UserManager um = new UserManager();
                 um.Update("2", Imie, Nazwisko, a1, Tel, Mail); //todo id uzytkowika zalogowanego (UserData.id)
             
