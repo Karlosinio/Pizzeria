@@ -34,6 +34,7 @@ namespace User.ViewModel
         {
 //            Name = "aaaa";
             RegisterButton = new DelegateCommand(Register);
+            LoginButton = new DelegateCommand(Login);
         }
 
         public void Register()
@@ -61,6 +62,7 @@ namespace User.ViewModel
         {
             UserManager um = new UserManager();
             um.Login(Nick, Password);
+
         }
         
         public void Validation()

@@ -51,7 +51,7 @@ namespace User.Service
                 (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/login/");
             request.Method = "POST";
             request.ContentType = "application/json";
-            // Model.User add = new Model.User(nick, password);
+            Model.User add = new Model.User(nick, password);
 
             //            var json = JsonConvert.SerializeObject(add);   
             string User = $"{{\"nick\": \"{nick}\",\"password\": \"{password}\"}}";
