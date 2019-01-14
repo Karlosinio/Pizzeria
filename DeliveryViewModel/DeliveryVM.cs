@@ -1,4 +1,5 @@
-﻿using CartViewModel;
+﻿using CartBackend.Services;
+using CartViewModel;
 using DeliveryBackend.Model;
 using DeliveryBackend.Service;
 using System;
@@ -29,9 +30,15 @@ namespace DeliveryViewModel
         public bool delBtn { get; set; } = false;
         public bool flag { get; set; } = false;
 
+        private bool codeUsed = false;
+
+        public string code { get; set; }
+
 
         public DeliveryVM(CartVM vm)
         {
+            code = "";
+
             CartModel = vm;
             UserData.address = new User.Model.Address()
             {
@@ -46,6 +53,8 @@ namespace DeliveryViewModel
             */
             Price = vm.Price;
             ToPayment = new DelegateCommand(AddAddress);
+            Check = new DelegateCommand(CheckCode);
+
 
         }
 
@@ -53,6 +62,21 @@ namespace DeliveryViewModel
         {
             AddressManager add = new AddressManager();
             AddressModel = add.Get(UserData.address.Id);
+        }
+
+        public void CheckCode()
+        {
+            var service = new DiscountService();
+            var potencialCode = service.GetByCode(code);
+
+            if(potencialCode != null)
+            {
+                if (potencialCode.Active && !codeUsed)
+                {
+                    Price = Price - (Price * potencialCode.PercentValue * 0.001);
+                    codeUsed = true;
+                }
+            }
         }
 
         //TODO Nadpisz adres
@@ -107,6 +131,7 @@ namespace DeliveryViewModel
             }
         }
         public ICommand ToPayment { get; private set; }
+        public ICommand Check { get; set; }
 
 
     }
