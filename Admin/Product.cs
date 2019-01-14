@@ -1,30 +1,40 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Admin
 {
-    public class Product
+    public class Product : INotifyPropertyChanged
     {
         public int _id;
         public string _name;
         public string _price;
-        public string _components;
+        public ObservableCollection<string> _components;
         public string _category;
         public bool _available;
+        public int _quantity;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public Product(int id, string name, string price, string components, string category, bool available)
         {
             _id = id;
             _name = name;
             _price = price;
-            _components = components;
+            _components = new ObservableCollection<string>(components.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
             _category = category;
             _available = available;
         }
-
+      
         public int Id
         {
             get { return _id; }
@@ -40,15 +50,20 @@ namespace Admin
             get { return _price; }
             set { _price = value; }
         }
-        public string Components
+        public ObservableCollection<string> Components
         {
             get { return _components; }
-            set { _components = value; }
+            set { _components = value; OnPropertyChanged("Components"); }
         }
         public string Category
         {
             get { return _category; }
             set { _category = value; }
+        }
+        public int Quantity
+        {
+            get { return _quantity; }
+            set { _quantity = value; }
         }
     }
 }

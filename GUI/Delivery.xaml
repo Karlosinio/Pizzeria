@@ -43,7 +43,7 @@
         <!-- Buttons-->
         <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,379,0,0" VerticalAlignment="Top" Width="179" Height="30"  FontSize="15" Click="BackMenuB_Click"/>
         <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="205,380,0,0" VerticalAlignment="Top" Width="180" Height="30"  FontSize="15" Click="BackCartB_Click"/>
-        <Button Content="Do płatności" HorizontalAlignment="Left" Margin="409,379,0,0" VerticalAlignment="Top" Width="375" Height="30"  FontSize="15" Click="ToPaymentB_Click"/>
+        <Button Content="Do płatności" HorizontalAlignment="Left" Margin="409,379,0,0" VerticalAlignment="Top" Width="375" Height="30"  FontSize="15" Click="ToPaymentB_Click" Command="{Binding ToPayment}"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="26,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="349"/>
         <TextBlock Text="Wpisz kod rabatowy:" HorizontalAlignment="Left" Margin="26,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="500" FontSize="20"/>
     </Grid>
