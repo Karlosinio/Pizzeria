@@ -48,14 +48,14 @@ namespace User.ViewModel
         
         public void Save()
         {
-//            Validation();
+            Validation();
             if (!error)
             {
 //                Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
                 UserManager um = new UserManager();
 //                um.Update(UserData.id, Imie, Nazwisko, a1, Tel, Mail);
                 um.Update(UserData.id, Imie, Nazwisko,  Tel, Mail);
-            
+                MessageBox.Show("Zmiany zostały zapisane!");
                 //wpis do 'interfejsu'
                 UserData.name = Imie;
                 UserData.surname = Nazwisko;
