@@ -42,12 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HisotryVM.cs" />
     <Compile Include="MenuVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingsVM.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="ViewItems\OrderViewItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CartBackend\CartBackend.csproj">
+      <Project>{29746645-251D-4D50-97F1-7209CB8521D8}</Project>
+      <Name>CartBackend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\MenuModel.csproj">
       <Project>{e52d4088-a6a6-4f31-b81f-dd3d37c2ab21}</Project>
       <Name>MenuModel</Name>

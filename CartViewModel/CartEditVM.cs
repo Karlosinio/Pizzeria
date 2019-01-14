@@ -41,21 +41,21 @@ namespace CartViewModel
 
         public CartEditVM(Object product)
         {
-            SelectedProductToEdit = (ProductDTO) product;
-            SelectedProductToEditName = SelectedProductToEdit.Name;
+            //SelectedProductToEdit = (ProductDTO) product;
+            //SelectedProductToEditName = SelectedProductToEdit.Name;
 
-            Components = new ObservableCollection<ComponentDTO>();
+            //Components = new ObservableCollection<ComponentDTO>();
 
-            if (SelectedProductToEdit.Component != null)
-                foreach (var item in SelectedProductToEdit.Component)
-                    Components.Add(item);
+            //if (SelectedProductToEdit.Component != null)
+            //    foreach (var item in SelectedProductToEdit.Component)
+            //        Components.Add(item);
 
-            DeleteAll = new DelegateCommand(Delete_Component_From_Product);
-            Delete = new DelegateCommand(DeleteComponentFromCart);
-            Back = new DelegateCommand(Back_To_Basket);
-            AddQuantity = new DelegateCommand(AddQuantityToProduct);
-            Button_Add_Quantity = new DelegateCommand(Button_Add_Quantity_Change);
-            Button_Delete_Quantity = new DelegateCommand(Button_Delete_Quantity_Change);
+            //DeleteAll = new DelegateCommand(Delete_Component_From_Product);
+            //Delete = new DelegateCommand(DeleteComponentFromCart);
+            //Back = new DelegateCommand(Back_To_Basket);
+            //AddQuantity = new DelegateCommand(AddQuantityToProduct);
+            //Button_Add_Quantity = new DelegateCommand(Button_Add_Quantity_Change);
+            //Button_Delete_Quantity = new DelegateCommand(Button_Delete_Quantity_Change);
         }
 
         public ICommand DeleteAll { get; }

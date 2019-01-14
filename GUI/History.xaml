@@ -8,12 +8,14 @@
         Title="History" Height="450" Width="800">
     <Grid>
         <!-- History -->
-        <ListView Margin="10,58,12,10" Name="lvOrder">
+        <ListView Margin="10,58,12,10" Name="listOfOrders" ItemsSource="{Binding Orders}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nr zamówienia" Width="120" DisplayMemberBinding="{Binding Id}" />
                     <GridViewColumn Header="Data" Width="200" DisplayMemberBinding="{Binding Date}" />
-                    <GridViewColumn Header="Zniżka" Width="200" DisplayMemberBinding="{Binding Order.Discount.Code}" />
+                    <GridViewColumn Header="Komentarz" Width="200" DisplayMemberBinding="{Binding Comment}" />
+                    <GridViewColumn Header="Cena" Width="200" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Zniżka" Width="200" DisplayMemberBinding="{Binding Discount}" />
                 </GridView>
             </ListView.View>
         </ListView>

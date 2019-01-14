@@ -1,4 +1,5 @@
 ﻿using CartViewModel;
+using MenuViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,8 +21,6 @@ namespace GUI
         public Cart()
         {
             InitializeComponent();
-            kart2= new CartVM();
-            DataContext = kart2;
         }
 
         public Cart(CartVM vm)
@@ -34,6 +33,13 @@ namespace GUI
         private void Button_Back_Menu(object sender, RoutedEventArgs e)
         {
             var newWindow = new Menu();
+            var button = (Button)sender;
+            var cartDataContext = (CartVM)button.DataContext;
+
+            var vm = new MenuVM();
+            vm.cartProducts = cartDataContext.Products;
+
+            newWindow.DataContext = vm;
             newWindow.Show();
             Close();
         }
@@ -53,6 +59,9 @@ namespace GUI
         {
             var button = (Button)sender;
             var cartDataContext = button.DataContext;
+
+            // TUTAJ123
+
             var user_ID = 2;
 
             var newWindow = new CartOrderHistory(cartDataContext)
@@ -74,5 +83,6 @@ namespace GUI
                 newWindow.Show();
             }
         }
+        
     }
 }

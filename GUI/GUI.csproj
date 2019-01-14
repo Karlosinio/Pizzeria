@@ -195,9 +195,9 @@
       <Project>{29746645-251D-4D50-97F1-7209CB8521D8}</Project>
       <Name>CartBackend</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DeliveryBackend\DeliveryBackend.csproj">
-      <Project>{EBDD466A-7536-4889-AD54-6A7E2B632DE9}</Project>
-      <Name>DeliveryBackend</Name>
+    <ProjectReference Include="..\Model\MenuModel.csproj">
+      <Project>{E52D4088-A6A6-4F31-B81F-DD3D37C2AB21}</Project>
+      <Name>MenuModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\UserBackend\User.csproj">
       <Project>{e83b7c88-e824-430d-a0eb-9e4af76321f2}</Project>

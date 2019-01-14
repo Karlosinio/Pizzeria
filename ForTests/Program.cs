@@ -3,8 +3,6 @@ using CartBackend.Common.DTO;
 using CartBackend.Common.Models;
 using CartBackend.Services;
 using CartViewModel;
-using DeliveryBackend.Helpers;
-using DeliveryBackend.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,7 +79,6 @@ namespace ForTests
             {
                 Id = 1,
                 Name = "name",
-                Component = list,
                 Category = "kategoria",
                 Price = 20,
                 Available = true,
@@ -92,7 +89,6 @@ namespace ForTests
             {
                 Id = 2,
                 Name = "name2",
-                Component = list,
                 Category = "kategoria2",
                 Price = 25,
                 Available = true,
@@ -119,11 +115,6 @@ namespace ForTests
             vm.AddProduct(productDTO);
 
             //service.Insert(orderDTO);
-
-            //InvoiceManager inn = new InvoiceManager();
-            //inn.Generate(vm.GetProducts());
-            //inn.GenerateAndSend(vm.GetProducts());
-
         }
     }
 }

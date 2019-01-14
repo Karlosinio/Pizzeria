@@ -20,6 +20,14 @@ namespace CartViewModel
         private List<Order_Product> ListOfProducts { get; set; }
         private double price = 0;
         public double Price { get {
+                if(Products != null)
+                {
+                    price = 0;
+                    foreach(var prod in Products)
+                    {
+                        price += prod.Price;
+                    }
+                }
                 return price;
             } set {
                 if(value != price)
@@ -50,103 +58,8 @@ namespace CartViewModel
 
         public CartVM()
         {
-            Component comp = new Component
-            {
-                Id = 1,
-                Name = "sss",
-                Price = 33
-            };
-
-            Component comp4 = new Component
-            {
-                Id = 4,
-                Name = "sss",
-                Price = 33
-            };
-
-            ComponentDTO dto4 = new ComponentDTO
-            {
-                Component = comp4,
-                Quantity = 33
-            };
-
-            ComponentDTO dto = new ComponentDTO
-            {
-                Component = comp,
-                Quantity = 3
-            };
-            Component comp2 = new Component
-            {
-                Id = 2,
-                Name = "ssasdasds",
-                Price = 337
-            };
-
-            ComponentDTO dto2 = new ComponentDTO
-            {
-                Component = comp2,
-                Quantity = 2
-            };
-            Component comp3 = new Component
-            {
-                Id = 3,
-                Name = "sssasdasd",
-                Price = 332
-            };
-
-            ComponentDTO dto3 = new ComponentDTO
-            {
-                Component = comp3,
-                Quantity = 7
-            };
-
-            List<ComponentDTO> list = new List<ComponentDTO>
-            {
-                dto,
-                dto2,
-                dto3
-            };
-
-            List<ComponentDTO> list2 = new List<ComponentDTO>
-            {
-                dto4
-            };
-
-
-
-            Price = 0;
-            Products = new ObservableCollection<ProductDTO>
-            {
-                new ProductDTO { Id=1, Name = "cos", Price=20, Component = list, Quantity = 1},
-                new ProductDTO { Id=2, Name = "adasd", Price=20, Quantity = 1 },
-                new ProductDTO { Id=3, Name = "cofgdfgs", Price=20, Quantity = 1 },
-                new ProductDTO { Id=4, Name = "casgfgos", Price=45, Component = list2, Quantity = 1 },
-                new ProductDTO { Id=5, Name = "cdghfgdhos", Price=3, Quantity = 1 },
-                new ProductDTO { Id=6, Name = "asadasdcos", Price=200, Quantity = 1},
-            };
-            
-            foreach(var product in Products)
-            {
-                if (product.Quantity >0 )
-                    if(product.Component != null)
-                    {
-                        foreach (var component in product.Component)
-                        {
-                            Price += component.Component.Price;
-                            RaisePropertyChanged("Price");
-
-                        }
-                    }
-                if (product.Quantity > 0)
-                {
-                    Price += product.Price;
-                    RaisePropertyChanged("Price");
-                }
-                    
-
-            }
+           
             DeleteAll = new DelegateCommand(DeleteAllProductFromCart);
-            //Edit = new DelegateCommand(EditProductFromCart);
             Delete = new DelegateCommand(DeleteProductFromCart);
             AddQuantity = new DelegateCommand(AddQuantityToProduct);
             Button_Add_Quantity = new DelegateCommand(Button_Add_Quantity_Change);
@@ -180,10 +93,11 @@ namespace CartViewModel
         {
             if (SelectedProduct != null)
             {
-                Price += SelectedProduct.Price * QuantityAddDelete;
+                SelectedProduct.Quantity += QuantityAddDelete;
+
+                Price = SelectedProduct.Quantity * SelectedProduct.Price;
                 RaisePropertyChanged("Price");
 
-                SelectedProduct.Quantity += QuantityAddDelete;
                 var index = Products.IndexOf(SelectedProduct);
                 Products.Insert(index, SelectedProduct);
                 Products.RemoveAt(index + 1);
@@ -198,20 +112,19 @@ namespace CartViewModel
             return list;
         }
 
-        public Order GetOrder()
-        {
-            return ListOfProducts.First().Order;
-        }
-
         private void DeleteProductFromCart()
         {
             if (SelectedProduct != null)
                 if (SelectedProduct.Quantity == QuantityAddDelete)
-                    DeleteAllProductFromCart();
+                {
+
+                    Products.Remove(SelectedProduct);
+                    RaisePropertyChanged("Price");
+
+
+                }
                 else if (SelectedProduct.Quantity> QuantityAddDelete)
                 {
-                    Price -= SelectedProduct.Price * QuantityAddDelete;
-                    RaisePropertyChanged("Price");
 
                     SelectedProduct.Quantity -= QuantityAddDelete;
                     var index = Products.IndexOf(SelectedProduct);
@@ -219,6 +132,8 @@ namespace CartViewModel
                     Products.RemoveAt(index + 1);
 
                     RaisePropertyChanged("Products");
+                    RaisePropertyChanged("Price");
+
                 }
 
 
@@ -250,7 +165,7 @@ namespace CartViewModel
                 Products.Add(product);
             }
 
-            Price += product.Price;
+            Price += product.Quantity * product.Price;
             RaisePropertyChanged("Price");
         }
 

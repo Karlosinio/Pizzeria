@@ -1,4 +1,5 @@
 ﻿using CartBackend.Services;
+using MenuViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,12 @@ namespace GUI
     /// </summary>
     public partial class History : Window
     {
-        public History()
+        // TUTAJ123
+
+        public History(int userID)
         {
             InitializeComponent();
+            DataContext = new HistoryVM(userID);
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)

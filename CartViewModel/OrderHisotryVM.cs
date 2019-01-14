@@ -28,42 +28,31 @@ namespace CartViewModel
             var order_productService = new BaseService<Order_Product>();
             var order_componentService = new BaseService<Order_Component>();
 
-            var recentFiveOrders = orderService.GetRecentNOrders(5, userID);
+            var lastOrders = orderService.GetRecentNOrders(5, userID);
             var allOrder_product = order_productService.GetAll();
-            var allOrder_component = order_componentService.GetAll();
 
-            int i = 0;
-            do
+            for(int i = 0; i< lastOrders.Count && Products.Count < 5; i++)
             {
-                var orderId = recentFiveOrders[i].Id;
+                var order = lastOrders[i];
 
-                var list = allOrder_product.Where(x => x.Order.Id == orderId).ToList();
+                var order_productList = allOrder_product.Where(x => x.Order.Id == order.Id).ToList();
 
-                int j = 0;
-                List<ComponentDTO> components = new List<ComponentDTO>();
-
-                while (j < list.Count && Products.Count < 5)
+                for(int j =0; j< order_productList.Count && Products.Count < 5; j++)
                 {
-                    var prod = list[j];
-
-                    components.Clear();
-                    foreach(var order_component in allOrder_component)
+                    var product = order_productList[j].Product;
+                    Products.Add(new ProductDTO
                     {
-                        if (order_component.Order.Id == orderId) {
-                                if (prod.ProductIdInOrder == order_component.ProductIdInOrder)
-                                {
-                                    components.Add(new ComponentDTO { Component = order_component.Component, Quantity = order_component.Quantity });
-                                }
-                        }
-                    }
-                    j++;
-                    Products.Add(new ProductDTO { Id = prod.Product.Id, Available = prod.Product.Available, Component = components, Category = prod.Product.Category, Name = prod.Product.Name, Price = prod.Product.Price, Quantity = prod.Quantity });
-
+                        Id = product.Id,
+                        Available = product.Available,
+                        Category = product.Category,
+                        Components = product.Components,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Quantity = order_productList[j].Quantity
+                    });
                 }
-                i++;
-            } while (Products.Count < 5);
 
-
+            }
 
         }
 
