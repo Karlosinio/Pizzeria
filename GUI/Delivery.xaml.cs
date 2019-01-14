@@ -45,12 +45,12 @@ namespace GUI
 
         private void Address1RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).delBtn = true;
         }
 
         private void Address2RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).delBtn = false;
         }
 
         private void BackMenuB_Click(object sender, RoutedEventArgs e)

@@ -75,7 +75,7 @@ namespace GUI
         private void Button_Pay(object sender, RoutedEventArgs e)
         {
             // nie działa, bo nie ma usera
-            //((PaymentVM)DataContext).CreateDelivery();
+            ((PaymentVM)DataContext).CreateDelivery();
             MessageBox.Show("Zamówienie przyjęte");
 
             var newWindow = new Menu();

@@ -53,7 +53,7 @@ namespace DeliveryBackend.Helpers
             style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
         }
 
-        void CreatePage(User.Model.User user, string inv)
+        void CreatePage(string inv)
         {
             // Each MigraDoc document needs at least one section.
             Section section = this.document.AddSection();
@@ -88,7 +88,7 @@ namespace DeliveryBackend.Helpers
             paragraph.Format.SpaceAfter = 3;
 
             //Put some user info
-            paragraph = this.userFrame.AddParagraph($"Klient:\r\n {user.name}\r\n{user.address}");
+            paragraph = this.userFrame.AddParagraph($"Klient:\r\n {UserData.name}\r\n{UserData.email}");
             paragraph.Format.Font.Name = "Times New Roman";
             paragraph.Format.Font.Size = 7;
             paragraph.Format.SpaceAfter = 3;
@@ -139,7 +139,7 @@ namespace DeliveryBackend.Helpers
             row.Cells[3].Format.Alignment = ParagraphAlignment.Center;
             table.SetEdge(0, 0, 4, 1, Edge.Box, BorderStyle.Single, 0.75, Color.Empty);
         }
-        void FillContent()
+        void FillContent(bool dostawa)
         {
 
             // Iterate the invoice items
@@ -159,7 +159,7 @@ namespace DeliveryBackend.Helpers
                 table.SetEdge(0, this.table.Rows.Count - 1, 4, 1, Edge.Box, BorderStyle.Single, 0.75);
 
             }
-            //if (dostawa == true)
+            if (dostawa == true)
             {
                 Row row2 = this.table.AddRow();
                 row2.Borders.Visible = false;
@@ -183,7 +183,7 @@ namespace DeliveryBackend.Helpers
             row.Cells[3].AddParagraph(55.ToString());
         }
 
-        public Document CreateDocument(List<ProductDTO> dto, User.Model.User us, string name)
+        public Document CreateDocument(List<ProductDTO> dto, string name,bool dostawa)
         {
 
             list = dto;
@@ -195,9 +195,9 @@ namespace DeliveryBackend.Helpers
 
             DefineStyles();
 
-            CreatePage(us,name);
+            CreatePage(name);
 
-            FillContent();
+            FillContent(dostawa);
 
             return this.document;
         }

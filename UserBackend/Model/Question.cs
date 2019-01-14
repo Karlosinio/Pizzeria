@@ -8,13 +8,22 @@ namespace User.Model
 {
     public class Question
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string question { get; set; }
-
-        public Question(int Id, string Question)
+        public override string ToString()
         {
-            id = Id;
-            question = Question;
+            return question;
         }
+
+//        public Question(int Id, string Question)
+//        {
+//            id = Id;
+//            question = Question;
+//        }
+//
+//        public Question()
+//        {
+//            
+//        }
     }
 }

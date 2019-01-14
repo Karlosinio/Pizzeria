@@ -38,7 +38,7 @@ namespace User.Service
                 (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/addresses/");
             request.Method = "POST";
             request.ContentType = "application/json";
-            Address add = new Address(name, city, postalCode, street);
+            Address add = new Address(){Name = name, City = city, PostalCode = postalCode, Street = street};
 
             var json = JsonConvert.SerializeObject(add);
 
