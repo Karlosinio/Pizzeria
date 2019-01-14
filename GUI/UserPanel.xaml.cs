@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using User.ViewModel;
 
 namespace GUI
 {
@@ -22,6 +23,7 @@ namespace GUI
         public UserPanel()
         {
             InitializeComponent();
+            DataContext = new UserPanelVM();
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)
@@ -32,6 +34,11 @@ namespace GUI
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
+        {
+            // TO DO - logic
+        }
+        
+        private void Button_Retrive(object sender, RoutedEventArgs e)
         {
             // TO DO - logic
         }

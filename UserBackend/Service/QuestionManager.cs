@@ -12,7 +12,7 @@ namespace User.Service
 {
     class QuestionManager
     {
-        public Question GetAll(int id) //todo zmienic na liste
+        public List<Question> GetAllQuestions()
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/questions/get_all/");
             request.Method = "GET";
@@ -23,16 +23,10 @@ namespace User.Service
             using (StreamReader reader = new StreamReader(stream))
             {
                 var result = reader.ReadToEnd();
-                var list = JsonConvert.DeserializeObject<Address>(result);
-                return null; //todo zwrocic liste
+                var list = JsonConvert.DeserializeObject<List<Question>>(result);
+                return list; 
             }
-
-
-
         }
-
-
-
         
     }
 }

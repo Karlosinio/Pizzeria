@@ -56,6 +56,10 @@
       <Project>{8DA0AE85-AB64-49A2-A493-B923F999F49C}</Project>
       <Name>Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UserBackend\User.csproj">
+      <Project>{e83b7c88-e824-430d-a0eb-9e4af76321f2}</Project>
+      <Name>User</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
