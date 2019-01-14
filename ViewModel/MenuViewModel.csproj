@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HisotryVM.cs" />
     <Compile Include="MenuVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingsVM.cs" />

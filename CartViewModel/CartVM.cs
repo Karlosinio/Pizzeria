@@ -93,10 +93,11 @@ namespace CartViewModel
         {
             if (SelectedProduct != null)
             {
-                Price += SelectedProduct.Price * QuantityAddDelete;
+                SelectedProduct.Quantity += QuantityAddDelete;
+
+                Price = SelectedProduct.Quantity * SelectedProduct.Price;
                 RaisePropertyChanged("Price");
 
-                SelectedProduct.Quantity += QuantityAddDelete;
                 var index = Products.IndexOf(SelectedProduct);
                 Products.Insert(index, SelectedProduct);
                 Products.RemoveAt(index + 1);
@@ -115,11 +116,15 @@ namespace CartViewModel
         {
             if (SelectedProduct != null)
                 if (SelectedProduct.Quantity == QuantityAddDelete)
-                    DeleteAllProductFromCart();
+                {
+
+                    Products.Remove(SelectedProduct);
+                    RaisePropertyChanged("Price");
+
+
+                }
                 else if (SelectedProduct.Quantity> QuantityAddDelete)
                 {
-                    Price -= SelectedProduct.Price * QuantityAddDelete;
-                    RaisePropertyChanged("Price");
 
                     SelectedProduct.Quantity -= QuantityAddDelete;
                     var index = Products.IndexOf(SelectedProduct);
@@ -127,6 +132,8 @@ namespace CartViewModel
                     Products.RemoveAt(index + 1);
 
                     RaisePropertyChanged("Products");
+                    RaisePropertyChanged("Price");
+
                 }
 
 

@@ -40,7 +40,8 @@ namespace GUI
 
         private void Button_History(object sender, RoutedEventArgs e)
         {
-            var newWindow = new History();
+            int user_id = 3;
+            var newWindow = new History(user_id);
             newWindow.Show();
         }
 
