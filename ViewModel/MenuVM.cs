@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MenuModel;
 using ServiceNS;
+using CartBackend.Common.DTO;
+using System.Collections.Generic;
 
 namespace MenuViewModel
 {
@@ -13,12 +15,17 @@ namespace MenuViewModel
        // public ICommand Click_Koszyk { get; }
         public ICommand Click_Konto { get; }
         public Service service = new Service();
+
+        public product SelectedProduct { get; set; }
+        public ObservableCollection<ProductDTO> cartProducts { get; set; }
         #endregion
 
         #region constructors
         public MenuVM()
         {
             pizzas = service.GetProducts();
+            if (cartProducts == null)
+                cartProducts = new ObservableCollection<ProductDTO>();
         }
         #endregion
 

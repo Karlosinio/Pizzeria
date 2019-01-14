@@ -19,14 +19,12 @@
                     <GridViewColumn Header="Produkt" Width="120" DisplayMemberBinding="{Binding Name}" />
                     <GridViewColumn Header="Ilość" Width="120" DisplayMemberBinding="{Binding Quantity}" />
                     <GridViewColumn Header="Cena" Width="50" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Dodatkowe składniki" Width="350" DisplayMemberBinding="{Binding ComponentToDisplay}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
         <Button Content="Poprzednie produkty" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Previous_Orders"/>
         <Button Content="Usuń wszystko" Command="{Binding DeleteAll}" HorizontalAlignment="Left" Margin="548,389,0,0" VerticalAlignment="Top" Width="86" Height="20"/>
-        <Button Content="Edytuj" Command="{Binding Edit}" HorizontalAlignment="Left" Margin="693,380,0,0" VerticalAlignment="Top" Width="67" Height="29" Click="Edit_Product"/>
         <Button Content="+" Command="{Binding Button_Add_Quantity}" HorizontalAlignment="Left" Margin="275,389,0,0" VerticalAlignment="Top" Width="24" />
         <Button Content="-" Command="{Binding Button_Delete_Quantity}" HorizontalAlignment="Left" Margin="206,389,0,0" VerticalAlignment="Top" Width="24" />
         <Button Content="Dodaj" Command="{Binding AddQuantity}" HorizontalAlignment="Left" Margin="317,389,0,0" VerticalAlignment="Top" Width="75"/>

@@ -27,21 +27,21 @@ namespace GUI
         private void Button_Back_To_Cart(object sender, RoutedEventArgs e)
         {
 
-            var button = (Button)sender;
-            var cartEditVM = (CartEditVM) button.DataContext;
-            var editedProduct = cartEditVM.SelectedProductToEdit;
+            //var button = (Button)sender;
+            //var cartEditVM = (CartEditVM) button.DataContext;
+            //var editedProduct = cartEditVM.SelectedProductToEdit;
 
-            var index = cartDataContext.Products.IndexOf(editedProduct);
+            //var index = cartDataContext.Products.IndexOf(editedProduct);
 
-            cartDataContext.Products.Insert(index, editedProduct);
-            cartDataContext.Products.RemoveAt(index +1);
+            //cartDataContext.Products.Insert(index, editedProduct);
+            //cartDataContext.Products.RemoveAt(index +1);
 
-            var carWindow = new Cart
-            {
-                DataContext = cartDataContext
-            };
-            carWindow.Show();
-            Close();
+            ////var carWindow = new Cart
+            ////{
+            ////    DataContext = cartDataContext
+            ////};
+            //carWindow.Show();
+            //Close();
             
         }
 

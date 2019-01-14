@@ -42,23 +42,23 @@ namespace CartBackend.Services
                     order_product.Id = order_productID;
 
 
-                    if (productDTO.Component != null)
-                    {
-                        var product = new Product { Id = productDTO.Id };
-                        foreach (var componentDTO in productDTO.Component)
-                        {
-                            var order_component = new Order_Component
-                            {
-                                Component = new Component { Id = componentDTO.Component.Id },
-                                Order = pureOrder,
-                                ProductIdInOrder = productIDInOrder,
-                                Product = product,
-                                Quantity = componentDTO.Quantity
-                            };
+                    //if (productDTO.Component != null)
+                    //{
+                    //    var product = new Product { Id = productDTO.Id };
+                    //    foreach (var componentDTO in productDTO.Component)
+                    //    {
+                    //        var order_component = new Order_Component
+                    //        {
+                    //            Component = new Component { Id = componentDTO.Component.Id },
+                    //            Order = pureOrder,
+                    //            ProductIdInOrder = productIDInOrder,
+                    //            Product = product,
+                    //            Quantity = componentDTO.Quantity
+                    //        };
 
-                            var order_componentID = _orderComponentRepository.Insert(order_component);
-                        }
-                    }
+                    //        var order_componentID = _orderComponentRepository.Insert(order_component);
+                    //    }
+                    //}
 
                 }
 

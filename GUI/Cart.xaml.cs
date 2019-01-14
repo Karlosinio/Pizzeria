@@ -1,4 +1,5 @@
 ﻿using CartViewModel;
+using MenuViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,16 +16,21 @@ namespace GUI
     /// </summary>
     public partial class Cart : Window
     {
-
         public Cart()
         {
             InitializeComponent();
-            DataContext = new CartVM();
         }
 
         private void Button_Back_Menu(object sender, RoutedEventArgs e)
         {
             var newWindow = new Menu();
+            var button = (Button)sender;
+            var cartDataContext = (CartVM)button.DataContext;
+
+            var vm = new MenuVM();
+            vm.cartProducts = cartDataContext.Products;
+
+            newWindow.DataContext = vm;
             newWindow.Show();
             Close();
         }
