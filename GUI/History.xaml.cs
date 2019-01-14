@@ -21,10 +21,12 @@ namespace GUI
     /// </summary>
     public partial class History : Window
     {
+        // TUTAJ123
+
         public History(int userID)
         {
             InitializeComponent();
-            DataContext = new HisotryVM(userID);
+            DataContext = new HistoryVM(userID);
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)

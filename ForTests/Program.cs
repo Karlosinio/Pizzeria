@@ -79,7 +79,6 @@ namespace ForTests
             {
                 Id = 1,
                 Name = "name",
-                Component = list,
                 Category = "kategoria",
                 Price = 20,
                 Available = true,
@@ -90,7 +89,6 @@ namespace ForTests
             {
                 Id = 2,
                 Name = "name2",
-                Component = list,
                 Category = "kategoria2",
                 Price = 25,
                 Available = true,
