@@ -13,6 +13,10 @@ namespace User.ViewModel
         private string _nazwisko;
         private string _tel;
         private string _mail;
+        private string _adrUlica;
+        private string _adrNumer;
+        private string _adrKod;
+        private string _adrMiasto;
         private string _mail2;
 
         private bool error { get; set; }
@@ -37,6 +41,9 @@ namespace User.ViewModel
             Nazwisko = responseUser.Surname;
             Tel = responseUser.Phone;
             Mail = responseUser.Email;
+            AdrUlica = responseUser.Address.Street;
+            AdrKod = responseUser.Address.PostalCode;
+            AdrMiasto = responseUser.Address.City;
         }
         
         public void Save()
@@ -54,6 +61,9 @@ namespace User.ViewModel
                 UserData.surname = Nazwisko;
                 UserData.email = Mail;
                 UserData.phone = Tel;
+//                UserData.address.City = AdrUlica;
+//                UserData.address.Street = AdrUlica;
+//                UserData.address.PostalCode = AdrKod;
             }
         }
 
@@ -172,6 +182,45 @@ namespace User.ViewModel
         }
 
 //        public string Haslo { get; set; }
-      
+        public string AdrUlica
+        {
+            get => _adrUlica;
+            set 
+
+            {
+                _adrUlica = value;
+                NotifyPropertyChanged(nameof(AdrUlica));
+            }
+        }
+
+        public string AdrNumer
+        {
+            get => _adrNumer;
+            set 
+            {
+                _adrNumer = value;
+                NotifyPropertyChanged(nameof(AdrNumer));
+            }
+        }
+
+        public string AdrKod
+        {
+            get => _adrKod;
+            set
+            {
+                _adrKod = value;
+                NotifyPropertyChanged(nameof(AdrKod));
+            }
+        }
+
+        public string AdrMiasto
+        {
+            get => _adrMiasto;
+            set
+            {
+                _adrMiasto = value;
+                NotifyPropertyChanged(nameof(AdrMiasto));
+            }
+        }
     }
 }
