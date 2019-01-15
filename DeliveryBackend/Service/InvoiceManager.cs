@@ -43,7 +43,7 @@ namespace DeliveryBackend.Service
             }
             return false;
         }
-        public void Generate(List<ProductDTO> dw, string filepath,Invoice inv , bool dostawa)
+        public void Generate(string filepath, Invoice inv)
         {
 
             Create(inv);
@@ -53,7 +53,7 @@ namespace DeliveryBackend.Service
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
 
             // Associate the MigraDoc document with a renderer
-            pdfRenderer.Document = helper.CreateDocument(dw, inv.m_Name, dostawa);
+            pdfRenderer.Document = helper.CreateDocument();
 
             // Layout and render document to PDF
             pdfRenderer.RenderDocument();
@@ -64,7 +64,7 @@ namespace DeliveryBackend.Service
             //return true;
         }
         //Genera and send e-mail
-        public void GenerateAndSend(List<ProductDTO> dw, string filepath , Invoice inv, bool dostawa)
+        public void GenerateAndSend(string filepath,Invoice inv)
         {
             Create(inv);
 
@@ -75,7 +75,7 @@ namespace DeliveryBackend.Service
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
 
             // Associate the MigraDoc document with a renderer
-            pdfRenderer.Document = helper.CreateDocument(dw, inv.m_Name, dostawa);
+            pdfRenderer.Document = helper.CreateDocument();
 
             // Layout and render document to PDF
             pdfRenderer.RenderDocument();

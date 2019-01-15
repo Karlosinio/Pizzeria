@@ -46,7 +46,6 @@
   <ItemGroup>
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="DeliveryVM.cs" />
-    <Compile Include="Discount.cs" />
     <Compile Include="PaymentVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

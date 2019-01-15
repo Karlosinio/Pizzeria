@@ -1,9 +1,12 @@
-﻿using CartBackend.Services;
+﻿using CartBackend.Common.DTO;
+using CartBackend.Services;
 using CartViewModel;
+using DeliveryBackend.Helpers;
 using DeliveryBackend.Model;
 using DeliveryBackend.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +17,6 @@ namespace DeliveryViewModel
 {
     public class DeliveryVM : BaseViewModel
     {
-        public CartVM CartModel { get; set; }
         public DeliveryBackend.Model.Address AddressModel { get; set; } = new DeliveryBackend.Model.Address("Brak", 123,"Brak","Brak","Brak");
         public DeliveryBackend.Model.Address NewAddress { get; set; } = new DeliveryBackend.Model.Address();
         /*
@@ -25,24 +27,21 @@ namespace DeliveryViewModel
         public string PostalCode { get; set; }
         */
         public double Price { get; set; }
-        public bool btn1 { get; set; } = false;
+        public bool btn1 { get; set; } = true;
         public bool btn2 { get; set; } = false;
-        public bool delBtn { get; set; } = false;
+        public bool delBtn { get; set; } = true;
         public bool flag { get; set; } = false;
 
         private bool codeUsed = false;
 
-        public string code { get; set; }
+        public string code { get; set; } = "";
 
 
-        public DeliveryVM(CartVM vm)
+        public DeliveryVM()
         {
-            code = "";
-
-            CartModel = vm;
             UserData.address = new User.Model.Address()
             {
-                Id = 1
+                Id = 6
             };
             GetUserAddress();
             /*
@@ -51,7 +50,7 @@ namespace DeliveryViewModel
             City = "Siankowo";
             PostalCode = "96-997";
             */
-            Price = vm.Price;
+            Price = DocumentData.Price;
             ToPayment = new DelegateCommand(AddAddress);
             Check = new DelegateCommand(CheckCode);
 
@@ -62,6 +61,7 @@ namespace DeliveryViewModel
         {
             AddressManager add = new AddressManager();
             AddressModel = add.Get(UserData.address.Id);
+            DocumentData.UserAdd = AddressModel;
         }
 
         public void CheckCode()
@@ -95,6 +95,7 @@ namespace DeliveryViewModel
                 //AddressModel = add;
 
                 manager.Update(UserData.address.Id, NewAddress);
+                DocumentData.UserAdd = AddressModel;
                 //manager.Create(add);
             }
 

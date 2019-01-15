@@ -1,4 +1,5 @@
 ﻿using CartViewModel;
+using DeliveryBackend.Helpers;
 using DeliveryBackend.Model;
 using DeliveryViewModel;
 using System;
@@ -23,11 +24,9 @@ namespace GUI
     public partial class Payment : Window
     {
 
-        public CartVM cart { get; set; }
-        public Payment(CartVM vm, DeliveryVM vm1)
+        public Payment()
         {
-            cart = vm;
-            DataContext = new PaymentVM(cart,vm1);
+            DataContext = new PaymentVM();
             InitializeComponent();
         }
 
@@ -60,16 +59,20 @@ namespace GUI
 
         private void Button_Back_Cart(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Cart(cart);
+            var newWindow = new Cart();
             newWindow.Show();
             Close();
         }
 
         private void Button_Back_Delivery(object sender, RoutedEventArgs e)
         {
-            //var newWindow = new Delivery();
-            //newWindow.Show();
-            //Close();
+            if(DocumentData.delivery==3)
+            {
+                DocumentData.Price = DocumentData.Price - 4;
+            }
+            var newWindow = new Delivery();
+            newWindow.Show();
+            Close();
         }
 
         private void Button_Pay(object sender, RoutedEventArgs e)
@@ -81,6 +84,16 @@ namespace GUI
             var newWindow = new Menu();
             newWindow.Show();
             Close();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ((PaymentVM)DataContext).pdf = true;
+        }
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            ((PaymentVM)DataContext).pdf = false;
         }
     }
 }
