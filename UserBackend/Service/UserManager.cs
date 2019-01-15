@@ -25,7 +25,7 @@ namespace User.Service
 //                    NullValueHandling = NullValueHandling.Ignore
 //                };
 //                var json = JsonConvert.SerializeObject(add, new JsonSerializerSettings(){NullValueHandling = NullValueHandling.Ignore});   
-                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"{address.Street}\",\"city\": \"{address.City}\",\"postalCode\": \"{address.PostalCode}\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
+                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"{address.Street}\",\"city\": \"{address.City}\",\"postalCode\": \"{address.PostalCode}\",\"nip\": \"0\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
 //                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
