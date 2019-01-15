@@ -61,14 +61,18 @@ namespace User.ViewModel
         {
             UserManager um = new UserManager();
            
-           // um.Login(Nick2, Password);
+            // um.Login(Nick2, Password);
             Model.User user= um.Login(Nick2, Password);
             UserData.name = user.Name;
-            UserData.surname = user.Name;
+            UserData.surname = user.Surname;
             UserData.admin = user.Admin;
             UserData.id = user.Id;
             UserData.loggedIn = user.LoggedIn;
             UserData.ableToChangePassword = user.AbleToChangePassword;
+            UserData.address.City = user.Address.City;
+            UserData.address.PostalCode = user.Address.PostalCode;
+            UserData.address.Street = user.Address.Street;
+            UserData.address.Id = user.Address.Id;
         }
         
         public void Validation()

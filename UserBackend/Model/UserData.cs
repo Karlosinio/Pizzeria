@@ -9,8 +9,8 @@ namespace User.Model
         public static string phone { get; set; }
         public static string nick { get; set; }
         public static string password { get; set; }
-        public static Address address { get; set; }
-        public static Question question { get; set; }
+        public static Address address { get; set; } = new Address();
+        public static Question question { get; set; } = new Question();
         public static string answer { get; set; }
         public static bool active { get; set; }
         public static bool loggedIn { get; set; }
