@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using CartBackend.Common.DTO;
 using CartViewModel;
 using MenuViewModel;
+using User.Model;
 
 namespace GUI
 {
