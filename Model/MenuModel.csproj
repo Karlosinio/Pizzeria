@@ -45,6 +45,17 @@
     <Compile Include="product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ratings.cs" />
+    <Compile Include="smallUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Admin\Admin.csproj">
+      <Project>{BDFA6437-08E4-46BA-BD4A-D4CF74D69A8F}</Project>
+      <Name>Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CartBackend\CartBackend.csproj">
+      <Project>{29746645-251D-4D50-97F1-7209CB8521D8}</Project>
+      <Name>CartBackend</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
