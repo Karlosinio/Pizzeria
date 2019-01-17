@@ -53,7 +53,7 @@ namespace GUI
 
             // TUTAJ123
 
-            var user_ID = 2;
+            var user_ID = 3;
 
             var newWindow = new CartOrderHistory(cartDataContext)
             {

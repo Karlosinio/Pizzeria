@@ -69,23 +69,25 @@ namespace GUI
             var button = (Button)sender;
             var dc = (MenuVM) button.DataContext;
 
-            var selectedProduct = dc.SelectedProduct;
-
-            ProductDTO prod = new ProductDTO
+            if(dc.SelectedProduct != null)
             {
-                Available = selectedProduct.available,
-                Category = selectedProduct.category,
-                Components = selectedProduct.components,
-                Id = selectedProduct.id,
-                Name = selectedProduct.name,
-                Price = selectedProduct.price,
-                Quantity = 1
-            };
+                var selectedProduct = dc.SelectedProduct;
 
-            dc.cartProducts.Add(prod);
+                ProductDTO prod = new ProductDTO
+                {
+                    Available = selectedProduct.available,
+                    Category = selectedProduct.category,
+                    Components = selectedProduct.components,
+                    Id = selectedProduct.id,
+                    Name = selectedProduct.name,
+                    Price = selectedProduct.price,
+                    Quantity = 1
+                };
 
-            cartContext.Products.Add(prod);
+                dc.cartProducts.Add(prod);
 
+                cartContext.Products.Add(prod);
+            }
         }
     }
 }

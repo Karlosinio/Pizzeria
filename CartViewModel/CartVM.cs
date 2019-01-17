@@ -141,13 +141,9 @@ namespace CartViewModel
 
         private void DeleteAllProductFromCart()
         {
-            if (SelectedProduct != null)
-            {
-                Price -= SelectedProduct.Price * SelectedProduct.Quantity;
-                RaisePropertyChanged("Price");
-                Products.Remove(SelectedProduct);
-            }
-
+            Products.Clear();
+            Price = 0;
+            RaisePropertyChanged("Price");
         }
 
         //przeznaczone dla menu lub z ktorego miejsca będą dodawane produkty do koszyka
