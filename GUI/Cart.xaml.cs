@@ -52,8 +52,7 @@ namespace GUI
             var cartDataContext = button.DataContext;
 
             // TUTAJ123
-
-            var user_ID = 3;
+            var user_ID = UserData.id;
 
             var newWindow = new CartOrderHistory(cartDataContext)
             {
