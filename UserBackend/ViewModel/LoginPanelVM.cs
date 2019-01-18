@@ -24,6 +24,10 @@ namespace User.ViewModel
         private string _answer;
         private string _passwordInput1;
         private string _passwordInput2;
+        private string _adrUlica;
+        private string _adrNumer;
+        private string _adrKod;
+        private string _adrMiasto;
 
 
         public ICommand RegisterButton { get;  protected set; }
@@ -44,14 +48,11 @@ namespace User.ViewModel
 
             if (!error)
             {
-                Address a1 = new Address();
+                Address a1 = new Address() {City = AdrMiasto, Street = AdrUlica, PostalCode = AdrKod};
                 Question q1 = SelectedQuestion;
                 UserManager um = new UserManager();
                 um.Create(Nick, Name, Surname, Email, Phone,a1, q1, Answer, Password);
-//                um.Create(Nick, Name, Surname, adr, qeust, Answer, Password);
                 MessageBox.Show("Zarejestrowano konto!\nMożesz się zalogować");
-                //todo obsluga bledu polaczenia
-                //todo czyszczenie hasła
                 ClearValues();
             }
         }
@@ -59,8 +60,15 @@ namespace User.ViewModel
         public void Login()
         {
             UserManager um = new UserManager();
-           // um.Login(Nick, Password);
-            UserData.id = um.Login(Nick2, Password);
+           
+           // um.Login(Nick2, Password);
+            Model.User user= um.Login(Nick2, Password);
+            UserData.name = user.Name;
+            UserData.surname = user.Name;
+            UserData.admin = user.Admin;
+            UserData.id = user.Id;
+            UserData.loggedIn = user.LoggedIn;
+            UserData.ableToChangePassword = user.AbleToChangePassword;
         }
         
         public void Validation()
@@ -149,6 +157,9 @@ namespace User.ViewModel
             PasswordInput2 = String.Empty;
             Answer = String.Empty;
             SelectedQuestion = null;
+            AdrKod = String.Empty;
+            AdrUlica = String.Empty;
+            AdrMiasto = String.Empty;
         }
 
         public string PasswordInput2
@@ -243,6 +254,47 @@ namespace User.ViewModel
             {
                 _answer = value;
                 NotifyPropertyChanged(nameof(Answer));
+            }
+        }
+        
+        public string AdrUlica
+        {
+            get => _adrUlica;
+            set 
+
+            {
+                _adrUlica = value;
+                NotifyPropertyChanged(nameof(AdrUlica));
+            }
+        }
+
+        public string AdrNumer
+        {
+            get => _adrNumer;
+            set 
+            {
+                _adrNumer = value;
+                NotifyPropertyChanged(nameof(AdrNumer));
+            }
+        }
+
+        public string AdrKod
+        {
+            get => _adrKod;
+            set
+            {
+                _adrKod = value;
+                NotifyPropertyChanged(nameof(AdrKod));
+            }
+        }
+
+        public string AdrMiasto
+        {
+            get => _adrMiasto;
+            set
+            {
+                _adrMiasto = value;
+                NotifyPropertyChanged(nameof(AdrMiasto));
             }
         }
 

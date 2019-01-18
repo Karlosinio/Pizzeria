@@ -25,7 +25,8 @@ namespace User.Service
 //                    NullValueHandling = NullValueHandling.Ignore
 //                };
 //                var json = JsonConvert.SerializeObject(add, new JsonSerializerSettings(){NullValueHandling = NullValueHandling.Ignore});   
-                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
+                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"{address.Street}\",\"city\": \"{address.City}\",\"postalCode\": \"{address.PostalCode}\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
+//                string newUser = $"{{\"nick\": \"{nick}\",\"name\": \"{name}\",\"surname\": \"{surname}\",\"email\": \"{email}\",\"phone\": \"{phone}\",\"address\": {{\"name\":\"\" ,\"street\": \"\",\"city\": \"\",\"postalCode\": \"\"}},\"question\": {{\"id\": {question.Id},\"question\": \"{question.question}\"}},\"answer\": \"{answer}\",\"password\": \"{password}\"}}";
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
 //                streamWriter.Write(json);
@@ -48,7 +49,7 @@ namespace User.Service
         }
 
        // public int Login(string nick, string password)
-        public int Login(string nick, string password)
+        public Model.User Login(string nick, string password)
         {
             HttpWebRequest request =
                 (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8080/server/api/users/login/");
@@ -75,12 +76,15 @@ namespace User.Service
                     using (StreamReader reader = new StreamReader(response.GetResponseStream()))
                     {
                         string responsestring = reader.ReadToEnd();
-                        return int.Parse(responsestring);
+                        Model.User user =JsonConvert.DeserializeObject<Model.User>(responsestring);
+                        return user;
+                           
+                       // return int.Parse(responsestring);
                     }
                 }
             }
 
-            return 0;
+            return null;
         }
         public bool Logout(int id)
         {

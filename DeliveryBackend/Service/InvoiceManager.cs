@@ -10,20 +10,19 @@ using MigraDoc.Rendering;
 using CartBackend.Common.DTO;
 using System.Net;
 using System.IO;
-using User.Model;
 
 namespace DeliveryBackend.Service
 {
     public class InvoiceManager
     {
 
-        public bool Create(Invoice inv)
+        public bool Create(int delivery_id, string invoice_name)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/invoices/");
             request.Method = "POST";
             request.ContentType = "application/json";
 
-            string nw = $"{{\"name\": \"{inv.m_Name}\",\"delivery\": {{\"id\": {inv.m_ID}}}}}";
+            string nw = $"{{\"name\": {invoice_name},\"delivery\": {{\"id\": {delivery_id}}}}}";
 
             //Delivery del = new Delivery(address, option, order);
 
@@ -43,17 +42,17 @@ namespace DeliveryBackend.Service
             }
             return false;
         }
-        public void Generate(string filepath, Invoice inv)
+        public void Generate(List<ProductDTO> dw, string filepath, int delivery_id1, string invoice_name1, User.Model.User user)
         {
 
-            Create(inv);
+            Create(delivery_id1, invoice_name1);
 
             DocumentHelper helper = new DocumentHelper();
             // Create a renderer for the MigraDoc document.
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
 
             // Associate the MigraDoc document with a renderer
-            pdfRenderer.Document = helper.CreateDocument();
+            pdfRenderer.Document = helper.CreateDocument(dw, user, invoice_name1);
 
             // Layout and render document to PDF
             pdfRenderer.RenderDocument();
@@ -64,9 +63,9 @@ namespace DeliveryBackend.Service
             //return true;
         }
         //Genera and send e-mail
-        public void GenerateAndSend(string filepath,Invoice inv)
+        public void GenerateAndSend(List<ProductDTO> dw /*Delivery delivery*/, string filepath ,string email,int delivery_id1, string invoice_name1, User.Model.User user)
         {
-            Create(inv);
+            Create(delivery_id1, invoice_name1);
 
             DocumentHelper helper = new DocumentHelper();
             MailHelper mail = new MailHelper();
@@ -75,7 +74,7 @@ namespace DeliveryBackend.Service
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
 
             // Associate the MigraDoc document with a renderer
-            pdfRenderer.Document = helper.CreateDocument();
+            pdfRenderer.Document = helper.CreateDocument(dw,user,invoice_name1);
 
             // Layout and render document to PDF
             pdfRenderer.RenderDocument();
@@ -83,7 +82,7 @@ namespace DeliveryBackend.Service
             // Save the document...
             pdfRenderer.PdfDocument.Save(filepath);
 
-            mail.SendMail(UserData.email, filepath);
+            mail.SendMail(email, filepath);
         }
     }
 }

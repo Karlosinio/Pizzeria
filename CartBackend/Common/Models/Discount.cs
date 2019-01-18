@@ -10,11 +10,9 @@ namespace CartBackend.Common.Models
     {
         public int Id { get; set; }
         public string Code { get; set; }
-        public bool Active { get; set; }
-        public long ExpiereTimestamp { get; set; }
-        public int PercentValue { get; set; }
-        public long UseTimeStamp { get; set; }
-        public bool Used { get; set; }
-
+        public int DiscountPrecent { get; set; }
+        public DateTime? UseTime { get; set; }
+        public bool IsUsed { get; set; }
+        public DateTime ExpireTime { get; set; }
     }
 }

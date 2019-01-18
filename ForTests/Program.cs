@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using User.Model;
 
 namespace ForTests
 {
@@ -16,6 +15,7 @@ namespace ForTests
     {
         static void Main(string[] args)
         {
+
             var service = new OrderService();
 
             Order o = new Order
@@ -24,7 +24,7 @@ namespace ForTests
                 DiscountUsed = false,
                 Deleted = false,
                 Price = 200,
-                User = new CartBackend.Common.Models.User { Id = 2 },
+                User = new User { Id = 2 },
                 OrderTimestamp = 1231231
             };
 
@@ -113,29 +113,8 @@ namespace ForTests
             vm.AddProduct(productDTO);
             vm.AddProduct(productDTO);
             vm.AddProduct(productDTO);
+
             //service.Insert(orderDTO);
-
-            //InvoiceManager inn = new InvoiceManager();
-            //inn.Generate(vm.GetProducts());
-            //inn.GenerateAndSend(vm.GetProducts());
-
         }
     }
 }
-
-            /*
-            InvoiceManager inn = new InvoiceManager();
-            inn.Generate(vm.GetProducts(), "Rachunek.pdf", new DeliveryBackend.Model.Invoice()
-            {
-                m_ID = 1,
-                m_Name = ""
-            },false);
-            //inn.GenerateAndSend(vm.GetProducts());
-
-
-            /*
-            AddressManager manager = new AddressManager();
-            DeliveryBackend.Model.Address add = new DeliveryBackend.Model.Address("test", 23,"xd", "Halo", "22");
-            add.id = 1;
-            manager.Update(1, add);
-            */
