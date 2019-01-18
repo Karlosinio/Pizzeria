@@ -90,6 +90,9 @@
     <Compile Include="RateApp.xaml.cs">
       <DependentUpon>RateApp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectModule.xaml.cs">
+      <DependentUpon>SelectModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RestorePassword.xaml.cs">
       <DependentUpon>RestorePassword.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
     <Page Include="RateApp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectModule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="RestorePassword.xaml">
       <SubType>Designer</SubType>
