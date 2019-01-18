@@ -21,29 +21,29 @@
         <!-- Reset password & sign in -->
         <Button Content="Odzyskaj hasło" HorizontalAlignment="Left" Margin="215,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_RestPass" Visibility="Hidden" />
         <Button Content="Zaloguj" HorizontalAlignment="Left" Margin="624,61,0,0" VerticalAlignment="Top" Width="160" Height="32" FontSize="15" Click="Button_Log" Command="{Binding LoginButton}" />
+        
+        
         <!-- REGISTER -->
         <!-- Name -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="9,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Imię:" TextAlignment="Right"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,103,0,0" TextWrapping="Wrap" Text="{Binding Name ,Mode=TwoWay}" VerticalAlignment="Top"/>
-
         <!-- Surname -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="-29,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Nazwisko:" TextAlignment="Right"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,138,0,0" TextWrapping="Wrap" Text="{Binding Surname ,Mode=TwoWay}" VerticalAlignment="Top"/>
-
-        <!-- Login -->
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="413,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="519,108,0,0" TextWrapping="Wrap" Text="{Binding Nick ,Mode=TwoWay}" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_1"/>
-
         <!-- Phone number -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="-30,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right"  Text="Nr telefonu:"/>
         <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="114,173,0,0" TextWrapping="Wrap" Text="{Binding Phone ,Mode=TwoWay}" VerticalAlignment="Top"/>
-
-        <!-- Mail-->
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="413,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Mail:" TextAlignment="Right"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="519,213,0,0" TextWrapping="Wrap" Text="{Binding Email ,Mode=TwoWay}" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="375,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz mail:"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="519,248,0,0" TextWrapping="Wrap" Text="{Binding Email2 ,Mode=TwoWay}" VerticalAlignment="Top"/>
-
+        <!--Address -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="119" FontSize="20" Margin="-10,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,209,0,0" TextWrapping="Wrap" Text="{Binding AdrUlica, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="158" FontSize="20" Margin="9,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod pocztowy:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="205" FontSize="20" Margin="170,244,0,0" TextWrapping="Wrap" Text="{Binding AdrKod, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="-25,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Miasto:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="259" FontSize="20" Margin="115,278,0,0" TextWrapping="Wrap" Text="{Binding AdrMiasto, Mode=TwoWay}" VerticalAlignment="Top"/>
+        
+        <!-- Login -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="413,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Login:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="519,108,0,0" TextWrapping="Wrap" Text="{Binding Nick ,Mode=TwoWay}" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_1"/>
         <!-- Password -->
         <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="412,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Hasło:"/>
         <PasswordBox  HorizontalAlignment="Left" Name="poleHasla_pb" PasswordChanged="poleHasla_pb_PasswordChanged"  Height="30" Width="260" FontSize="20" Margin="518,143,0,0"  
@@ -53,40 +53,25 @@
         <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb" Height="31" Margin="457,358,0,0" Text="{Binding Password2 ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" TextChanged="podaneHaslo_tb_TextChanged" IsReadOnly="True" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Name="Hash_MD5" Height="23" Margin="457,386,0,0"  Text="{Binding Password ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120" TextChanged="Hash_TextChanged" IsReadOnly="True" Visibility="Hidden"/>
         <TextBox HorizontalAlignment="Left" Name="podaneHaslo_tb2" Height="31" Margin="270,357,0,0" Text="{Binding Password3 ,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" TextChanged="podaneHaslo_tb_TextChanged" IsReadOnly="True" Visibility="Hidden" />
-        <!--->
-
-        <-->
-            <TextBlock HorizontalAlignment="Left"  Height="30" Width="139" FontSize="20" Margin="375,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz hasło:"/>
+        <TextBlock HorizontalAlignment="Left"  Height="30" Width="139" FontSize="20" Margin="375,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz hasło:"/>
             <PasswordBox HorizontalAlignment="Left" Name="poleHasla_pb1" PasswordChanged="poleHasla_pb_PasswordChanged2" 
                          Height="30" Width="260" FontSize="20" Margin="519,178,0,0"  l:PasswordBoxAssistant.BindPassword="True"  VerticalAlignment="Top" 
                          l:PasswordBoxAssistant.BoundPassword="{Binding Path=PasswordInput1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <!-- Security question -->
-            <TextBlock HorizontalAlignment="Left" Height="56" Width="120" FontSize="20" Margin="392,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Pytanie pomocnicze:"/>
+        <!-- Mail-->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="100" FontSize="20" Margin="413,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Mail:" TextAlignment="Right"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="519,213,0,0" TextWrapping="Wrap" Text="{Binding Email ,Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="375,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Powtórz mail:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="519,248,0,0" TextWrapping="Wrap" Text="{Binding Email2 ,Mode=TwoWay}" VerticalAlignment="Top"/>
+        <!-- Security question -->
+        <TextBlock HorizontalAlignment="Left" Height="56" Width="120" FontSize="20" Margin="392,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Pytanie pomocnicze:"/>
+        <!-- SQQuestion -->
+        <ComboBox ItemsSource="{Binding Questions}" SelectedValue="{Binding SelectedQuestion, Mode=TwoWay}" HorizontalAlignment="Left" Height="56" Margin="519,297,0,0" VerticalAlignment="Top" Width="259"/>
+        <!-- Security answer -->
+        <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Odpowiedź:"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,369,0,0" TextWrapping="Wrap" Text="{Binding Answer ,Mode=TwoWay,FallbackValue=Test}" VerticalAlignment="Top"/>
 
-
-            <!-- Security answer -->
-            <TextBlock HorizontalAlignment="Left" Height="30" Width="139" FontSize="20" Margin="380,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Odpowiedź:"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="524,369,0,0" TextWrapping="Wrap" Text="{Binding Answer ,Mode=TwoWay,FallbackValue=Test}" VerticalAlignment="Top"/>
-
-            <!-- Register -->
-            <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="150,347,0,0" VerticalAlignment="Top" Width="158" Height="33" FontSize="15" Command="{Binding RegisterButton}"/>
-
-
-            <!-- SQQuestion -->
-            <ComboBox ItemsSource="{Binding Questions}" SelectedValue="{Binding SelectedQuestion, Mode=TwoWay}" HorizontalAlignment="Left" Height="56" Margin="519,297,0,0" VerticalAlignment="Top" Width="259"/>
-
-
-            <!--Address -->
-            <TextBlock HorizontalAlignment="Left" Height="30" Width="119" FontSize="20" Margin="-10,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Width="260" FontSize="20" Margin="115,209,0,0" TextWrapping="Wrap" Text="{Binding AdrUlica, Mode=TwoWay}" VerticalAlignment="Top"/>
-
-
-            <TextBlock HorizontalAlignment="Left" Height="30" Width="158" FontSize="20" Margin="9,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod pocztowy:"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Width="205" FontSize="20" Margin="170,244,0,0" TextWrapping="Wrap" Text="{Binding AdrKod, Mode=TwoWay}" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Height="30" Width="135" FontSize="20" Margin="-25,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Miasto:"/>
-            <TextBox HorizontalAlignment="Left" Height="30" Width="259" FontSize="20" Margin="115,278,0,0" TextWrapping="Wrap" Text="{Binding AdrMiasto, Mode=TwoWay}" VerticalAlignment="Top"/>
-
-
+        <!-- Register -->
+        <Button Content="Zarejestruj" HorizontalAlignment="Left" Margin="150,347,0,0" VerticalAlignment="Top" Width="158" Height="33" FontSize="15" Command="{Binding RegisterButton}"/>
 
 
     </Grid>

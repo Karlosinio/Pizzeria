@@ -66,10 +66,6 @@
       <Project>{EBDD466A-7536-4889-AD54-6A7E2B632DE9}</Project>
       <Name>DeliveryBackend</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UserBackend\User.csproj">
-      <Project>{E83B7C88-E824-430D-A0EB-9E4AF76321F2}</Project>
-      <Name>User</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

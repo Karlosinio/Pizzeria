@@ -23,9 +23,5 @@ namespace DeliveryBackend.Model
             postalCode = PostalCode;
             street = Street;
         }
-        public Address()
-        {
-
-        }
     }
 }

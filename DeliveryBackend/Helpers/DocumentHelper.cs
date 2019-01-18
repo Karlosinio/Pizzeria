@@ -53,7 +53,7 @@ namespace DeliveryBackend.Helpers
             style.ParagraphFormat.TabStops.AddTabStop("16cm", TabAlignment.Right);
         }
 
-        void CreatePage()
+        void CreatePage(User.Model.User user, string inv)
         {
             // Each MigraDoc document needs at least one section.
             Section section = this.document.AddSection();
@@ -82,15 +82,15 @@ namespace DeliveryBackend.Helpers
 
 
             // Put sender in address frame
-            paragraph = this.addressFrame.AddParagraph($"Numer faktury:{DocumentData.delNb} \r\n\r\nPizzeria \"Dobra Pizza\"\r\nAdres:\r\n");
+            paragraph = this.addressFrame.AddParagraph($"Numer faktury:{inv} \r\n\r\nPizzeria \"Dobra Pizza\"\r\nAdres:\r\n");
             paragraph.Format.Font.Name = "Times New Roman";
-            paragraph.Format.Font.Size = 14;
+            paragraph.Format.Font.Size = 7;
             paragraph.Format.SpaceAfter = 3;
 
             //Put some user info
-            paragraph = this.userFrame.AddParagraph($"Klient:\r\n {UserData.name}\r\n{UserData.email}\r\n{DocumentData.UserAdd.city} {DocumentData.UserAdd.postalCode}\r\n{DocumentData.UserAdd.street} {DocumentData.UserAdd.nip}");
+            paragraph = this.userFrame.AddParagraph($"Klient:\r\n {user.name}\r\n{user.address}");
             paragraph.Format.Font.Name = "Times New Roman";
-            paragraph.Format.Font.Size = 14;
+            paragraph.Format.Font.Size = 7;
             paragraph.Format.SpaceAfter = 3;
 
             // Add the print date field
@@ -98,6 +98,9 @@ namespace DeliveryBackend.Helpers
             paragraph.Format.SpaceBefore = "8cm";
             paragraph.Style = "Reference";
             paragraph.AddFormattedText("Rachunek", TextFormat.Bold);
+            paragraph.AddTab();
+            paragraph.AddText("Lodz, ");
+            paragraph.AddDateField("dd.MM.yyyy");
 
             // Create the item table
             this.table = section.AddTable();
@@ -141,7 +144,7 @@ namespace DeliveryBackend.Helpers
 
             // Iterate the invoice items
             int count = 0; ;
-            foreach(ProductDTO dt in DocumentData.products)
+            foreach(ProductDTO dt in list)
             {
                 count++;
                 Row row1 = table.AddRow();
@@ -156,7 +159,7 @@ namespace DeliveryBackend.Helpers
                 table.SetEdge(0, this.table.Rows.Count - 1, 4, 1, Edge.Box, BorderStyle.Single, 0.75);
 
             }
-            if (DocumentData.delivery ==3)
+            //if (dostawa == true)
             {
                 Row row2 = this.table.AddRow();
                 row2.Borders.Visible = false;
@@ -173,20 +176,17 @@ namespace DeliveryBackend.Helpers
             row.Borders.Visible = false;
             row = this.table.AddRow();
             row.Cells[0].Borders.Visible = false;
-            row.Cells[0].AddParagraph("Netto");
+            row.Cells[0].AddParagraph("Total Price");
             row.Cells[0].Format.Font.Bold = true;
             row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
             row.Cells[0].MergeRight = 2;
-            row.Cells[3].AddParagraph(string.Format("{0:N2}", DocumentData.PriceVat));
-            row.Cells[0].AddParagraph("Brutto");
-            row.Cells[0].Format.Font.Bold = true;
-            row.Cells[0].Format.Alignment = ParagraphAlignment.Right;
-            row.Cells[0].MergeRight = 2;
-            row.Cells[3].AddParagraph(string.Format("{0:N2}", DocumentData.Price));
+            row.Cells[3].AddParagraph(55.ToString());
         }
 
-        public Document CreateDocument()
+        public Document CreateDocument(List<ProductDTO> dto, User.Model.User us, string name)
         {
+
+            list = dto;
             // Create a new MigraDoc document
             this.document = new Document();
             this.document.Info.Title = "A sample invoice";
@@ -195,7 +195,7 @@ namespace DeliveryBackend.Helpers
 
             DefineStyles();
 
-            CreatePage();
+            CreatePage(us,name);
 
             FillContent();
 

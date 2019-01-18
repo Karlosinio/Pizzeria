@@ -22,30 +22,29 @@
         <RadioButton GroupName="Group2" Content="Wpisz inny" HorizontalAlignment="Left" Margin="376,157,0,0" VerticalAlignment="Top" Checked="Address2RB_Checked" Height="20" Width="151" FontSize="15"/>
         <!-- Default address-->
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="26,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding AddressModel.street}" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="ulica" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="26,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Numer:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding AddressModel.nip}" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="numer" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="26,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod pocztowy:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding AddressModel.postalCode}" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="kod pocztowy" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="26,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Miasto:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding AddressModel.city}" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="146,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="miasto" Foreground="DodgerBlue" />
 
         <!-- Custom address-->
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="375,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,182,0,0" TextWrapping="Wrap" Text="{Binding NewAddress.street}" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,182,0,0" TextWrapping="Wrap" Text="{Binding Street}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="375,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Numer:"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,207,0,0" TextWrapping="Wrap" Text="{Binding NewAddress.nip}" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,207,0,0" TextWrapping="Wrap" Text="{Binding Number}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="375,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod pocztowy:"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,232,0,0" TextWrapping="Wrap" Text="{Binding NewAddress.postalCode}" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,232,0,0" TextWrapping="Wrap" Text="{Binding PostalCode}" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="375,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Miasto:"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,256,0,0" TextWrapping="Wrap" Text="{Binding NewAddress.city}" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Width="278" FontSize="15" Margin="490,256,0,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top"/>
 
         <!-- Buttons-->
         <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,379,0,0" VerticalAlignment="Top" Width="179" Height="30"  FontSize="15" Click="BackMenuB_Click"/>
         <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="205,380,0,0" VerticalAlignment="Top" Width="180" Height="30"  FontSize="15" Click="BackCartB_Click"/>
-        <Button Content="Do płatności" HorizontalAlignment="Left" Margin="409,379,0,0" VerticalAlignment="Top" Width="375" Height="30"  FontSize="15" Click="ToPaymentB_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="26,328,0,0" TextWrapping="Wrap" Text="{Binding code}" VerticalAlignment="Top" Width="349"/>
+        <Button Content="Do płatności" HorizontalAlignment="Left" Margin="409,379,0,0" VerticalAlignment="Top" Width="375" Height="30"  FontSize="15" Click="ToPaymentB_Click" Command="{Binding ToPayment}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="26,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="349"/>
         <TextBlock Text="Wpisz kod rabatowy:" HorizontalAlignment="Left" Margin="26,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="500" FontSize="20"/>
-        <Button Command="{Binding Check}" Content="Sprawdź" HorizontalAlignment="Left" Margin="409,331,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
