@@ -152,9 +152,11 @@ namespace CartViewModel
             //check if product isn't in the cart already
             if (Products.Contains(product))
             {
-                product.Quantity++;
-                var id = Products.Where(x => x.Equals(product)).FirstOrDefault().Id;
-                Products[id] = product;
+                var id = Products.IndexOf(Products.Where(x => x.Equals(product)).FirstOrDefault());
+                product.Quantity = product.Quantity + Products[id].Quantity;
+                Products.Insert(id, product);
+                Products.RemoveAt(id + 1);
+                RaisePropertyChanged("Products");
             }
             else
             {

@@ -31,8 +31,8 @@ namespace GUI
         {
             var button = (Button)sender;
             var dataContext = (OrderHistoryVM) button.DataContext;
-
-            cartDataContext.AddProduct(dataContext.SelectedProduct);
+            if(dataContext.SelectedProduct != null)
+                cartDataContext.AddProduct(dataContext.SelectedProduct);
         }
 
         private void Back_To_Cart(object sender, RoutedEventArgs e)
