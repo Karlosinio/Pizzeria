@@ -35,7 +35,7 @@ namespace ServiceNS
         {
             ratings r = new ratings();
             r.rate = Rate;
-            r.user = id;
+            r.user = new User(id);
             //r.ratingTimestamp = "1544978400000";
             //r.comment = "";
 

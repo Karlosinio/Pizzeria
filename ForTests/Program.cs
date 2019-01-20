@@ -19,7 +19,7 @@ namespace ForTests
         static void Main(string[] args)
         {
             var service = new OrderService();
-
+        } } }
             //var service = new OrderService();
             /*
             Order o = new Order
@@ -131,4 +131,4 @@ namespace ForTests
             vm.AddProduct(productDTO);
             vm.AddProduct(productDTO);
 
-            //service.Insert(orderDTO);
+            //service.Insert(orderDTO);*/
