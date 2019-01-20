@@ -4,31 +4,86 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
 using System.Diagnostics;
+using DeliveryBackend.Helpers;
+using MigraDoc.Rendering;
+using CartBackend.Common.DTO;
+using System.Net;
+using System.IO;
+using User.Model;
 
 namespace DeliveryBackend.Service
 {
     public class InvoiceManager
     {
 
-        public bool Generate(Delivery delivery, string filepath)
+        public bool Create(Invoice inv)
         {
-            PdfDocument pdf = new PdfDocument();
-            PdfPage page = pdf.AddPage();
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-            XFont font = new XFont("Verdana", 20, XFontStyle.BoldItalic);
-            gfx.DrawString("Hello, World!", font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height),XStringFormats.Center);
-            const string filename = "HelloWorld.pdf";
-            pdf.Save(filepath);
-            Process.Start(filename);
-            return true;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/invoices/");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+
+            string nw = $"{{\"name\": \"{inv.m_Name}\",\"delivery\": {{\"id\": {inv.m_ID}}}}}";
+
+            //Delivery del = new Delivery(address, option, order);
+
+            //var json = JsonConvert.SerializeObject(del);
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(nw);
+            }
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
-
-        public void Generate(Delivery delivery, string filepath ,string email)
+        public void Generate(string filepath, Invoice inv)
         {
 
+            Create(inv);
+
+            DocumentHelper helper = new DocumentHelper();
+            // Create a renderer for the MigraDoc document.
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+
+            // Associate the MigraDoc document with a renderer
+            pdfRenderer.Document = helper.CreateDocument();
+
+            // Layout and render document to PDF
+            pdfRenderer.RenderDocument();
+
+            // Save the document...
+            pdfRenderer.PdfDocument.Save(filepath);
+            Process.Start(filepath);
+            //return true;
+        }
+        //Genera and send e-mail
+        public void GenerateAndSend(string filepath,Invoice inv)
+        {
+            Create(inv);
+
+            DocumentHelper helper = new DocumentHelper();
+            MailHelper mail = new MailHelper();
+
+            // Create a renderer for the MigraDoc document.
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+
+            // Associate the MigraDoc document with a renderer
+            pdfRenderer.Document = helper.CreateDocument();
+
+            // Layout and render document to PDF
+            pdfRenderer.RenderDocument();
+
+            // Save the document...
+            pdfRenderer.PdfDocument.Save(filepath);
+
+            mail.SendMail(UserData.email, filepath);
         }
     }
 }

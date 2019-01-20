@@ -3,11 +3,14 @@ using CartBackend.Common.DTO;
 using CartBackend.Common.Models;
 using CartBackend.Services;
 using CartViewModel;
+using DeliveryBackend.Model;
+using DeliveryBackend.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using User.Model;
 
 namespace ForTests
 {
@@ -15,16 +18,17 @@ namespace ForTests
     {
         static void Main(string[] args)
         {
-
             var service = new OrderService();
 
+            //var service = new OrderService();
+            /*
             Order o = new Order
             {
                 Comment = "asdgfdg",
                 DiscountUsed = false,
                 Deleted = false,
                 Price = 200,
-                User = new User { Id = 2 },
+                User = new CartBackend.Common.Models.User { Id = 2 },
                 OrderTimestamp = 1231231
             };
 
@@ -75,6 +79,21 @@ namespace ForTests
 
 
 
+
+            //AddressManager add =new  AddressManager();
+            //add.Create("bart", 12345, "city","street", 1234);
+            //Address ajn= add.Get(3);
+            //Console.WriteLine(ajn.city);
+            //add.Remove(5);
+            //DeliveryManager man = new DeliveryManager();
+            //man.Create(o, man.GetDO(2), add.Get(3));
+
+        }
+    }
+}
+
+            var service = new OrderService();
+
             ProductDTO productDTO = new ProductDTO
             {
                 Id = 1,
@@ -83,7 +102,6 @@ namespace ForTests
                 Price = 20,
                 Available = true,
                 Quantity = 77
-
             };
             ProductDTO productDTO2 = new ProductDTO
             {
@@ -94,7 +112,6 @@ namespace ForTests
                 Available = true,
                 Quantity = 7
             };
-
             List<ProductDTO> prod = new List<ProductDTO>
             {
                 productDTO,
@@ -115,6 +132,3 @@ namespace ForTests
             vm.AddProduct(productDTO);
 
             //service.Insert(orderDTO);
-        }
-    }
-}

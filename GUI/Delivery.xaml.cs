@@ -1,4 +1,6 @@
-﻿using DeliveryViewModel;
+﻿using CartViewModel;
+using DeliveryBackend.Helpers;
+using DeliveryViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,26 +26,27 @@ namespace GUI
         {
             InitializeComponent();
             DataContext = new DeliveryVM();
+
         }
 
         private void Delivery1RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).CheckRadios1();
         }
 
         private void Delivery2RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).CheckRadios2();
         }
 
         private void Address1RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).delBtn = true;
         }
 
         private void Address2RB_Checked(object sender, RoutedEventArgs e)
         {
-
+            ((DeliveryVM)DataContext).delBtn = false;
         }
 
         private void BackMenuB_Click(object sender, RoutedEventArgs e)
@@ -62,7 +65,10 @@ namespace GUI
 
         private void ToPaymentB_Click(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Payment();
+            ((DeliveryVM)DataContext).AddAddress();
+            DocumentData.delivery = ((DeliveryVM)DataContext).CheckDelivery();
+            DocumentData.Price = ((DeliveryVM)DataContext).Price;
+            var newWindow = new Payment() ;
             newWindow.Show();
             Close();
         }

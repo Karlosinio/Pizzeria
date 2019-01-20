@@ -1,4 +1,5 @@
 ﻿using CartViewModel;
+using DeliveryBackend.Helpers;
 using MenuViewModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,7 @@ namespace GUI
     /// </summary>
     public partial class Cart : Window
     {
+
         public Cart()
         {
             InitializeComponent();
@@ -38,6 +40,8 @@ namespace GUI
 
         private void Button_Delivery(object sender, RoutedEventArgs e)
         {
+            DocumentData.products = ((CartVM)DataContext).GetProducts();
+            DocumentData.Price = ((CartVM)DataContext).Price;
             var newWindow = new Delivery();
             newWindow.Show();
             Close();
@@ -51,9 +55,7 @@ namespace GUI
         {
             var button = (Button)sender;
             var cartDataContext = button.DataContext;
-
-            // TUTAJ123
-            var user_ID = UserData.id;
+            var user_ID = 2;
 
             var newWindow = new CartOrderHistory(cartDataContext)
             {
@@ -74,6 +76,5 @@ namespace GUI
                 newWindow.Show();
             }
         }
-        
     }
 }

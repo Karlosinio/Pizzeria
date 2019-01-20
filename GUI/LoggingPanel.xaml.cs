@@ -40,7 +40,7 @@ namespace GUI
 
         private void Button_Log(object sender, RoutedEventArgs e)
         {
-            var newWindow = new Menu();
+            var newWindow = new SelectModule();
             Close();
             newWindow.Show();
         }

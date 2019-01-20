@@ -9,16 +9,16 @@
     <Grid>
         <!-- Cart -->
         <TextBlock Text="Suma:" HorizontalAlignment="Left" Margin="619,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="60" FontSize="20"/>
-        <TextBlock Text="00.00 PLN" HorizontalAlignment="Left" Margin="684,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="100" FontSize="20" Foreground="Green" TextAlignment="Right"/>
+        <TextBlock Text="{Binding Price, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged, StringFormat=' {0} PLN'}" HorizontalAlignment="Left" Margin="684,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="100" FontSize="20" Foreground="Green" TextAlignment="Right"/>
 
         <!-- Order -->
         <TextBlock Text="Zamówienie:" HorizontalAlignment="Left" Margin="26,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
-        <ListView Margin="26,75,408.6,88" x:Name="lvUsers">
+        <ListView Margin="26,75,408.6,88" x:Name="lvUsers" ItemsSource="{Binding Products, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nazwa" Width="235" DisplayMemberBinding="{Binding Nazwa}" />
-                    <GridViewColumn Header="Rozmiar" Width="60" DisplayMemberBinding="{Binding Rozmiar}" />
-                    <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding Cena}" />
+                    <GridViewColumn Header="Nazwa" Width="235" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Rozmiar" Width="60" DisplayMemberBinding="{Binding Category}" />
+                    <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding Price}" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -26,23 +26,24 @@
         <!-- Delivery detials -->
         <TextBlock Text="Szczegóły dostawy:" HorizontalAlignment="Left" Margin="409,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Ulica:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="ulica" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Street}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Numer:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="numer" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Number}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod pocztowy:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="kod pocztowy" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding PostalCode}" Foreground="DodgerBlue" />
         <TextBlock HorizontalAlignment="Left" Height="20" Width="110" FontSize="15" Margin="409,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Miasto:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="miasto" Foreground="DodgerBlue" />
+        <TextBlock HorizontalAlignment="Left" Height="20" Width="229" FontSize="15" Margin="524,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding City}" Foreground="DodgerBlue" />
 
         <!-- Payment method -->
         <TextBlock Text="Wybierz sposób płatności:" HorizontalAlignment="Left" Margin="409,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30"  Width="359" FontSize="20"/>
-        <RadioButton Content="Płatnośc gotówką" HorizontalAlignment="Left" Margin="431,237,0,0" VerticalAlignment="Top" Checked="MoneyRB_Checked" Height="20" Width="337" FontSize="15" />
-        <RadioButton Content="Płatność kartą płatniczą" HorizontalAlignment="Left" Margin="431,262,0,0" VerticalAlignment="Top" Checked="CardRB_Checked" Height="20" Width="337" FontSize="15"/>
-        <RadioButton Content="Płatność online" HorizontalAlignment="Left" Margin="431,287,0,0" VerticalAlignment="Top" Checked="OnlineRB_Checked" Height="20" Width="337" FontSize="15" />
-        <RadioButton Content="Płatność BLIKiem" HorizontalAlignment="Left" Margin="431,312,0,0" VerticalAlignment="Top" Checked="BlikRB_Checked" Height="20" Width="152" FontSize="15"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Width="40" FontSize="15" Margin="619,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TextAlignment="Right" Text="Kod:"/>
-        <TextBox HorizontalAlignment="Left" Height="20" Width="104" FontSize="15" Margin="664,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <RadioButton GroupName="Test2" Content="Płatnośc gotówką" HorizontalAlignment="Left" Margin="431,237,0,0" VerticalAlignment="Top" Checked="MoneyRB_Checked" Height="20" Width="337" FontSize="15" />
+        <RadioButton GroupName="Test2" Content="Płatność kartą płatniczą" HorizontalAlignment="Left" Margin="431,262,0,0" VerticalAlignment="Top" Checked="CardRB_Checked" Height="20" Width="337" FontSize="15"/>
+        <RadioButton GroupName="Test2" Content="Płatność online" HorizontalAlignment="Left" Margin="431,287,0,0" VerticalAlignment="Top" Checked="OnlineRB_Checked" Height="20" Width="337" FontSize="15" />
 
+        <StackPanel Margin="430,260,0,0" Orientation="Horizontal" Height="40">
+            <RadioButton Margin="10" Content="Faktura na dysk" Checked="RadioButton_Checked"/>
+            <RadioButton Margin="10" Content="Faktura na dysk i mail" Checked="RadioButton_Checked_1" />
+        </StackPanel>
         <!-- Buttons -->
         <Button Content="Powrót do menu" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" Width="141" Height="30"  FontSize="15" Click="Button_Back_Menu"/>
         <Button Content="Powrót do koszyka" HorizontalAlignment="Left" Margin="156,380,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="15" Click="Button_Back_Cart"/>

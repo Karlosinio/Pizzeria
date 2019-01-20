@@ -1,14 +1,4 @@
-Moduł produkty:
+WAŻNE!!
+Dla pełnej funkcjonalności Delivery w bazie danych pod id=2 w tabeli DeliveryOptions powinna znajdować się opcja dostawy do domu, a pot id=3 opcja dostawy na wskazany adres w przypisanym samochodem.
 
-przy picisku "Dodaj do koszyka" wywułujecie metodę CartVM.AddProduct - zwróćcie uwagę, że jest tutaj DTO, bo zawiera również te dodatkowe składniki.
-
-
-Moduł finalizacja i dostawy :
-
-Zestaw produktów pobierać z CartVM.GetOrderProducts, dostajecie listę produktów (po integracji dorobię obsługę komponentów, po usteleniu pewnych rzeczy z modułem produktów), gdzie każdy produkt ma cenę, więc wystarczy odwołać się do odpowiedniego pola.
-
-Jeśli chodzi o zniżkę, to nie jest to kluczowa funkcjonalność na ten moment.
-Ale wystarczy, że stworzycie instancję BaserService<Discount>, przeszukacie kolekcję czy zawiara taki kod, i czy nie został użyty itp. a potem odejmiecie od ceny odpowiedni procent. (Tak, tak to nasza funkcjonalność, jednak nie wiem czy uda mi się wieczorem to dorobić jak skończycie, bo wszystko zależy o której skończycie :D)
-  
-  Jesli chodzi o umieszczenie zamówienia na serwerze, tworzycie OrderService, potem Order, a w liście Products umieszczacie Produkty, które są w zamówieniu. Czynnośc polega na zmapowaniu tego co zwraca wam CartVM.
-  A na koniec wywołanie metody OrderService.Insert i powinno śmigać.
+W kodzie można usunąć wartości przykładowe.

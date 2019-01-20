@@ -16,13 +16,13 @@ namespace DeliveryBackend.Service
 
     public class DeliveryManager
     {
-        public bool Create(Order order, DeliveryOption option, Address address)
+        public int Create(Order order, DeliveryOption option, Address address)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://127.0.0.1:8080/server/api/deliveries/");
             request.Method = "POST";
             request.ContentType = "application/json";
 
-            string nw = $"{{\"address\": {{\"id\": {address.id} }}, \"deliveryOption\": {{ \"id\": {option.id}}},\"order\": {{\"id\": {order.Id}}}";
+            string nw = $"{{\"address\": {{\"id\": {address.id} }}, \"deliveryOption\": {{ \"id\": {option.id}}},\"order\": {{\"id\": {order.Id}}}}}";
 
             //Delivery del = new Delivery(address, option, order);
 
@@ -35,13 +35,21 @@ namespace DeliveryBackend.Service
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                if (response.StatusCode == HttpStatusCode.Created)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    return true;
+                    WebHeaderCollection header = response.Headers;
+
+                    string responseText="";
+                    var encoding = ASCIIEncoding.ASCII;
+                    using (var reader = new System.IO.StreamReader(response.GetResponseStream(), encoding))
+                    {
+                        responseText = reader.ReadToEnd();
+                    }
+
+                    return Convert.ToInt32(responseText);
                 }
             }
-
-            return false;
+            return 0;
         }
 
         public Delivery Get(int id)
@@ -92,12 +100,5 @@ namespace DeliveryBackend.Service
                 return list;
             }
         }
-
-        //TO OD
-        public void GetAvaibleDeliveryOptions()
-        {
-
-        }
-
     }
 }
