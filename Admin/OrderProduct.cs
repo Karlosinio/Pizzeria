@@ -11,8 +11,9 @@ namespace Admin
         public int _id { get; set; }
         public Order _order { get; set; }
         public Product _product { get; set; }
+        public int _quantity { get; set; }
 
-        public OrderProduct(int id, Order order, Product product)
+        public OrderProduct(int id, Order order, Product product, int quantity)
         {
             _id = id;
             _order = order;

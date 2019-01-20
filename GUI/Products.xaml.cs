@@ -33,7 +33,28 @@ namespace GUI
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            // TO DO - logic
+            
+        }
+        private void Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Products();
+            Close();
+            newWindow.Show();
+        }
+
+        private void listExtraSkills_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
