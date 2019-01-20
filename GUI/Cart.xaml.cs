@@ -20,6 +20,7 @@ namespace GUI
         public Cart()
         {
             InitializeComponent();
+            DataContext = new CartVM();
         }
 
         private void Button_Back_Menu(object sender, RoutedEventArgs e)

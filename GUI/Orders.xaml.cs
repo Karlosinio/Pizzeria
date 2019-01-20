@@ -47,8 +47,19 @@ namespace GUI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new Products();
-            Close();
+            //Close();
             newWindow.Show();
+        }
+
+        private void lvUsers_Copy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+        private void btnSort_Click(object sender, RoutedEventArgs e)
+        {
+            Orderss.Items.SortDescriptions.Add(
+            new System.ComponentModel.SortDescription("OrderTimestamp",
+                 System.ComponentModel.ListSortDirection.Ascending));
         }
     }
 }
