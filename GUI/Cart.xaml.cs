@@ -1,4 +1,5 @@
 ﻿using CartViewModel;
+using DeliveryBackend.Helpers;
 using MenuViewModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,6 +40,8 @@ namespace GUI
 
         private void Button_Delivery(object sender, RoutedEventArgs e)
         {
+            DocumentData.products = ((CartVM)DataContext).GetProducts();
+            DocumentData.Price = ((CartVM)DataContext).Price;
             var newWindow = new Delivery();
             newWindow.Show();
             Close();

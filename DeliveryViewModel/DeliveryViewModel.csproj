@@ -46,12 +46,18 @@
   <ItemGroup>
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="DeliveryVM.cs" />
+    <Compile Include="PaymentVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CartBackend\CartBackend.csproj">
+      <Project>{29746645-251D-4D50-97F1-7209CB8521D8}</Project>
+      <Name>CartBackend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CartViewModel\CartViewModel.csproj">
       <Project>{C141D393-9320-43CB-A5E8-6DF217A7A590}</Project>
       <Name>CartViewModel</Name>
@@ -59,6 +65,10 @@
     <ProjectReference Include="..\DeliveryBackend\DeliveryBackend.csproj">
       <Project>{EBDD466A-7536-4889-AD54-6A7E2B632DE9}</Project>
       <Name>DeliveryBackend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserBackend\User.csproj">
+      <Project>{E83B7C88-E824-430D-A0EB-9E4AF76321F2}</Project>
+      <Name>User</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DeliveryBackend.Helpers;
+using DeliveryViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,7 @@ namespace GUI
     {
         public Payment()
         {
+            DataContext = new PaymentVM();
             InitializeComponent();
         }
 
@@ -60,6 +63,10 @@ namespace GUI
 
         private void Button_Back_Delivery(object sender, RoutedEventArgs e)
         {
+            if (DocumentData.delivery == 3)
+            {
+                DocumentData.Price = DocumentData.Price - 4;
+            }
             var newWindow = new Delivery();
             newWindow.Show();
             Close();
@@ -67,13 +74,21 @@ namespace GUI
 
         private void Button_Pay(object sender, RoutedEventArgs e)
         {
-            // TO DO - logic
-
+            ((PaymentVM)DataContext).CreateDelivery();
             MessageBox.Show("Zamówienie przyjęte");
 
             var newWindow = new Menu();
             newWindow.Show();
             Close();
+        }
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            ((PaymentVM)DataContext).pdf = true;
+        }
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            ((PaymentVM)DataContext).pdf = false;
         }
     }
 }

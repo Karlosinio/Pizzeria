@@ -22,7 +22,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33"/>
+        <Button Content="Zamów" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Button_Delivery"/>
         <Button Content="Poprzednie produkty" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Width="137" Height="33" Click="Previous_Orders"/>
         <Button Content="Usuń wszystko" Command="{Binding DeleteAll}" HorizontalAlignment="Left" Margin="548,389,0,0" VerticalAlignment="Top" Width="86" Height="20"/>
         <Button Content="+" Command="{Binding Button_Add_Quantity}" HorizontalAlignment="Left" Margin="275,389,0,0" VerticalAlignment="Top" Width="24" />
