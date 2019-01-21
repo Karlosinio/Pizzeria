@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using CartBackend.Common.DTO;
@@ -85,9 +86,23 @@ namespace GUI
                     Quantity = 1
                 };
 
-                dc.cartProducts.Add(prod);
+                if (dc.cartProducts.Contains(prod))
+                {
+                    var id = dc.cartProducts.IndexOf(dc.cartProducts.Where(x => x.Equals(prod)).FirstOrDefault());
+                    prod.Quantity = 1 + dc.cartProducts[id].Quantity; //product.Quantity = product.Quantity + Products[id].Quantity;
+                    dc.cartProducts.Insert(id, prod);
+                    dc.cartProducts.RemoveAt(id + 1);
 
-                cartContext.Products.Add(prod);
+                }
+                else
+                {
+                    dc.cartProducts.Add(prod);
+                }
+                //dc.cartProducts.Add(prod);
+                // dc.cartProducts.A
+
+                cartContext.AddProduct(prod);
+                    //cartContext.Products.Add(prod);
             }
         }
     }

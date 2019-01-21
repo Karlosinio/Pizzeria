@@ -153,13 +153,15 @@ namespace CartViewModel
             if (Products.Contains(product))
             {
                 var id = Products.IndexOf(Products.Where(x => x.Equals(product)).FirstOrDefault());
-                product.Quantity = product.Quantity + Products[id].Quantity;
+                product.Quantity = 1 + Products[id].Quantity; //product.Quantity = product.Quantity + Products[id].Quantity;
                 Products.Insert(id, product);
                 Products.RemoveAt(id + 1);
-                RaisePropertyChanged("Products");
+                Console.Write("istnieje");
+
             }
             else
             {
+                Console.Write("nie ma");
                 Products.Add(product);
             }
 

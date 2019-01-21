@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace CartBackend.Common.DTO
 {
-    public class ProductDTO
+    public class ProductDTO : IEquatable<ProductDTO>
     {
         public ProductDTO()
         {
@@ -27,5 +27,12 @@ namespace CartBackend.Common.DTO
         public string Category { get; set; }
         public bool Available { get; set; }
         public int Quantity { get; set; }
+
+        public bool Equals(ProductDTO other)
+        {
+            return this.Id == other.Id;
+
+        }
+        
     }
 }
